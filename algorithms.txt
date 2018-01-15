@@ -1,0 +1,12322 @@
+//NUMBER PATTERN
+
+#include<stdio.h>
+
+int l(int, int);
+
+void main()
+
+{
+
+	int n,p,g,c=0;
+
+	printf("enter a number\n");
+
+	scanf("%d", &n);
+
+	printf("\n\n\n");
+
+	p = n; g = n;
+
+	while (p!=0)
+
+	{
+
+		c++;
+
+		p = p / 10;
+
+	}
+
+	for (;;)
+
+	{
+
+		if (n%l(10, c) == 0)
+
+			break;
+
+		printf("%d\n", n%l(10, c));
+
+		c--;
+
+	}
+
+	for (;;)
+
+	{
+
+		printf("%d\n", g);
+
+		if (g / 10 == 0)
+
+			break;
+
+		g = g / 10;
+
+	}
+
+	getchar(); getchar();
+
+}
+
+int l(int a,int b)
+
+{
+
+	int k = 1;
+
+	for (int i = 1; i <= b; i++)
+
+		k = k*a;
+
+	return k;
+
+}
+
+
+
+
+
+//SUM OF DIGITS
+
+
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	int n,s=0;
+
+	printf("enter an integer\n");
+
+	scanf("%d", &n);
+
+	while (n!=0)
+
+	{
+
+		s = s + n % 10;
+
+		n = n / 10;
+
+	}
+
+	printf("sum of digits is %d\n", s);
+
+	getchar(); getchar();
+
+}
+
+
+
+//TESTING SIZE OF DATA TYPES
+
+
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	printf("int=%d\tlong int=%d\tun lo in=%d\tdouble=%d\nlong double=%d\tfloat=%d\tlo flo=%d\nchar=%d\tun char=%d", sizeof(int), sizeof(long int), sizeof(unsigned long int), sizeof(double), sizeof(long double),
+
+		sizeof(float),sizeof(long float), sizeof(char), sizeof(unsigned char));
+
+	getchar(); getchar();
+
+}
+
+
+
+//BINARY SEARCH
+
+
+
+#include<stdio.h>
+
+#include<conio.h>
+
+int binsearch(int , int, int );
+
+void main()
+
+{
+
+	int a[1000], n, x;
+
+	printf("enter the number of elements and then the array elements in ordered way\n");
+
+	scanf_s("%d", &n);
+
+	for (int i =1; i <= n; i++)//i can be i=0;i<n;i++
+
+	{
+
+		scanf_s("%d",&a[i]);
+
+	}
+
+	printf("enter the element to be searched\n");
+
+	scanf_s("%d", &x);
+
+	printf("postion is %d\n", binsearch(x, a, n));
+
+	getchar(); getchar();
+
+
+
+}
+
+int binsearch(int x, int v[], int n)
+
+{
+
+	int low, high, mid;
+
+	low = 1; high = n;//low can be low=0 ;high=n-1;
+
+	while (low <= high)
+
+	{
+
+		mid = (low + high) / 2;
+
+		printf("%d\n", mid);
+
+		if (x < v[mid])
+
+			high = mid - 1;
+
+		else if (x>v[mid])
+
+			low = mid + 1;
+
+		else
+
+			return mid;
+
+
+
+	}
+
+	return -1;
+
+
+
+}
+
+
+
+//CONDITIONAL OPERATOR
+
+
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	int x, y, z,a;
+
+	printf("enter three numbers\n");
+
+	scanf("%d%d%d", &x, &y, &z);
+
+	/*a = (x > y&&x > z ? x : (y > x&&y > z ? y : (z > x&&z > y ? z :( printf("error\n")))));*/
+
+	printf("\n\n\nlarger of them is %d\n", (x > y&&x > z ? x : (y > x&&y > z ? y : (z > x&&z > y ? z : (printf("error\n"))))));
+
+	getchar(); getchar();
+
+}
+
+
+
+//CONDITIONAL OPERATOR
+
+
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	int k,x, y, z;
+
+	printf("enter three different numbers numbers\n");
+
+	scanf("%d%d%d", &x, &y, &z);
+
+	printf("sum=%d\tavg=%f\t", x + y + z,(x + y + z) / 3.0);
+
+	k = (x > y&&x > z ? x : (y > x&&y > z ? y : (z > x&&z > y ? z : printf("error\n"))));
+
+	k = (x < y&&x < z ? x :(y<x&&y<z?y:(z<x&&z<y?z:printf("error" ))));
+
+	printf("largest of them is %d\t", (x > y&&x > z ? x : (y > x&&y > z ? y : (z > x&&z > y ? z : printf("error\n")))));
+
+	printf("smallest of them is %d\n",(x < y&&x < z ? x : (y < x&&y < z ? y : (z < x&&z < y ? z : printf("error\n")))));
+
+	getchar(); getchar();
+
+}
+
+//WIDTH AND PRECISION
+
+
+
+#include<stdio.h>
+
+#include<math.h>
+
+void main()
+
+{
+
+	float a, b;
+
+	printf("enter the limit and interval to print sin and cos\n");
+
+	scanf("%f%f", &a, &b);
+
+	for (float i = 0; i <=a;i=i+b)
+
+		printf("sin(%.2f)= %f\t\tcos(%.2f)= %f\n",i,sin(i),i,cos(i) );
+
+	getchar(); getchar();
+
+}
+
+//REVERSING
+
+
+
+#include<stdio.h>
+
+#include<conio.h>
+
+#include<string.h>
+
+void main()
+
+{
+
+	char k, a[] = "my name is khan"; int i, j;
+
+	for (i = 0, j = strlen(a) - 1; i < (int)strlen(a)/ 2; i++, j--,printf("%d\t%d\n",j,i))
+
+	{//try removing the int type coercion to see the warning if any!!
+
+		k = a[i];
+
+		a[i] = a[j];
+
+		a[j] = k;
+
+	}
+
+	printf("%s\n", a);
+
+	getchar();
+
+}
+
+
+
+//PATTERN
+
+
+
+#include<stdio.h>
+
+#include<conio.h>
+
+#include<string.h>
+
+void main()
+
+{
+
+	int i, j, n; char a[100][100];
+
+	printf("enter the limit less than 40 perhaps\n");
+
+	scanf("%d", &n);
+
+	printf("enter the string you want to print\n");
+
+	fflush(stdin);
+
+	scanf("%s", a[1]);
+
+	fflush(stdin);
+
+	printf("AND BAM!!!\n\n\n\n");
+
+	for (i = 1; i <= n; i++)
+
+	{
+
+		for (j = 1; j <= i; j++)
+
+			printf("%s ", a[1]); fflush(stdin);
+
+		printf("\n");
+
+	}
+
+	for (i = 1; i <= n; i++)
+
+	{
+
+		for (j =n; j >= i; j--)
+
+			printf("%s ", a[1]); fflush(stdin);
+
+		printf("\n");
+
+	}
+
+	printf("\n\n\nover\n");
+
+
+
+
+
+
+
+	getchar();
+
+}
+
+//BINARY EQIVALENT
+
+#include<iostream>
+
+using namespace std;
+
+class stud
+
+{
+
+	unsigned long int x, m;
+
+public: unsigned long int bin_equiv(unsigned long int x)
+
+{
+
+	if (x == 0)
+
+		return (0);
+
+	else
+
+		return(x % 2 + 10 * bin_equiv(x / 2));
+
+}
+
+		void dig(unsigned long int m)
+
+		{
+
+			unsigned long int c = 0;
+
+			cout << "number is " << m<<"\n\n";
+
+			while (m>0)
+
+			{
+
+				c++;
+
+				m = m / 10;
+
+				
+
+			}
+
+			cout << "number of digits =" << c;
+
+		}
+
+};
+
+
+
+void main()
+
+{
+
+	stud s;
+
+	unsigned long int e, f;
+
+	cout << "\nenter a number\n\n\n";
+
+	cin >> e;
+
+	cout <<"\n\n"<<(unsigned long int) s.bin_equiv(e);
+
+	cout << "\nenter a number\n";
+
+	cin >> f;
+
+	 s.dig(f);
+
+	 getchar();
+
+}
+
+//BINARY
+
+#include<iostream>
+
+using namespace std;
+
+
+
+
+
+unsigned int bin_equiv(unsigned int x)
+
+{
+
+	if (x == 0)
+
+		return (0);
+
+	else
+
+		return(x % 2 + 10 * bin_equiv(x / 2));
+
+}
+
+int main()
+
+{
+
+	long int n; int q;
+
+	cout <<"enter a limit(1024 max) and a choice 1 or 2-->1 for printing binary upto the     limit OR 2  to print binary eqivalent for the limit\n ";
+
+	cin >> n>>q;
+
+	switch (q)
+
+	{
+
+	case 1:for (long int i = 1; i <= n; i++)
+
+			cout << i << "> " << bin_equiv(i) << "\n";
+
+		break;
+
+	case 2:cout<<"binary eqivalent of "<<n<<" is " << bin_equiv(n);
+
+		break;
+
+
+
+	}
+
+	getchar(); getchar(); return 0;
+
+
+
+}
+
+//PATTERN
+
+#include<stdio.h>
+
+int l(int, int);
+
+int main(void)
+
+{
+
+	long int n, p, q; int c = 0;
+
+	printf("enter a number\n");
+
+	scanf("%ld", &n);
+
+	printf("AND BAM!!\n\n\n\n\n\n");
+
+	p = n;
+
+
+
+	while (p != 0){
+
+		c++; p = p / 10;
+
+	}
+
+	for (;;)
+
+	{	
+
+	     
+
+	    /* q = l(10, c);
+
+	     n = n %q;
+
+	     if (n == 0)
+
+		 break;*/
+
+		if ((n%l(10, c)) != 0)
+
+			printf("%ld\n", n%l(10, c));
+
+		else
+
+			break;
+
+		 /*n = n / l(10, c);
+
+		 p = n; c = 0;*/
+
+		c--;
+
+	
+
+     }
+
+	/*printf("%d\n", 123 %1);*/
+
+
+
+	getchar(); getchar();
+
+
+
+}
+
+int l(int a,int b)
+
+{
+
+	int k=1;
+
+	for (int i = 1; i <= b; i++)
+
+		k= k * a;
+
+	/*printf("\n%d\n", k);*/
+
+	return k;
+
+}
+
+
+
+//PATTERN
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	int n;
+
+	printf("enter a number\n");
+
+	scanf("%d", &n);
+
+	printf("\n\n\n");
+
+	for (;;)
+
+	{
+
+		if (n!= 0)
+
+			printf("%d\n", n);
+
+		else
+
+			break;
+
+		n = n / 10;
+
+	}
+
+	getchar(); getchar();
+
+}
+
+//PATTERN
+
+#include<stdio.h>
+
+int l(int, int);
+
+void main()
+
+{
+
+	int n,p,c=0,q,m;
+
+	printf("enter a number\n");
+
+	scanf("%d", &n);
+
+	p = n;
+
+	for (;;)
+
+	{
+
+		while (p != 0){
+
+			c++; 
+
+			if (p / 10 == 0)
+
+			{
+
+				q = p;
+
+				/*printf("%d\t", q);*/  //this printf is just to see the positonal digit...see for yourself
+
+			}
+
+			p = p / 10;
+
+		}
+
+	     m = n - q * l(10, c - 1);
+
+		 if (m == 0)
+
+			 break;
+
+		else
+
+		printf("%d\n", m);
+
+		 p = m; n = m; c = 0;
+
+	
+
+	}
+
+	
+
+	getchar(); getchar();
+
+
+
+}
+
+int l(int a,int b)
+
+{
+
+	int k=1;
+
+	for (int i = 1; i <= b; i++)
+
+		k = k*a;
+
+	/*printf("\n%d\n", k);*/
+
+	return k;
+
+}
+
+//PATTERN
+
+#include<stdio.h>
+
+int main()
+
+{
+
+
+
+
+
+	unsigned int n , x = 10;
+
+	printf("enter n\n");
+
+	scanf("%u", &n);
+
+	for (;;)
+
+	{
+
+		printf("%u\n", n%x); x = x * 10;
+
+		if (n%x == n)
+
+		{
+
+			printf("%u\n", n%x); break;
+
+		}
+
+	}
+
+	int l = 1;
+
+	for (;;)
+
+	{
+
+		printf("%u\n", n / l); l = l * 10;
+
+		if (n/l==0)
+
+		break;
+
+	}
+
+	
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//PATTERN
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int n;
+
+	cout << "enter a limit\n";
+
+	cin >> n;
+
+	for (int i = 1; i <= n; i++)
+
+	{
+
+		for (int j = 1; j <= i; j++)
+
+		{
+
+			printf("%d ", i);
+
+		}
+
+		printf("\n");
+
+	}
+
+	printf("\n"); printf("\n");
+
+	for (int i = 1; i <= n; i++)
+
+	{
+
+		for (int j = 1; j <= i; j++)
+
+		{
+
+			printf("%d ", j);
+
+		}
+
+		printf("\n");
+
+
+
+	}
+
+
+
+	getchar(); getchar(); getchar();
+
+		return 0;
+
+}
+
+//SORTING
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int values[5] = { 91, 23, 43, 41, 5 };
+
+	int n = 5;
+
+    // TODO: implement an O(n^2) sorting algorithm
+
+	bool sorted = false;
+
+	bool swaps = false;
+
+	int first = 0; //first number to compare
+
+	int second = 1; // second number to compare
+
+	int swap; //store a number to be swapped
+
+
+
+	while (sorted == false)
+
+	{
+
+		if (second < n)
+
+		{
+
+			if (values[first] > values[second])
+
+			{
+
+				swap = values[first];
+
+				values[first] = values[second];
+
+				values[second] = swap;
+
+				swaps = true;
+
+			}
+
+			first = first + 1;
+
+			second = second + 1;
+
+		}
+
+		else
+
+		{
+
+			if (swaps == true)
+
+			{
+
+				first = 0;
+
+				second = 1;
+
+				swaps = false;
+
+			}
+
+			else
+
+			{
+
+				sorted = true;
+
+			}
+
+
+
+		}
+
+
+
+	}
+
+	for (int i = 0; i < n; i++)
+
+		cout << values[i]<<"\n";
+
+	getchar();
+
+	getchar();
+
+	return 0;
+
+
+
+
+
+
+
+}
+
+
+
+/*
+
+**
+
+* Sorts array of n values.
+
+void sort(int values[], int n)
+
+{
+
+	// TODO: implement an O(n^2) sorting algorithm
+
+	bool sorted = false;
+
+	bool swaps = false;
+
+	int first = 0; //first number to compare
+
+	int second = 1; // second number to compare
+
+	int swap; //store a number to be swapped
+
+
+
+	while (sorted == false)
+
+	{
+
+		for (second = 1; second < n && sorted == false; second++)
+
+		{
+
+			if (values[first] > values[second])
+
+			{
+
+				swap = values[first];
+
+				values[first] = values[second];
+
+				values[second] = swap;
+
+				swaps = true;
+
+			}
+
+			first++;
+
+		}
+
+		if (swaps == true)
+
+		{
+
+			second = 1;
+
+			first = 0;
+
+		}
+
+		else
+
+		{
+
+			sorted = true;
+
+		}
+
+		swaps = false;
+
+	}
+
+}
+
+
+
+return;
+
+}*/
+
+//SUM OF SINE SERIES
+
+#include<stdio.h>
+
+#include<math.h>
+
+int f(int);
+
+int main()
+
+{//check,why this program fails for larger values of limit.
+
+	int i = 1, x, p=1; float j,s;
+
+	printf("enter a limit to sum the sine series\n");
+
+	scanf("%d", &x);
+
+	printf("enter the value of x in sin(x)\n");
+
+	scanf("%f", &j);
+
+	s = j;
+
+	for (int m=2;m<=x;m++)
+
+	{
+
+		i += 2;
+
+		s = s + (-p)*(pow(j, i)) / f(i); p = -p;
+
+	}
+
+	printf("%f ", s);
+
+	getchar(); getchar();
+
+	return 0;
+
+
+
+}
+
+int f(int a)
+
+{
+
+	int m=1;
+
+	for (int i = 1; i <= a; i++)
+
+		m = m*i;
+
+	return m;
+
+}
+
+//TRUTH TABLE
+
+#include <iostream>
+
+#include <cstdlib>
+
+using namespace std;
+
+void main()
+
+{
+
+	int x, y, z,k,l,m,n,o,p,q;
+
+	cout << "X\tY\tZ\tXY+Z"<<"\n";
+
+
+
+	for (x = 0; x <= 1; ++x)
+
+	for (y = 0; y <= 1; ++y)
+
+	for (z = 0; z <= 1; ++z)
+
+	for (k = 0; k <= 1; ++k)
+
+	for (l = 0; l <= 1; ++l)
+
+	for (m = 0; m <= 1; ++m)
+
+	for (n = 0; n <= 1; ++n)
+
+	for (o = 0; o <= 1; ++o)
+
+	for (p = 0; p <= 1; ++p)
+
+	{
+
+		cout << x << " " << y << " " << z << " " << k << " " << l << " "<< m <<" "<<n<<" "<<o<<" "<<p<<" "<<(x&&y||p&&n)<< "   \n";
+
+		/*if (x*y + z == 2)
+
+			cout << "\n\n" << x << "\t" << y << "\t" << z << "\t1";
+
+		else
+
+			cout << "\n\n" << x << "\t" << y << "\t" << z << "\t" << x*y + z;*/
+
+	}
+
+	getchar(); getchar();
+
+}
+
+//EXCEPTION HANDLING
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int a = 78, b = 78;
+
+	try
+
+	{
+
+		if (a - b != 0)
+
+		{
+
+			cout << a / b;
+
+		}
+
+		else
+
+		{
+
+			throw(a - b);
+
+		}
+
+
+
+	}
+
+		catch(int i)
+
+		{
+
+			cout << "error";
+
+		}
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//NAMESPACES
+
+#include<iostream>
+
+
+
+
+
+
+
+//USING NAMESPACE...TRY TO FIND VARIOUS OTHER USES!!
+
+//HOW TO IMPLEMENT THESE IN A LARGER PROJECT!
+
+
+
+namespace myspace
+
+{
+
+	void hello()
+
+	{
+
+		using namespace std;
+
+		cout << "myspace::hello()" << endl;
+
+	}
+
+}
+
+void hello()
+
+{
+
+	std::cout << "::hello()" << std::endl;
+
+}
+
+
+
+int main(void)
+
+{
+
+	myspace::hello();
+
+	::hello();  // same as "hello();"
+
+	getchar(); getchar();
+
+
+
+	return 0;
+
+}
+
+//NAMESPACES
+
+#include<iostream>
+
+namespace m1
+
+{
+
+	void m();
+
+	void m()
+
+	{
+
+		std::cout << "in m1 m\n";
+
+	}
+
+
+
+}
+
+namespace m2
+
+{
+
+	void m()
+
+	{
+
+		std::cout << "in m2 m\n";
+
+
+
+	}
+
+}
+
+
+
+using namespace std;
+
+
+
+int main()
+
+{
+
+
+
+
+
+	m1::m();
+
+	m2::m();
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//POINTERS AND REFERENCEING
+
+#include<iostream>
+
+//using pointers..
+
+class a
+
+{
+
+	int code; float price;
+
+public:
+
+	void getdata(int a, float b)
+
+	{
+
+		code = a;
+
+		price = b;
+
+	}
+
+	void show(void)
+
+	{
+
+		std::cout << "code:" << code << "\n"
+
+			<< "price:" << price << "\n\n";
+
+	}
+
+
+
+};
+
+int main()
+
+{   a A,*ptr=&A;
+
+	A.getdata(4, 5.6); A.show();
+
+	ptr->getdata(4, 5.78); ptr->show();
+
+	(*ptr).getdata(2, 5.43); (*ptr).show();
+
+	a *p = new a[10];
+
+	(*(p + 6)).getdata(9, 9); (*(p + 6)).show();
+
+    getchar(); getchar();
+
+    return 0;
+
+}
+
+//POINTERS
+
+#include <iostream>
+
+//#include <iomanip>
+
+using namespace std;
+
+
+
+int main(){
+
+	double rates[13] = { 5.5, 4.54, 6.34, 8.45, 2.23, 6.54, 1.23, 7.55, 7.87, 9.45, 5.4, 8.54, 6.15 };
+
+	double *ratePointer = rates;
+
+	{
+
+		for (int x = 0; x < 13; x++) {
+
+			cout << *(ratePointer + x) << endl;
+
+		}
+
+	}
+
+
+
+
+
+	char strng[] = "This is a string";
+
+	char *strngPointer = strng;
+
+	{
+
+		for (int x = 0; strngPointer[x] != '\0'; x++){
+
+			cout << *(strngPointer + x);
+
+		}
+
+	}
+
+
+
+	{
+
+		do
+
+		{
+
+			cout << *(strngPointer);
+
+		} while (*strngPointer++ != '\0');
+
+	}
+
+
+
+
+
+	{
+
+		char *strngPointer0 = strng;
+
+		while (*strngPointer0++ != '\0'){
+
+
+
+			cout << *(strngPointer0 - 1);
+
+		}
+
+	}
+
+
+
+	{
+
+		char *strngPointer1 = strng;
+
+		while (*strngPointer1 != '\0'){
+
+			cout << *(strngPointer1);
+
+			strngPointer1++;
+
+		}
+
+	}
+
+
+
+	{
+
+		for (char* strngPointer2 = strng; *strngPointer2 != '\0'; strngPointer2++) {
+
+			cout << *(strngPointer2);
+
+		}
+
+	}
+
+	getchar(); return 0;
+
+}
+
+
+
+//VIRTUAL FUNCTIONS
+
+#include<iostream>
+
+using namespace std;
+
+class shape
+
+{
+
+	double p, q;
+
+public:
+
+	void getdata(double a = 0, double b = 0) {
+
+		p = a; q = b;
+
+	}
+
+	double getp(){ return  p; }
+
+	double getq(){ return q; }
+
+	virtual double display(){ return 0; };
+
+};
+
+class tri :public shape
+
+{
+
+	double x, y;
+
+public://no need to redefine getdata here.its a public member,can be easily derived
+
+	/*void getdata(double a = 0, double b = 0)
+
+	{
+
+	x = a; y = b;
+
+	}*/
+
+	double display(){ return((x = getp())* (y = getq()) / 2); }
+
+
+
+};
+
+class rect :public shape
+
+{
+
+	double x, y;
+
+public://no need to redefine getdata here.its a public member,can be easily derived
+
+	/*void getdata(double a = 0, double b = 0)
+
+	{
+
+	x = a; y = b;
+
+	}*/
+
+	double display(){ return(((x = getp())* (y = getq()))); }
+
+};
+
+class cir :public shape
+
+{
+
+	double x;
+
+public:
+
+	double display(){ return(22.0*(x = getp())*x / 7.0); }
+
+
+
+
+
+};
+
+int main()
+
+{
+
+	double a, b;
+
+	shape*s; tri t; rect r; cir c; int n;
+
+	cout << "choice:\n1.triangle\n2.rectangle\n3.circle\n4.TRI+RECT+CIR all three....pick one\n";
+
+	cin >> n;
+
+	switch (n){
+
+	case 1:cout << "enter the sides of the triangle\n";
+
+		cin >> a >> b;
+
+		s = &t; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n"; getchar(); break;
+
+	case 2:cout << "enter the sides of the rectangle\n";
+
+		cin >> a >> b;
+
+		s = &r; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n"; getchar(); break;
+
+	case 3:cout << "enter the radius of the circle\n";
+
+		cin >> a;
+
+		s = &c; s->getdata(a); cout << s << "\n"; cout << s->display(); getchar(); break;
+
+	case 4:{cout << "enter the sides of the triangle\n";
+
+		cin >> a >> b;
+
+		s = &t; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n";
+
+		cout << "enter the sides of the rectangle\n";
+
+		cin >> a >> b;
+
+		s = &r; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n";
+
+		cout << "enter the radius of the circle\n";
+
+		cin >> a;
+
+		s = &c; s->getdata(a); cout << s << "\n"; cout << s->display(); getchar(); }
+
+	}
+
+
+
+	getchar();
+
+	return 0;
+
+}
+
+//MATRIX
+
+#include <iostream>
+
+using namespace std;
+
+//exchange first and second rows of a matrix
+
+void reArrange(int a[][4]);
+
+int main()
+
+{
+
+	int i, j;
+
+	int a[3][4] = { { 0, -1, 1, 2 }, { 1, 0, -2, -4 }, { 2, -1, 4, 3 } };
+
+	reArrange(a);
+
+	for (i = 0; i < 3; i++)
+
+	{
+
+		for (j = 0; j < 4; j++)
+
+
+
+			cout << a[i][j] << "\t";
+
+		cout << "\n";
+
+	}
+
+	getchar(); getchar();
+
+	return 0;
+
+
+
+}
+
+void reArrange(int a[][4])
+
+{
+
+	for (int i = 0; i < 4; i++){
+
+		int temp;
+
+		temp = a[1][i];
+
+		a[1][i] = a[0][i];
+
+		a[0][i] = temp;
+
+	}
+
+}
+
+//VIRTUAL FUNCTIONS
+
+#include<iostream>
+
+using namespace std;
+
+class shape
+
+{
+
+protected:
+
+	double p, q;
+
+public:
+
+	void getdata(double a = 0, double b = 0) {
+
+		p = a; q = b;
+
+	}
+
+	//double getp(){ return  p; }
+
+	//double getq(){ return q; }
+
+	//virtual double display(){ return 0; }
+
+	virtual double display() = 0;
+
+};
+
+class tri :public shape
+
+{
+
+	double x, y;
+
+public://no need to redefine getdata here.its a public member,can be easily derived
+
+	/*void getdata(double a = 0, double b = 0)
+
+	{
+
+	x = a; y = b;
+
+	}*/
+
+	//	double display(){ return((x = getp())* (y = getq()) / 2); }
+
+	double display(){ return(p * q / 2); }
+
+};
+
+class rect :public shape
+
+{
+
+	double x, y;
+
+public://no need to redefine getdata here.its a public member,can be easily derived
+
+	/*void getdata(double a = 0, double b = 0)
+
+	{
+
+	x = a; y = b;
+
+	}*/
+
+	//double display(){ return(((x = getp())* (y = getq()))); }
+
+	double display(){ return(p*q); }
+
+};
+
+class cir :public shape
+
+{
+
+	double x;
+
+public:
+
+	//double display(){ return(22.0*(x = getp())*x / 7.0); }
+
+	double display(){ return(22.0*p*p / 7.0); }
+
+
+
+};
+
+int main()
+
+{
+
+	double a, b;
+
+	shape*s; tri t; rect r; cir c; int n;
+
+	cout << "choice:\n1.triangle\n2.rectangle\n3.circle\n4.TRI+RECT+CIR all three....pick one\n";
+
+	cin >> n;
+
+	switch (n){
+
+	case 1:cout << "enter the sides of the triangle\n";
+
+		cin >> a >> b;
+
+		s = &t; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n"; getchar(); break;
+
+	case 2:cout << "enter the sides of the rectangle\n";
+
+		cin >> a >> b;
+
+		s = &r; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n"; getchar(); break;
+
+	case 3:cout << "enter the radius of the circle\n";
+
+		cin >> a;
+
+		s = &c; s->getdata(a); cout << s << "\n"; cout << s->display(); getchar(); break;
+
+	case 4:{cout << "enter the sides of the triangle\n";
+
+		cin >> a >> b;
+
+		s = &t; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n";
+
+		cout << "enter the sides of the rectangle\n";
+
+		cin >> a >> b;
+
+		s = &r; s->getdata(a, b); cout << s << "\n"; cout << s->display() << "\n";
+
+		cout << "enter the radius of the circle\n";
+
+		cin >> a;
+
+		s = &c; s->getdata(a); cout << s << "\n"; cout << s->display(); getchar(); }
+
+	}
+
+
+
+	getchar();
+
+	return 0;
+
+}
+
+//CONSTRUCTORS AND DESTRUCTORS
+
+#include <cstring>
+
+#include <iostream>
+
+
+
+class Foo
+
+{
+
+public:
+
+	/** Constructor */
+
+	Foo() :
+
+		data(new char[14])
+
+	{
+
+		std::strcpy(data, "Hello, World!");
+
+	}
+
+
+
+	/** Copy Constructor */
+
+	Foo(const Foo& other) :
+
+		data(new char[std::strlen(other.data) + 1])
+
+	{
+
+		std::strcpy(data, other.data);
+
+	}
+
+
+
+	/** Move Constructor */
+
+	Foo(Foo&& other)
+
+	{
+
+		std::swap(data, other.data);
+
+	}
+
+
+
+	/** Destructor */
+
+	~Foo()
+
+	{
+
+		delete[] data;
+
+	}
+
+
+
+	/** Copy Assignment Operator */
+
+	Foo& operator= (Foo other) // note: argument passed by value
+
+	{
+
+		std::swap(data, other.data);
+
+		return *this;
+
+	}
+
+
+
+	/** Move Assignment Operator */
+
+	Foo& operator= (Foo& other)
+
+	{
+
+		std::swap(data, other.data);
+
+		return *this;
+
+	}
+
+
+
+private:
+
+	friend std::ostream& operator<< (std::ostream& os, const Foo& foo)
+
+	{
+
+		os << foo.data;
+
+		return os;
+
+	}
+
+
+
+	char* data;
+
+};
+
+
+
+int main()
+
+{
+
+	const Foo foo;
+
+	std::cout << foo << std::endl;
+
+	getchar();
+
+	return 0;
+
+}
+
+//EXCAHNGING PRIVATE VALUES
+
+#include<iostream>
+
+using namespace std;
+
+class a
+
+{//try opening the 'this' comments and take readings
+
+	int x, y;
+
+public:
+
+	a(){}
+
+	a(int a, int b)
+
+	{
+
+		/*this->*/ x = a; /*this->*/ y = b;//try changing a to x ,b to y and then removing the 'this' comments
+
+	}
+
+	void swap(a* A, a* B)
+
+	{
+
+		int temp1, temp2;
+
+		temp1 = B->x; temp2 = A->x;
+
+		A->x = B->x; B->x = temp2;
+
+		temp1 = B->y; temp2 = B->y;
+
+		A->y = B->y; B->y = temp2;
+
+	}
+
+	void display()
+
+	{
+
+		cout << "x:" << /*this->*/ x << " y:" << /*this->*/ y << "\n";
+
+	}
+
+};
+
+int main()
+
+{
+
+	a l(1, 2), m(5, 9); l.display(); m.display();
+
+	swap(l, m); l.display(); m.display();
+
+	getchar();
+
+	return 0;
+
+}
+
+//ACCESSING PRIVATE MEMBERS
+
+#include<iostream>
+
+using namespace std;//accessing private members in main()
+
+class ab
+
+{
+
+	int c;
+
+	float x, y;
+
+public:
+
+	float a, b; int z;
+
+	ab(){ x = 2; y = 4.89; a = 9.87; b = 3.45; c = 99; }
+
+
+
+}h;
+
+int main()
+
+{
+
+	h.z = 4567;
+
+	int *p = &(h.z); float *v = &(h.a);
+
+	//p--;
+
+	//cout << p->a; 
+
+	cout << *(v - 1);
+
+	//cout << *(p - 3);
+
+	getchar();
+
+	return 0;
+
+}
+
+//VECTOR CLASS
+
+#include<iostream>
+
+using namespace std;
+
+const int size = 3;
+
+template <class T>
+
+class vector
+
+{
+
+	T v[size];
+
+public:
+
+	vector(){
+
+		//v = new T[size];
+
+		for (int i = 0; i < size; i++)
+
+			v[i] = 0;
+
+	}
+
+	vector(T*  a)
+
+	{
+
+		//vector::vector();
+
+		//vector();
+
+		for (int i = 0; i < size; i++)
+
+			v[i] = a[i];
+
+	}
+
+	T operator *(vector &y)
+
+	{
+
+		T sum = 0;
+
+		for (int i = 0; i < size; i++)
+
+			sum += this->v[i] * y.v[i];
+
+		return sum;
+
+	}
+
+	void display(void)
+
+	{
+
+		for (int i = 0; i < size; i++)
+
+			cout << v[i] << "\t";
+
+		cout << "\n";
+
+	}
+
+};
+
+int main()
+
+{
+
+	int x[3] = { 1, 2, 3 };
+
+	int y[3] = { 4, 5, 6 };
+
+	vector<int>::vector();
+
+	vector <int>v1(x);
+
+	vector<int>v2(y);
+
+	/*v1.vector(x); v2.vector(y); */ cout << "v1= "; v1.display(); cout << "v2= "; v2.display(); cout << "v1 X v2 = " << v1*v2; getchar(); getchar();
+
+	return 0;
+
+}
+
+//THIS POINTER
+
+#include<iostream>
+
+using namespace std;
+
+class student
+
+{
+
+protected:
+
+	int roll;
+
+public:
+
+	student(int roll)
+
+	{
+
+		this->roll = roll;
+
+		cout << "roll: " << roll << "\n";
+
+	}
+
+};
+
+class list :public student
+
+{
+
+protected:
+
+	int part1, part2;
+
+public:
+
+	list(int a, int b, int c) :student(c)
+
+	{
+
+		part1 = a; part2 = b;
+
+		cout << "a:" << a << "  b:" << b << "\n";
+
+	}
+
+};
+
+class sports
+
+{
+
+protected:
+
+	int score;
+
+public:
+
+	sports(int z)
+
+	{
+
+		score = z;
+
+		cout << "sports score: " << score << "\n";
+
+	}
+
+};
+
+class per :public list, public sports
+
+{
+
+protected:
+
+	float total;
+
+public:
+
+	per(int x, int y, int z, int m) :list(x, y, z), sports(m)
+
+	{
+
+		cout << "percentage is: " << (part1 + part2 + score) / 300.0 << "\n";
+
+	}
+
+};
+
+int main()
+
+{
+
+	per x(1, 2, 3, 4);
+
+	getchar(); getchar(); return 0;
+
+}
+
+//STRUCTURE AND POINTERS
+
+
+
+#include<iostream>
+
+using namespace std;
+
+//stucture in c++
+
+struct 
+
+{
+
+	int x; float y; char z;
+
+}s,*e;
+
+int main()
+
+{
+
+	//h s, *e;
+
+	s.x = 67; s.y = 9.78; s.z = 'A'; cout << s.x << "\n" << s.y << "\n" << s.z << "\n";
+
+	e = &s;e->x = 56; e->y = 45.67; e->z = 'g'; cout << s.x << "\n" << s.y << "\n" << s.z << "\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//BASIC TO CLASS
+
+
+
+
+
+#include<iostream>
+
+
+
+using namespace std;
+
+class data
+
+{
+
+	int x;
+
+	float f;
+
+public:
+
+	data()
+
+	{
+
+		x = f = 0;
+
+	}
+
+	data(float m)
+
+	{
+
+		x = 2; f = m;
+
+	}
+
+	void show()
+
+	{
+
+		cout << "\n x= " << x << " f=" << f << "\n";
+
+	}
+
+};
+
+int main()
+
+{
+
+	data z;
+
+	z = 1;
+
+	z.show();
+
+	z = 2.5;
+
+	z.show();
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//CLASS TO BASIC
+
+
+
+#include<iostream>
+
+using namespace std;
+
+
+
+class data
+
+{
+
+	int x; float f;
+
+public:
+
+	data()
+
+	{
+
+		x = 0; f = 0;
+
+	}
+
+	operator int()
+
+	{
+
+		return x;
+
+	}
+
+	operator float()
+
+	{
+
+		return f;
+
+	}
+
+	data (float m)
+
+	{
+
+		x = 2; f = m;
+
+	}
+
+	void show()
+
+	{
+
+		cout << "\n x=" << x << " f=" << f << "\n";
+
+	}
+
+};
+
+int main()
+
+{
+
+	int j; float f;
+
+	data a;
+
+	a = 5.5;
+
+	j = a;
+
+	f = a;
+
+	cout << "value of j :" << j;
+
+	cout << "\n value of f :" << f;
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//CLASS TO CLASS
+
+
+
+#include<iostream>
+
+#include<stdlib.h>
+
+#include<string.h>
+
+using namespace std;
+
+
+
+class date
+
+{
+
+	char d[10];
+
+public:
+
+	date(){ d[0] = NULL; }
+
+	date(char *e){ strcpy(d, e); }
+
+	void show(){ cout << d; }
+
+};
+
+class dmy
+
+{
+
+	int mt, dy, yr;
+
+public:
+
+	dmy(){ mt = dy = yr = 0; }
+
+	dmy(int m,int d,int y)
+
+	{
+
+		mt = m; dy = d; yr = y;
+
+	}
+
+	operator date()
+
+	{
+
+		char tmp[3], dt[9];
+
+		_itoa(dy, dt, 10);
+
+		strcat(dt, "-");
+
+		_itoa(mt, tmp, 10);
+
+		strcat(dt, tmp);
+
+		strcat(dt, "-");
+
+		_itoa(yr, tmp, 10);
+
+		strcat(dt, tmp);
+
+		return(date(dt));
+
+	}
+
+	void show()
+
+	{
+
+		cout << dy << " " << mt << " " << yr;
+
+	}
+
+};
+
+
+
+int main()
+
+{
+
+	date D1; dmy D2(1, 7, 99);
+
+	D1 = D2;
+
+	cout << endl << "D1=";
+
+	D1.show();
+
+	cout << endl << "D2=";
+
+	D2.show();
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//CRUDE LCM
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+     int k,j,i,a[10000], b[10000],x, y;
+
+	cout << "enter two numbers\n";
+
+	cin >> x >> y;
+
+	for (i = 1,j=0; i <= 10000; i++,j++)
+
+	{
+
+		a[j] = x*i; b[j] = y*i;
+
+	}
+
+	/*for (int k = 0; k < 100; k++)
+
+		cout << a[k] << "\t"<<b[k]<<"\n";
+
+	*/
+
+	for (k = 0; k < 10000; k++)
+
+		for (i = 0; i < 10000; i++)
+
+		{
+
+		if (a[k] == b[i])
+
+		{
+
+			goto x;
+
+			//cout << "\n" << a[k] << "\n";
+
+			//break;
+
+		}
+
+		}
+
+x:cout << "LCM is " << a[k] << "\n";
+
+
+
+
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//LCM HCF
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int a, b, x, y, t, gcd, lcm;
+
+	cout << "enter two numbrs\n";
+
+	cin >> x >> y;
+
+	a = x;
+
+	b = y;
+
+	while (b != 0) {
+
+		t = b;
+
+		b = a % b;
+
+		a = t;
+
+	}
+
+	gcd = a;
+
+	lcm = (x*y) / gcd;
+
+	cout<<"Greatest common divisor of \t"<< x<<"\t"<< y<<"\t"<< gcd<<"\n";
+
+	cout<<"Least common multiple of \t"<<x<<"\t" <<y<<"\t"<< lcm<<"\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//RATIONAL NUMBERS
+
+#include <iostream>
+
+
+
+using namespace std;
+
+
+
+int main()
+
+{
+
+	int w, x, y, z, a, d, r = 1, gcd, lcm, s, t;
+
+
+
+	cout << "Please enter four integers, a numerator followed by a denominator,"
+
+		<< "\nand then another numerator followed by its denominator\n";
+
+	cin >> w >> x >> y >> z;
+
+
+
+	//assign denominators for calculating GCD, and therefore LCM, allowing us to
+
+	//figure out proper numerators for fraction addition
+
+	a = x;
+
+	d = z;
+
+
+
+	//figure out GCD
+
+	while (r != 0)
+
+	{
+
+		r = a%d; cout << "\nr=" << r;
+
+		a = d; cout << "\na=" << a;
+
+		d = r; cout << "\nd=" << d<<"\n";
+
+	}
+
+
+
+
+
+	gcd = a;
+
+
+
+	//calculate LCM using GCD
+
+	lcm = (x * z) / gcd;
+
+
+
+	//figure out what our  numerators are for a commong denominator (lcm)
+
+	s = w*(lcm / x);
+
+	t = y*(lcm / z);
+
+
+
+	//output with fraction formatting
+
+	cout << w << "/" << x << " + " << y << "/" << z << " = " << (s + t) << "/" << lcm;
+
+	getchar(); getchar();
+
+	return 0;
+
+
+
+}
+
+//SEARCHING AND SORTING
+
+#include<iostream>
+
+template < class A >
+
+void bubble_sort(A [], int);
+
+template<class T>
+
+T iterative_binary_search(T [], T, T);
+
+template<class P,class Q,class R,class S>
+
+int recursive_binary_search(P [], Q, R,S);
+
+using namespace std;
+
+//Binary Search: Iterative as well as recursive
+
+int main()
+
+{//Simplify the main only! Other modules are good!
+
+	int d[] = { 233, 445, 3, 34, 4,  2332, 2 },x=7;
+
+	char a[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm' }, l=13, y='d'; int b[] = { 1, 2, 3, 4, 5 }; 
+
+	float c[] = { 1.2, 4.5, 6.7, 8.9, 9.9 };
+
+	iterative_binary_search(a,l,y );
+
+	cout << "\n" << recursive_binary_search(c,4.5,0,4);
+
+	bubble_sort(d, x);
+
+	getchar();
+
+	return 0;
+
+}
+
+template<class T>
+
+T iterative_binary_search(T a[],T n,T x)
+
+{
+
+	T low = 0,high = n;
+
+	while ((low >= 0) && (high <= n))
+
+	{
+
+		int mid = (low + high) / 2;
+
+		if (low > high)
+
+		{
+
+			cout << "error\n"; break;
+
+		}
+
+		else if (x < a[mid])
+
+		{
+
+			high = mid - 1;
+
+		}
+
+		else if (x > a[mid])
+
+		{
+
+			low = mid + 1;
+
+		}
+
+		else
+
+		{
+
+			cout << "\nfound at " <<(int)mid << "\n"; break;
+
+		}
+
+	}
+
+	getchar();
+
+	return 0;
+
+}
+
+template<class P, class Q, class  R,class S>
+
+int recursive_binary_search(P a[], Q key,R imin,S imax)
+
+{
+
+	// test if array is empty
+
+	if (imax < imin)
+
+		// set is empty, so return value showing not found
+
+		return -1;
+
+	else
+
+	{
+
+		// calculate midpoint to cut set in half
+
+	int imid = (imin + imax) / 2;
+
+
+
+		// three-way comparison
+
+		if (a[imid] > key)
+
+			// key is in lower subset
+
+			return recursive_binary_search(a, key,imin, imid - 1);
+
+		else if (a[imid] < key)
+
+			// key is in upper subset
+
+			return recursive_binary_search(a, key, imid + 1,imax);
+
+		else
+
+			// key has been found
+
+			return imid;
+
+	}
+
+    getchar();
+
+	return -1;
+
+}
+
+template < class A > 
+
+void bubble_sort(A a[],int n)
+
+{
+
+	A temp; int i, j,k;
+
+	for (i = 0; i < n - 1; i++)
+
+		for (k = 0; k < n - i - 1; k++)
+
+		{
+
+		if (a[k]>a[k + 1])
+
+		{
+
+			temp = a[k];
+
+			a[k] = a[k + 1];
+
+			a[k + 1] = temp;
+
+
+
+		}
+
+		}
+
+	for (int j = 0; j < n; j++)
+
+		cout << "\n" << a[j]<<"\n";
+
+	getchar();
+
+	//return 0;
+
+}
+
+//sorting mechanisms
+
+template <class T, class Y>
+
+int selection_sort(T array[], Y n)
+
+{
+
+	for (Y x = 0; x<n; x++)
+
+
+
+	{
+
+
+
+		Y index_of_min = x;
+
+
+
+		for (Y y = x; y<n; y++)
+
+
+
+		{
+
+
+
+			if (array[index_of_min]>array[y])
+
+
+
+			{
+
+
+
+				index_of_min = y;
+
+
+
+			}
+
+
+
+		}
+
+
+
+		T temp = array[x];
+
+
+
+		array[x] = array[index_of_min];
+
+
+
+		array[index_of_min] = temp;
+
+
+
+	}
+
+	//	for (int l = 0; l < n; l++)
+
+	//	cout << "\n" << array[l] << "\n";
+
+	return 0;
+
+}
+
+
+
+
+
+int modified_bubble_sort(int array[], int n)
+
+{
+
+	for (int x = 0; x<n; x++)
+
+
+
+	{
+
+
+
+		for (int y = 0; y<n - 1; y++)
+
+
+
+		{
+
+
+
+			if (array[y]>array[y + 1])
+
+
+
+			{
+
+
+
+				int temp = array[y + 1];
+
+
+
+				array[y + 1] = array[y];
+
+
+
+				array[y] = temp;
+
+
+
+			}
+
+
+
+		}
+
+
+
+	}
+
+	for (int l = 0; l < n; l++)
+
+		cout << "\n" << array[l] << "\n";
+
+	return 0;
+
+}
+
+int insertion_sort(int array[], int n)
+
+{
+
+	for (int x = 0; x<n; x++)
+
+
+
+	{
+
+
+
+		int index_of_min = x;
+
+
+
+		for (int y = x; y<n; y++)
+
+
+
+		{
+
+
+
+			if (array[index_of_min]>array[y])
+
+
+
+			{
+
+
+
+				index_of_min = y;
+
+
+
+			}
+
+
+
+		}
+
+
+
+		int temp = array[x];
+
+
+
+		array[x] = array[index_of_min];
+
+
+
+		array[index_of_min] = temp;
+
+
+
+	}
+
+	for (int l = 0; l < n; l++)
+
+		cout << "\n" << array[l] << "\n";
+
+	return 0;
+
+
+
+}
+
+//INSERTION SORT
+
+#include<iostream>
+
+using namespace std;
+
+template<class T>
+
+void insertion_sort(T s[], int n) {
+
+	int i, j; /* counters */
+
+	for (i = 1; i<n; i++) { j = i;
+
+	while ((j>0) && (s[j] < s[j - 1])) 
+
+	{ swap(s[j], s[j - 1]); 
+
+	/*T temp;
+
+	temp = s[j];
+
+	s[j] = s[j - 1];
+
+	s[j - 1] = temp;
+
+	*/
+
+	j = j - 1; } }
+
+	for (int i = 0; i < n; i++)
+
+		cout << s[i] << "\n";
+
+}
+
+int main()
+
+{
+
+	int p[] = {345,4,56};
+
+	insertion_sort(p,3);
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//MATRIX
+
+#include<iostream>
+
+#include<fstream>
+
+using namespace std;
+
+int main()
+
+{
+
+	ofstream o("new1.txt"); o << "\nMATRIX MULTIPLICATION\n";
+
+	int a[100][100],b[100][100],c[100][100],x,y,z,i,j,k,l;
+
+	cout << "enter dimensions\n";
+
+	cin >> x >> y >> z;//read the dimensions of x*y and y*z matrices
+
+	cout << "enter two matrices\n"<<"enter first matrix\n";
+
+	//read the first x*y matrix
+
+		for (i = 0; i < x; i++)
+
+			for (j = 0; j < y; j++)
+
+				cin >> a[i][j];
+
+	//read second y*z matrix
+
+		cout << "\nenter second matrix\n";
+
+		for (k = 0; k < y; k++)
+
+			for ( l = 0; l < z; l++)
+
+				cin >> b[k][l];
+
+		//print the first x*y matrix
+
+		cout << "\nfirst matrix"; o << "\nfirst matrix\n";
+
+		for (i = 0; i < x; i++)
+
+		{
+
+			cout << "\n"; o << "\n";
+
+			for (j = 0; j < y; j++)
+
+			{
+
+				cout << a[i][j]<<"\t"; o << a[i][j]<<"\t";
+
+			}
+
+		}
+
+		
+
+		//print second y*z matrix
+
+		cout << "\nsecond matrix\n"; o << "\nsecond matrix\n";
+
+		for (k = 0; k < y; k++)
+
+
+
+		{
+
+			cout << "\n"; o << "\n";
+
+			for (l = 0; l < z; l++)
+
+			{
+
+				cout << b[k][l] << "\t"; o << b[k][l] << "\t";
+
+
+
+			}
+
+		}
+
+		//perform multiplication
+
+		for (i = 0; i <x; i++) 
+
+			for (j = 0; j < z; j++) 
+
+			{ c[i][j] = 0; 
+
+		      for (k = 0; k < y; k++) 
+
+			   c[i][j] += a[i][k] * b[k][j]; 
+
+			}
+
+		cout << "\nresultant matrix\n"; o << "\n\nresultant matrix";
+
+		//print the resultant matrix
+
+		for (i = 0; i <x; i++)
+
+		{
+
+			cout << "\n";
+
+			for (j = 0; j < z; j++)
+
+				cout << c[i][j] << "\t";
+
+		}
+
+		
+
+		for (i = 0; i <x; i++)
+
+		{
+
+			o << "\n";
+
+			for (j = 0; j < z; j++)
+
+				o << c[i][j] << "\t";
+
+		}
+
+		o.close();
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//FACTORIAL
+
+#include<iostream>
+
+using namespace std;
+
+long double rec1(long double a)
+
+{
+
+	
+
+	if (a == 0)
+
+		return 1;
+
+	else
+
+	{
+
+		long double b = a;
+
+		b--;
+
+		return(a*rec1(b));
+
+	}
+
+}
+
+int main()
+
+{
+
+	long double n; char c='y';
+
+	while (c == 'Y' || c == 'y')
+
+	{ 
+
+	    cout << "enter a number whose factorial is to be printed maximum being 170\n";
+
+		cin >> n;
+
+		cout << rec1(n) << "\nAgain? Y/N\n";
+
+		cin >> c;
+
+	
+
+	} 
+
+	getchar();
+
+	return 0;
+
+}
+
+
+
+//COMMAND LINE ARGUMENTS
+
+#include<iostream>
+
+using namespace std;
+
+//Command Line Arguments
+
+int main(int argc,char *argv[])
+
+{
+
+	int i;
+
+	for (i = 1; i < argc; i++)
+
+		cout << argv[i] << ((i < argc) ? " " : "");
+
+	cout << "\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+
+
+//Reversing a string using recursion
+
+
+
+#include <stdio.h>
+
+#include <string.h>
+
+void reverse(char *s, size_t len) {
+
+	if (len <= 1) return;
+
+
+
+	char tmp = s[len - 1];
+
+	s[len - 1] = s[0];
+
+	s[0] = tmp;
+
+	reverse(s + 1, len - 2);
+
+}
+
+
+
+int main() {
+
+	char rev_string[123];
+
+	printf("enetr a string\n");
+
+	scanf("%s", rev_string);
+
+	printf("entered string is %s\n", rev_string);
+
+	reverse(rev_string, strlen(rev_string));
+
+	printf("%s\n", rev_string);
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//Fibonacci series
+
+
+
+#include<iostream>
+
+#include<iomanip>
+
+#include<fstream>
+
+using namespace std;
+
+void fib(long double a)
+
+{
+
+	long double l[1500];int j;
+
+	l[0] = 0; l[1] = 1;
+
+	for (j = 2; j < a;j++)
+
+	{
+
+		l[j] = l[j - 1] + l[j - 2];
+
+	}
+
+	ofstream o("finonacci.txt");
+
+	for (int i = 0; i < a; i++)
+
+	{
+
+		cout << "\n\t\t" << setprecision(50)<< l[i] << "\n";
+
+		o << "\n\t\t" << setprecision(50) << l[i] << "\n";
+
+	}
+
+	o.close();
+
+	getchar();
+
+	//return();
+
+}
+
+int main()
+
+{
+
+	long double n;
+
+	cout << "enter the number of terms(less than 1478) upto which fibonacci series is to be generated\n";
+
+	cin >> n;
+
+	fib(n);
+
+	getchar();
+
+	return 0;
+
+}
+
+//RECURSIVE FIBONACCI SERIES
+
+#include<iostream>
+
+#include<fstream>
+
+using namespace std;
+
+int rec1(int n)
+
+{
+
+	if (n == 0)
+
+		return 0;
+
+	else if (n == 1)
+
+		return 1;
+
+	else
+
+	{
+
+		//cout<<"\n" << (rec1(n - 1) + rec1(n - 2))<<"\n";
+
+		return (rec1(n - 1) + rec1(n - 2));
+
+	}
+
+}
+
+int main()
+
+{
+
+	//for (int i = 1; i <=100;i++)
+
+	cout<<rec1(10)<<"\n";
+
+
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//GCD
+
+#include<iostream>
+
+using namespace std;
+
+int gcd(int m, int n){ return n == 0 ? m : gcd(n, m%n); }
+
+int main()
+
+{
+
+	int a, b;
+
+	cout << "enter two numbers whose lcm to be calculated\n";
+
+	cin >> a >> b;
+
+	cout <<"GCD OF "<<a<<" AND "<<b<<" IS "<< gcd(a, b)<<"\nLCM OF "<<a<<" AND "<<b<<" IS "<<a*b/gcd(a,b); getchar(); getchar();
+
+	return 0;
+
+}
+
+//SORT AND SEARCH
+
+#include<iostream>
+
+template < class A >
+
+void bubble_sort(A [], int);
+
+template<class T>
+
+T iterative_binary_search(T [], T, T);
+
+template<class P,class Q,class R,class S>
+
+int recursive_binary_search(P [], Q, R,S);
+
+using namespace std;
+
+//Binary Search: Iterative as well as recursive
+
+int main()
+
+{//Simplify the main only!! Other modules are good!
+
+	int d[] = { 233, 445, 3, 34, 4,  2332, 2 },x=7;
+
+	char a[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm' }, l=13, y='d'; int b[] = { 1, 2, 3, 4, 5 }; 
+
+	float c[] = { 1.2, 4.5, 6.7, 8.9, 9.9 };
+
+	iterative_binary_search(a,l,y );
+
+	cout << "\n" << recursive_binary_search(c,4.5,0,4);
+
+	bubble_sort(d, x);
+
+	getchar();
+
+	return 0;
+
+}
+
+template<class T>
+
+T iterative_binary_search(T a[],T n,T x)
+
+{
+
+	T low = 0,high = n;
+
+	while ((low >= 0) && (high <= n))
+
+	{
+
+		int mid = (low + high) / 2;
+
+		if (low > high)
+
+		{
+
+			cout << "error\n"; break;
+
+		}
+
+		else if (x < a[mid])
+
+		{
+
+			high = mid - 1;
+
+		}
+
+		else if (x > a[mid])
+
+		{
+
+			low = mid + 1;
+
+		}
+
+		else
+
+		{
+
+			cout << "\nfound at " <<(int)mid << "\n"; break;
+
+		}
+
+	}
+
+	getchar();
+
+	return 0;
+
+}
+
+template<class P, class Q, class  R,class S>
+
+int recursive_binary_search(P a[], Q key,R imin,S imax)
+
+{
+
+	// test if array is empty
+
+	if (imax < imin)
+
+		// set is empty, so return value showing not found
+
+		return -1;
+
+	else
+
+	{
+
+		// calculate midpoint to cut set in half
+
+	int imid = (imin + imax) / 2;
+
+
+
+		// three-way comparison
+
+		if (a[imid] > key)
+
+			// key is in lower subset
+
+			return recursive_binary_search(a, key,imin, imid - 1);
+
+		else if (a[imid] < key)
+
+			// key is in upper subset
+
+			return recursive_binary_search(a, key, imid + 1,imax);
+
+		else
+
+			// key has been found
+
+			return imid;
+
+	}
+
+    getchar();
+
+	return -1;
+
+}
+
+template < class A > 
+
+void bubble_sort(A a[],int n)
+
+{
+
+	A temp; int i, j,k;
+
+	for (i = 0; i < n - 1; i++)
+
+		for (k = 0; k < n - i - 1; k++)
+
+		{
+
+		if (a[k]>a[k + 1])
+
+		{
+
+			temp = a[k];
+
+			a[k] = a[k + 1];
+
+			a[k + 1] = temp;
+
+
+
+		}
+
+		}
+
+	for (int j = 0; j < n; j++)
+
+		cout << "\n" << a[j]<<"\n";
+
+	getchar();
+
+	return 0;
+
+}
+
+//prefix and postfix increment operator overloading
+
+class Digit
+
+{
+
+private:
+
+    int m_nDigit;
+
+public:
+
+    Digit(int nDigit=0)
+
+    {
+
+        m_nDigit = nDigit;
+
+    }
+
+ 
+
+    Digit& operator++(); // prefix
+
+    Digit& operator--(); // prefix
+
+ 
+
+    Digit operator++(int); // postfix
+
+    Digit operator--(int); // postfix
+
+ 
+
+    int GetDigit() const { return m_nDigit; }
+
+};
+
+ 
+
+Digit& Digit::operator++()
+
+{
+
+    // If our number is already at 9, wrap around to 0
+
+    if (m_nDigit == 9)
+
+        m_nDigit = 0;
+
+    // otherwise just increment to next number
+
+    else
+
+        ++m_nDigit;
+
+ 
+
+    return *this;
+
+}
+
+ 
+
+Digit& Digit::operator--()
+
+{
+
+    // If our number is already at 0, wrap around to 9
+
+    if (m_nDigit == 0)
+
+        m_nDigit = 9;
+
+    // otherwise just decrement to next number
+
+    else
+
+        --m_nDigit;
+
+ 
+
+    return *this;
+
+}
+
+ 
+
+Digit Digit::operator++(int)
+
+{
+
+    // Create a temporary variable with our current digit
+
+    Digit cResult(m_nDigit);
+
+ 
+
+    // Use prefix operator to increment this digit
+
+    ++(*this);             // apply operator
+
+ 
+
+    // return temporary result
+
+    return cResult;       // return saved state
+
+}
+
+ 
+
+Digit Digit::operator--(int)
+
+{
+
+    // Create a temporary variable with our current digit
+
+    Digit cResult(m_nDigit);
+
+ 
+
+    // Use prefix operator to increment this digit
+
+    --(*this);             // apply operator
+
+ 
+
+    // return temporary result
+
+    return cResult;       // return saved state
+
+}
+
+ 
+
+int main()
+
+{
+
+    Digit cDigit(5);
+
+    ++cDigit; // calls Digit::operator++();
+
+    cDigit++; // calls Digit::operator++(int);
+
+ 
+
+    return 0;
+
+}
+
+//generic programming
+
+#include<iostream>
+
+using namespace std;
+
+template <typename Type>
+
+Type max(Type a, Type b) {
+
+	return a > b ? a : b;
+
+}
+
+int main()
+
+{
+
+	cout << max(34, -9);
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//prime numbers
+
+#include<iostream>
+
+using namespace std;
+
+class pri
+
+{
+
+public:
+
+	friend void prime(int);
+
+};
+
+void prime(int limit)
+
+{
+
+	int i,flag=0;
+
+	for (i = limit - 1; i > 1; i--)
+
+	{
+
+		if (limit%i == 0)
+
+			flag = 1;
+
+	}
+
+	if (flag==0)
+
+	cout <<"\t"<< limit<< "\n";
+
+}
+
+int main()
+
+{
+
+	int n;
+
+	cout << "enter limit to print prime numbers\n";
+
+	cin >> n;
+
+	for (int i = 1; i <= n;i++)
+
+	prime(i);
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//PRIME 
+
+#include<iostream>
+
+#include<fstream>
+
+using namespace std;
+
+//ofstream o("prime.txt");
+
+class pri
+
+{
+
+public:
+
+	friend void prime(long long unsigned int);
+
+};
+
+void prime(long long unsigned int limit)
+
+{
+
+	
+
+	long long unsigned int i, flag = 0;
+
+	//for (i = limit - 1; i > 1; i--) open this for loop and close the next.result same.
+
+	for (i = 2; i <= limit - 1;i++)
+
+	{
+
+		if (limit%i == 0)
+
+			flag = 1;
+
+	}
+
+	if (flag == 0)
+
+	{
+
+		//return limit;
+
+		cout << "\t" << limit << "\n";
+
+		//o << "\t" << limit << "\n";
+
+	}
+
+}
+
+int main()
+
+{
+
+	long long unsigned int n;
+
+	cout << "enter limit to print prime numbers\n";
+
+	cin >> n;
+
+	for (long long unsigned int i = 1; i <= n;i++)
+
+	prime(i);
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//FIBONACCI
+
+#include<iostream>
+
+#include<fstream>
+
+using std::cout;
+
+using std::cin;
+
+int main(int argc,int *argv[])
+
+{
+
+	std::ofstream o("fibonacci.txt");
+
+	long double a = 0,b = 1,c,d;
+
+	cout << "enter a limit(less than 1478) to print fibonacci numbers\n";
+
+	cin >> d;
+
+	cout<<"\t\t" << a << "\n\n\t\t" << b<<"\n\n";
+
+	
+
+	for (int i = 2; i < d; i++)
+
+	{
+
+		c = a + b;
+
+		cout << "\t\t" <<c << "\n\n";
+
+		o << "\t\t" << c << "\n\n";
+
+		a = b; b = c;
+
+	}
+
+	o.close();
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//AMBIGUITIES
+
+#include<iostream>
+
+using namespace std;
+
+
+
+typedef int f; typedef float g;
+
+template<typename X, typename Y>
+
+class c
+
+{
+
+public:
+
+	X sum(c<f, g>);
+
+};
+
+template<typename X, typename Y>
+
+X c<X,Y>::sum(c<f, g> A)
+
+{
+
+	return 45;
+
+}
+
+int main()
+
+{
+
+	//1 < 2, 4 > 5;
+
+	c<f, g> m; 
+
+	cout << m.sum(m);
+
+	getchar(); getchar();
+
+}
+
+//template class
+
+template<typename X, typename Y> class a {};
+
+class b;
+
+class c;
+
+
+
+class foo {
+
+    foo(a < b, c > d);
+
+};
+
+
+
+//
+
+#include<iostream>
+
+using namespace std;
+
+template<typename X, typename Y> 
+
+class a {
+
+public:
+
+	int get3(){ return 23; }
+
+};
+
+class b
+
+{
+
+public:
+
+	int get2(){ return 100; }
+
+};
+
+class c
+
+{
+
+public:
+
+	int get1(){ return 123; }
+
+};
+
+
+
+class foo {
+
+public:
+
+	foo(a < b, c >);
+
+};
+
+foo::foo(a<b, c> d)
+
+{
+
+	cout << d.get3()<<"\n";
+
+	b B;
+
+	cout<<B.get2()<<"\n";
+
+	c C;
+
+	cout<<C.get1()<<"\n";
+
+};
+
+
+
+int main()
+
+{
+
+	//b B; c C;
+
+	a< b,c> A;// cout<<A.get3()<<"\n";
+
+	foo f(A);
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//PRIME NUMBER
+
+#include<iostream>
+
+#include<fstream>
+
+using namespace std;
+
+int main()
+
+{
+
+	
+
+	int i = 1, n, c = 0, limit; char ch;
+
+	cout << "enter the nth prime number to print\n";
+
+	cin >> limit;
+
+	cout << "do you want to print the complete output Y/N?\n";
+
+	cin >> ch;
+
+	ofstream o("chk.txt");
+
+	do
+
+	{
+
+		int flag = 0;
+
+		for (n = 2; n <= i - 1; n++)
+
+	    {
+
+			if (i%n == 0)
+
+				flag = 1;
+
+		}
+
+	
+
+		if (flag == 0)
+
+			c++;
+
+		if (ch == 'Y' || ch == 'y')
+
+		o << "i = " << i << " n =" << n << " c =" << c << " flag =" << flag << "\n";
+
+		if (c == limit)
+
+		{
+
+			cout << i; o << i << " = i\n";
+
+		}
+
+		i++;
+
+	} while (c <limit);
+
+	o.close();
+
+	getchar(); getchar();
+
+	return 0;
+
+z}
+
+//PRIME
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int i,c=0 ,flag, n,limit;
+
+	cout << "enter a limit\n";
+
+	cin >> limit;
+
+	for (i = 2; i < limit;i++)
+
+	{
+
+		flag = 0;
+
+	  for (n = 2; n <= i - 1; n++)
+
+		  if (i%n == 0)
+
+			flag = 1;
+
+	  if (flag == 0)
+
+			  c = c + i;
+
+    }
+
+	cout << c << "\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//
+
+template<typename T>
+
+class C {
+
+public:
+
+    typedef T Type;
+
+};
+
+
+
+template<typename U>
+
+void func(const U& u) {
+
+    U::Type var; // Declare a local variable of whatever type T was
+
+}
+
+
+
+int main() {
+
+    C<int> c;
+
+    func(c);
+
+}
+
+//NAMESPACES
+
+#include<iostream>
+
+//USING NAMESPACES
+
+
+
+
+
+
+
+namespace mine1
+
+{
+
+	void f(int); void f1(float);
+
+	int a = 34; float b = 123.23;
+
+}
+
+namespace mine2
+
+{
+
+	int a = 67; float b = 456.89;
+
+
+
+}
+
+using namespace mine1;
+
+int main()
+
+{
+
+	f(45);
+
+	/*mine1::a = ((mine1::b < mine2::b) ? mine1::b : mine2::b);
+
+	mine1::f(mine1::b); std::cout <<mine1::a;
+
+	*/getchar(); getchar();
+
+	return 0;
+
+}
+
+void mine1:: f(int)
+
+{
+
+	std::cout << "hello world\n" << mine2::a + mine1::a << "\t" << mine2::b + mine1::b; 
+
+	mine1::f1(mine1::b);
+
+}
+
+void mine1::f1(float)
+
+{
+
+	static int x = 1;
+
+	std::cout << "\nthere there\n"<<"x="<<x<<"\n";
+
+	x++;
+
+}
+
+//check prime or not
+
+#include<iostream>
+
+int main()
+
+{
+
+	int n ,flag=0;
+
+	std::cout << "enter a number to check for prime\n";
+
+	std::cin >> n;
+
+	std::cout << " n = " << n<<"\n";
+
+	for (int i = n - 1; i > 1; i--)
+
+		if (n%i == 0)
+
+			flag = 1;
+
+	if (flag == 0)
+
+		std::cout << n << " is prime\n";
+
+	else
+
+		std::cout << " n " << n << " not prime\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//largest prime factor
+
+#include<iostream>
+
+#include<math.h>
+
+using namespace std;
+
+int prime(int n)
+
+{
+
+	int i, flag = 0;
+
+	//for (i = n - 1; i > 1; i--)
+
+	for (i = 2; i <= sqrt(n);i++)//note i<=sqrt(n)
+
+	if (n%i == 0)
+
+			flag = 1;
+
+	if (flag == 0)
+
+		return 1;
+
+	else
+
+		return 0;
+
+}
+
+int main()
+
+{
+
+	long long int n, c = 1;
+
+	cout << "enter a number to check for the largest prime factor(9 digits maxx)\n";
+
+	cin >> n;
+
+	for (int i = 2; i <= n; i++)//checkout i<=n
+
+		if (n%i == 0)
+
+		{
+
+		if (prime(i))
+
+		{ 
+
+			//cout << i << "\n";
+
+			c = i;
+
+		}
+
+		}
+
+	cout << c << " is the largest prime factor\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//largest prime factor
+
+#include<iostream>
+
+#include<math.h>
+
+using namespace std;
+
+int main()
+
+{
+
+	long long unsigned int n, i,flag,c=1,j;
+
+	cout << "enter a number to get it largest prime factor\n";
+
+	cin >> n;
+
+	for (i = 2; i <= n; i++)
+
+	{
+
+		if (n%i == 0)
+
+		{
+
+			flag = 0;
+
+			for (j = 2; j <= sqrt(i); j++)
+
+				if (i%j == 0)
+
+					flag = 1;
+
+			if (flag == 0)
+
+				c = i;
+
+		}
+
+	}
+
+	cout << c << "\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//program to generate a number divisible by all the numbers between 1 and a certain limit
+
+#include <iostream>
+
+#include <vector>
+
+//check
+
+
+
+std::vector<int> GetPrimes(int);
+
+std::vector<int> Factor(int, const std::vector<int> &);
+
+
+
+int main() {
+
+	int n;
+
+	std::cout << "Enter an integer: ";
+
+	std::cin >> n;
+
+	std::vector<int> primes = GetPrimes(n);
+
+	std::vector<int> exponents(primes.size(), 0);
+
+
+
+	for (int i = 2; i <= n; i++) {
+
+		std::vector<int> factors = Factor(i, primes);
+
+		for (int i = 0; i < exponents.size(); i++) {
+
+			if (factors[i] > exponents[i]) exponents[i] = factors[i];
+
+		}
+
+	}
+
+
+
+	int p = 1;
+
+	for (int i = 0; i < primes.size(); i++) {
+
+		for (int j = 0; j < exponents[i]; j++) {
+
+			p *= primes[i];
+
+		}
+
+	}
+
+
+
+	std::cout << "Answer: " << p << std::endl;
+
+	getchar(); getchar();
+
+}
+
+
+
+std::vector<int> GetPrimes(int max) {
+
+	bool *isPrime = new bool[max + 1];
+
+	for (int i = 0; i <= max; i++) {
+
+		isPrime[i] = true;
+
+	}
+
+	isPrime[0] = isPrime[1] = false;
+
+	int p = 2;
+
+	while (p <= max) {
+
+		if (isPrime[p]) {
+
+			for (int j = 2; p * j <= max; j++) {
+
+				isPrime[p * j] = false;
+
+			}
+
+		}
+
+		p++;
+
+	}
+
+
+
+	std::vector<int> primes;
+
+
+
+	for (int i = 0; i <= max; i++) {
+
+		if (isPrime[i]) primes.push_back(i);
+
+	}
+
+
+
+	delete[]isPrime;
+
+	return primes;
+
+}
+
+
+
+std::vector<int> Factor(int n, const std::vector<int> &primes) {
+
+	std::vector<int> exponents(primes.size(), 0);
+
+	while (n > 1) {
+
+		for (int i = 0; i < primes.size(); i++) {
+
+			if (n % primes[i] == 0) {
+
+				exponents[i]++;
+
+				n /= primes[i];
+
+				break;
+
+			}
+
+		}
+
+	}
+
+	return exponents;
+
+}
+
+//IMPLEMENTATIONS
+
+#include<iostream>
+
+#include<limits>
+
+enum keyword{ ASM, AUTO, BREAK };
+
+void f(keyword);
+
+int x = 67;
+
+double m;
+
+int main()
+
+{//FIRST IMPLEMENTATION
+
+	std::cout << "\nlargets float == " << std::numeric_limits<float>::max()
+
+		<< ",char is signed == " << std::numeric_limits<char>::is_signed << '\n';
+
+//SECOND IMPLEMENTATION	
+
+	f(BREAK);
+
+//THIRD IMPLEMENTATION
+
+	enum flag{x=1,y=2,z=4,e=8};//range 0:15
+
+      //flag f1 = 5;
+
+	flag f2 = flag(5);
+
+	flag f3 = flag(z | e);
+
+	flag f4 = (flag)99;//flag(99);switch the brackets for same behaviour
+
+
+
+	std::cout <<"\n"<< f2 << "\n\n" << f3 << "\n\n" << f4 << "\n\n";
+
+//FIFTH IMPLEMENTATION
+
+	std::cout << "\n" << m << "\n";
+
+	getchar(); //getchar();
+
+	return 0;
+
+}
+
+void f(keyword key)
+
+{
+
+	//int x = x;//preverse
+
+	switch (key)
+
+	{
+
+
+
+	case ASM:
+
+		std::cout << "\nASM CASE\n";
+
+		break;
+
+	case BREAK:
+
+		std::cout << "\nBREAK CASE\n";
+
+		break;
+
+	}
+
+	//FOURTH IMPLEMENTATION
+
+	int  x;
+
+	x = 1;
+
+	std::cout << "\n" << x<<"\n";
+
+	{
+
+		int x;
+
+		x = 2;
+
+		std::cout << "\n" << x << "\n";
+
+
+
+	}
+
+	int *p = &x;
+
+	std::cout << "\n" << *p << "\n";
+
+	int *w = &::x;//why it does not refer to the global value 67?
+
+	std::cout << "\n" << x << "\n";//why it does not refer to the global value 67?
+
+	std::cout << ::x;
+
+}
+
+
+
+//DATA TYPES SIZE AND RANGES
+
+#include<iostream>
+
+#include<fstream>
+
+void f1(int x);
+
+//LIST OF DATA TYPES POSSIBLE IN C++
+
+int main(){ std::cout << "Hello,world\n"; 
+
+int x; double y; char z;
+
+int *p_ptr = &x; double *q_ptr = &y; char *r_ptr = &z;
+
+enum sd{ a = 345, cd = 234 };
+
+struct kl{
+
+	int x, y, z;
+
+double aa2; }str_,*str_ptr;
+
+str_ptr = &str_;
+
+enum{zq=78,df=45,fgh=34567};
+
+class first{
+
+	int x, y, z;
+
+	float f1, f2, f3;
+
+	double d1, d2, d3;
+
+	//virtual void f1() = 0;This makes class abstract and hence the first declaration will become invalid on opening this comment
+
+}class_,*class_ptr,**class_ptr1,***class_ptr2;
+
+class_ptr = &class_;
+
+class_ptr1 = &class_ptr;
+
+class_ptr2 = &class_ptr1;
+
+std::cout << " \n\t "
+
+<< sizeof(x) << " =x(int)\n\t "
+
+<< sizeof(y) << " =y(double)\n\t "
+
+<< sizeof(z) << " =z(char)\n\t "
+
+<< sizeof(p_ptr) << " =p_ptr(pointer to int)\n\t "
+
+<< sizeof(q_ptr) << " =q_ptr(pointer to double)\n\t "
+
+<< sizeof(r_ptr) << " =r_ptr(poniter to char)\n\t "
+
+<< sizeof(sd) << " =sd(enum)\n\t "
+
+<< sizeof(kl) << " =kl(struct tag)\n\t "
+
+<< sizeof(str_) << " =str_(structure)\n\t "
+
+<< sizeof(str_ptr) << " =str_ptr(pointer to structure)\n\t "
+
+<< sizeof(class_) <<  " =class_(class)\n\t "
+
+<< sizeof(class_ptr) << " =class_ptr(pointer to class)\n\t "
+
+<< sizeof(class_ptr1) << " =class_ptr1(pointer to pointer to class)\n\t "
+
+<< sizeof(class_ptr2) << " =class_ptr2(pointer to pointer to pointer to class)\n\t "
+
+<< sizeof(int) << " =int\n\t "
+
+<< sizeof(short int) << " =short int\n\t "
+
+<< sizeof(long int) << " =long int\n\t "
+
+<< sizeof(unsigned long int) << " =unsigned long int\n\t "
+
+<< sizeof(float) << " =float\n\t "
+
+<< sizeof(long float) << " =long float\n\t "
+
+<< sizeof(double) << " =double\n\t "
+
+<< sizeof(long double) << " =long double\n\t "
+
+<< sizeof(char) << " =char\n\t "
+
+<< sizeof(unsigned char) << " =unsigned char\n\t "
+
+<< std::numeric_limits<short>::max() << " =short max\n\t "
+
+<< std::numeric_limits<long>::max() << " =long max\n\t "
+
+<< std::numeric_limits<long long>::max() << " =long long max\n\t "
+
+<< std::numeric_limits<unsigned long long>::max() << " =unsigned long long max\n\t "
+
+<< std::numeric_limits<short>::min() << " =short min\n\t "
+
+<< std::numeric_limits<long>::min() << " =long min\n\t "
+
+<< std::numeric_limits<long long>::min() << " =long long min\n\t "
+
+<< std::numeric_limits<unsigned long long>::min() << " =unsigned long long min\n\t "
+
+<< std::numeric_limits<int>::min() << " =int min\n\t "
+
+<< std::numeric_limits<unsigned int>::min() << " =unsigned int min\n\t "
+
+<< std::numeric_limits<unsigned int>::max() << " =unsigned int max\n\t "
+
+<< std::numeric_limits<short int>::min() << " =short int min\n\t "
+
+<< (int)std::numeric_limits<unsigned short int>::max() << " =unsigned short int max\n\t "
+
+<< std::numeric_limits<long int>::min() << " =long int min\n\t "
+
+<< std::numeric_limits<unsigned long int>::min() << " =unsigned long int min\n\t "
+
+<< std::numeric_limits<unsigned long long int>::min() << " =unsigned long long int min\n\t "
+
+<< std::numeric_limits<_int64>::max() << " =_int64 max\n\t "
+
+<< std::numeric_limits<unsigned _int64>::max() << " =unsigned _int64 max\n\t "
+
+<< std::numeric_limits<_int64>::min() << "=_int64 min\n\t"
+
+<< std::numeric_limits<unsigned _int64>::min() << " =unsigned _int64 min\n\t "
+
+<< std::numeric_limits<_int32>::max() << " =_int32 max\n\t "
+
+<< std::numeric_limits<unsigned _int32>::max() << " =unsigned _int32 max\n\t "
+
+<< std::numeric_limits<_int32>::min() << " =_int32 min\n\t "
+
+<< std::numeric_limits<unsigned _int32>::min() << " =unsigned _int32 min\n\t "
+
+<< std::numeric_limits<_int16>::max() << " =_int16 max\n\t "
+
+<< std::numeric_limits<unsigned _int16>::max() << " =unsigned _int16 max\n\t "
+
+<< std::numeric_limits<_int16>::min() << " =_int16 min\n\t "
+
+<< std::numeric_limits<unsigned _int16>::min() << " =unsigned _int16 min\n\t "
+
+<< std::numeric_limits<_int8>::max() << " =_int8 max\n\t "
+
+<< std::numeric_limits<unsigned _int8>::max() << " =unsigned _int8 max\n\t "
+
+<< std::numeric_limits<_int8>::min() << " =_int8 min\n\t "
+
+<< std::numeric_limits<unsigned _int8>::min() << " =unsigned _int8 min\n\t "
+
+<< std::numeric_limits<int*>::max() << " =int* max\n\t "
+
+<< std::numeric_limits<float>::max() << " =float max\n\t "
+
+<< std::numeric_limits<long double>::max() << " =long double max\n\t "
+
+<< std::numeric_limits<float*>::max() << " =float* max\n\t "
+
+<< std::numeric_limits<float>::min() << " =float min\n\t "
+
+<< std::numeric_limits<long float>::min() << " =long float min\n\t "
+
+<< std::numeric_limits<double>::min() << " =double min\n\t "
+
+<< std::numeric_limits<long double>::min() << " =long double min\n\t "
+
+<< (int)std::numeric_limits<char>::max() << " =char max\n\t "
+
+<< (int)std::numeric_limits<unsigned char>::min() << " =unsigned char min\n\t "
+
+<< (int)std::numeric_limits<char>::min() << " =char min\n\t "
+
+<< (int)std::numeric_limits<unsigned char>::max() << " =unsigned char max\n\t "
+
+<< std::numeric_limits<bool>::max() << " =bool max\n\t "
+
+<< std::numeric_limits<bool>::min() << " =bool min\n\t "
+
+<< std::numeric_limits<enum x>::max() << " =enum x max\n\t "
+
+<< std::numeric_limits<enum x>::min() << " =enum x min\n\t ";
+
+//<< std::numeric_limits<char*>::max() << "\n\t"
+
+//<< std::numeric_limits<bool*>::max() << "\n\t"
+
+//<< std::numeric_limits<float>::max() << "\n\t"
+
+//<< std::numeric_limits<double>::max() << "\n\t"
+
+//<< std::numeric_limits<long double>::max() << "\n\t"
+
+//<< std::numeric_limits<unsigned int>::max() << "\n\t"
+
+//<< std::numeric_limits<long long unsigned int>::max() << "\n\t"
+
+//<< std::numeric_limits<double*>::max() << "\n\t"
+
+f1(45);
+
+getchar();
+
+return 0;
+
+}
+
+void f1(int)
+
+{
+
+	std::ofstream o("sizes.txt");
+
+	o << "Hello,world\n";
+
+	int x; double y; char z;
+
+	int *p_ptr = &x; double *q_ptr = &y; char *r_ptr = &z;
+
+	enum sd{ a = 345, cd = 234 };
+
+	struct kl{
+
+		int x, y, z;
+
+		double aa2;
+
+	}str_, *str_ptr;
+
+	str_ptr = &str_;
+
+	enum{ zq = 78, df = 45, fgh = 34567 };
+
+	class first{
+
+		int x, y, z;
+
+		float f1, f2, f3;
+
+		double d1, d2, d3;
+
+		//virtual void f1() = 0;This makes class abstract and hence the first declaration will become invalid on opening this comment
+
+	}class_, *class_ptr, **class_ptr1, ***class_ptr2;
+
+	class_ptr = &class_;
+
+	class_ptr1 = &class_ptr;
+
+	class_ptr2 = &class_ptr1;
+
+	o<< " \n\t "
+
+		<< sizeof(x) << " =x(int)\n\t "
+
+		<< sizeof(y) << " =y(double)\n\t "
+
+		<< sizeof(z) << " =z(char)\n\t "
+
+		<< sizeof(p_ptr) << " =p_ptr(pointer to int)\n\t "
+
+		<< sizeof(q_ptr) << " =q_ptr(pointer to double)\n\t "
+
+		<< sizeof(r_ptr) << " =r_ptr(poniter to char)\n\t "
+
+		<< sizeof(sd) << " =sd(enum)\n\t "
+
+		<< sizeof(kl) << " =kl(struct tag)\n\t "
+
+		<< sizeof(str_) << " =str_(structure)\n\t "
+
+		<< sizeof(str_ptr) << " =str_ptr(pointer to structure)\n\t "
+
+		<< sizeof(class_) << " =class_(class)\n\t "
+
+		<< sizeof(class_ptr) << " =class_ptr(pointer to class)\n\t "
+
+		<< sizeof(class_ptr1) << " =class_ptr1(pointer to pointer to class)\n\t "
+
+		<< sizeof(class_ptr2) << " =class_ptr2(pointer to pointer to pointer to class)\n\t "
+
+		<< sizeof(int) << " =int\n\t "
+
+		<< sizeof(short int) << " =short int\n\t "
+
+		<< sizeof(long int) << " =long int\n\t "
+
+		<< sizeof(unsigned long int) << " =unsigned long int\n\t "
+
+		<< sizeof(float) << " =float\n\t "
+
+		<< sizeof(long float) << " =long float\n\t "
+
+		<< sizeof(double) << " =double\n\t "
+
+		<< sizeof(long double) << " =long double\n\t "
+
+		<< sizeof(char) << " =char\n\t "
+
+		<< sizeof(unsigned char) << " =unsigned char\n\t "
+
+		<< std::numeric_limits<short>::max() << " =short max\n\t "
+
+		<< std::numeric_limits<long>::max() << " =long max\n\t "
+
+		<< std::numeric_limits<long long>::max() << " =long long max\n\t "
+
+		<< std::numeric_limits<unsigned long long>::max() << " =unsigned long long max\n\t "
+
+		<< std::numeric_limits<short>::min() << " =short min\n\t "
+
+		<< std::numeric_limits<long>::min() << " =long min\n\t "
+
+		<< std::numeric_limits<long long>::min() << " =long long min\n\t "
+
+		<< std::numeric_limits<unsigned long long>::min() << " =unsigned long long min\n\t "
+
+		<< std::numeric_limits<int>::min() << " =int min\n\t "
+
+		<< std::numeric_limits<unsigned int>::min() << " =unsigned int min\n\t "
+
+		<< std::numeric_limits<unsigned int>::max() << " =unsigned int max\n\t "
+
+		<< std::numeric_limits<short int>::min() << " =short int min\n\t "
+
+		<< (int)std::numeric_limits<unsigned short int>::max() << " =unsigned short int max\n\t "
+
+		<< std::numeric_limits<long int>::min() << " =long int min\n\t "
+
+		<< std::numeric_limits<unsigned long int>::min() << " =unsigned long int min\n\t "
+
+		<< std::numeric_limits<unsigned long long int>::min() << " =unsigned long long int min\n\t "
+
+		<< std::numeric_limits<_int64>::max() << " =_int64 max\n\t "
+
+		<< std::numeric_limits<unsigned _int64>::max() << " =unsigned _int64 max\n\t "
+
+		<< std::numeric_limits<_int64>::min() << "=_int64 min\n\t"
+
+		<< std::numeric_limits<unsigned _int64>::min() << " =unsigned _int64 min\n\t "
+
+		<< std::numeric_limits<_int32>::max() << " =_int32 max\n\t "
+
+		<< std::numeric_limits<unsigned _int32>::max() << " =unsigned _int32 max\n\t "
+
+		<< std::numeric_limits<_int32>::min() << " =_int32 min\n\t "
+
+		<< std::numeric_limits<unsigned _int32>::min() << " =unsigned _int32 min\n\t "
+
+		<< std::numeric_limits<_int16>::max() << " =_int16 max\n\t "
+
+		<< std::numeric_limits<unsigned _int16>::max() << " =unsigned _int16 max\n\t "
+
+		<< std::numeric_limits<_int16>::min() << " =_int16 min\n\t "
+
+		<< std::numeric_limits<unsigned _int16>::min() << " =unsigned _int16 min\n\t "
+
+		<< std::numeric_limits<_int8>::max() << " =_int8 max\n\t "
+
+		<< std::numeric_limits<unsigned _int8>::max() << " =unsigned _int8 max\n\t "
+
+		<< std::numeric_limits<_int8>::min() << " =_int8 min\n\t "
+
+		<< std::numeric_limits<unsigned _int8>::min() << " =unsigned _int8 min\n\t "
+
+		<< std::numeric_limits<int*>::max() << " =int* max\n\t "
+
+		<< std::numeric_limits<float>::max() << " =float max\n\t "
+
+		<< std::numeric_limits<long double>::max() << " =long double max\n\t "
+
+		<< std::numeric_limits<float*>::max() << " =float* max\n\t "
+
+		<< std::numeric_limits<float>::min() << " =float min\n\t "
+
+		<< std::numeric_limits<long float>::min() << " =long float min\n\t "
+
+		<< std::numeric_limits<double>::min() << " =double min\n\t "
+
+		<< std::numeric_limits<long double>::min() << " =long double min\n\t "
+
+		<< (int)std::numeric_limits<char>::max() << " =char max\n\t "
+
+		<< (int)std::numeric_limits<unsigned char>::min() << " =unsigned char min\n\t "
+
+		<< (int)std::numeric_limits<char>::min() << " =char min\n\t "
+
+		<< (int)std::numeric_limits<unsigned char>::max() << " =unsigned char max\n\t "
+
+		<< std::numeric_limits<bool>::max() << " =bool max\n\t "
+
+		<< std::numeric_limits<bool>::min() << " =bool min\n\t "
+
+		<< std::numeric_limits<enum x>::max() << " =enum x max\n\t "
+
+		<< std::numeric_limits<enum x>::min() << " =enum x min\n\t ";
+
+	//<< std::numeric_limits<char*>::max() << "\n\t"
+
+	//<< std::numeric_limits<bool*>::max() << "\n\t"
+
+	//<< std::numeric_limits<float>::max() << "\n\t"
+
+	//<< std::numeric_limits<double>::max() << "\n\t"
+
+	//<< std::numeric_limits<long double>::max() << "\n\t"
+
+	//<< std::numeric_limits<unsigned int>::max() << "\n\t"
+
+	//<< std::numeric_limits<long long unsigned int>::max() << "\n\t"
+
+	//<< std::numeric_limits<double*>::max() << "\n\t"
+
+	o.close();
+
+}
+
+//PALINDROME
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	int palindrome, reverse = 0;
+
+	std::cout << "Enter number: ";
+
+	std::cin >> palindrome;
+
+	int num = 0, key = palindrome;
+
+	for (int i = 1; palindrome != 0; i++){
+
+		num = palindrome % 10;
+
+		palindrome = palindrome / 10;
+
+		reverse = num + (reverse * 10);
+
+	}
+
+	if (reverse == key){
+
+		cout << key << " is a Palindrome Number";
+
+	}
+
+	else{
+
+		cout << key << "is NOT a Palindrome Number";
+
+	}
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//TYPEDEF
+
+template<typename T>
+
+class C {
+
+public:
+
+	typedef T Type;
+
+};
+
+
+
+template<typename U>
+
+void func(const U& u) {
+
+	U::Type var; // Declare a local variable of whatever type T was
+
+}
+
+
+
+int main() {
+
+	C<int> c;
+
+	func(c);
+
+}
+
+//PRIME SIEVE OF ESTRAS
+
+#include<iostream>
+
+#include<fstream>
+
+using namespace std;
+
+int main()
+
+{
+
+	ofstream o("prime.txt");
+
+	long long int i, c = 0, limit;
+
+	cout << "enter a limit\n";
+
+	cin >> limit;
+
+	char *p = new char[limit]();
+
+
+
+	for (i = 2; i < limit; i++)
+
+	{
+
+		// if i is prime
+
+		if (!p[i]) {
+
+			for (int j = i; j < limit; j += i)
+
+			{
+
+				p[j] = 1;
+
+			}
+
+			c += i;
+
+			//cout << i << "\n";
+
+			o << i << "\n";
+
+		}
+
+	}
+
+	cout << c << "\n"; o << c << "\n";
+
+	o.close();
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//NO WARNINGS SECURE
+
+#define _CRT_SECURE_NO_WARNINGS 1 
+
+
+
+
+
+//USING COUT CIN STD
+
+#include<iostream>
+
+using std::cout;
+
+using std::cin;
+
+int main()
+
+{
+
+	long long unsigned int a = 600851475143,x,i,flag=0;
+
+	for ( i = a - 1; i > 1; i--)
+
+		if (a%i == 0)
+
+		{
+
+		x = i;
+
+		break;
+
+		}
+
+	for (int j = i - 1; j > 1; j--)
+
+		if (i%j == 0)
+
+			flag = 1;
+
+	if (flag == 0)
+
+		cout << i;
+
+
+
+}
+
+//GENERICS
+
+#include<iostream>
+
+using namespace std;
+
+template <typename type= float>
+
+type   max(type a, type b) {
+
+	return a > b ? a : b;
+
+}
+
+int main()
+
+{
+
+	cout << max(4.5, max(1.0,max(-5.0,4.0)));
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//GCD AND LCM
+
+#include<iostream>
+
+using namespace std;
+
+int gcd(int m, int n){ return n == 0 ? m : gcd(n, m%n); }
+
+int main()
+
+{
+
+	int a, b;
+
+	cout << "enter two numbers whose lcm to be calculated\n";
+
+	cin >> a >> b;
+
+	cout <<"GCD OF "<<a<<" AND "<<b<<" IS "<< gcd(a, b)<<"\nLCM OF "<<a<<" AND "<<b<<" IS "<<a*b/gcd(a,b); getchar(); getchar();
+
+	return 0;
+
+}
+
+//RECURSIVE FIBONACCI
+
+#include<iostream>
+
+#include<fstream>
+
+using namespace std;
+
+int rec1(int n)
+
+{
+
+	if (n == 0)
+
+		return 0;
+
+	else if (n == 1)
+
+		return 1;
+
+	else
+
+	{
+
+		//cout<<"\n" << (rec1(n - 1) + rec1(n - 2))<<"\n";
+
+		return (rec1(n - 1) + rec1(n - 2));
+
+	}
+
+}
+
+int main()
+
+{
+
+	//for (int i = 1; i <=100;i++)
+
+	cout<<rec1(10)<<"\n";
+
+
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+
+
+//HEXADECIMALS
+
+#include<iostream>
+
+#include<iomanip>
+
+#include<fstream>
+
+using std::cout;
+
+using std::cin;
+
+
+
+int main()
+
+{
+
+std::ofstream o("hex.txt");
+
+	char i = '\0',ch; int a = 0x0,n=34;
+
+	cout << "enter a limit to print hexadecimal numbers\n";
+
+		cin >> n;
+
+		cout << "enter a limit to print characters\n";
+
+			cin >> ch;
+
+			o << "\t characters\n";
+
+	for (;i<=ch;i++)
+
+		o <<"\t"<< i << "\t" << int(i) << "\n";
+
+	o << "\t decimal numbers\n";
+
+	for (int j = 0; j <= 9; j++)
+
+		o <<"\t"<< j <<"\t"<< char(j) << "\n";
+
+	o << "\n hexadecimal numbers\n";
+
+	for (; a <= n; a=a+0x01)
+
+		o<<"\t"<<int(a) << "\t" << std::hex<<std::uppercase << a << "\t" << char(a) << "\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//wide character
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	cout<<std::hex << numeric_limits<wchar_t>::max() << "\n"
+
+		<< numeric_limits<wchar_t>::min() << "\n";
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//BUBBLE BINARY
+
+#include<iostream>
+
+using std::cout;
+
+using std::cin;
+
+namespace kl
+
+{
+
+	void f(int a[], int n);
+
+	
+
+};
+
+int main()
+
+{
+
+	int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	int b[] = { 34, 565, 2, 21, 43, 56, 78, 23, 1, 23, -98, 556 };
+
+	kl::f(b, 12);
+
+	int low = 0, high = 9,key=4;
+
+	while (low <= high)
+
+	{
+
+		int mid = (low + high) / 2;
+
+		if (key < a[mid])
+
+			high = mid - 1;
+
+		else if (key>a[mid])
+
+			low = mid + 1;
+
+		else
+
+		{
+
+			cout << "at " << mid << "\n";
+
+			break;
+
+		}
+
+	}
+
+    
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+void kl::f(int a[], int n)
+
+{
+
+	for (int i = 0; i < n - 1; i++)
+
+		for (int j = 0; j < n - i - 1; j++)
+
+			if (a[j]>a[j + 1])
+
+			{
+
+		int temp = a[j];
+
+		a[j] = a[j + 1];
+
+		a[j + 1] = temp;
+
+			}
+
+
+
+	for (int i = 0; i < n; i++)
+
+		cout << a[i] << "\n";
+
+}
+
+//SELECTION SORT
+
+#include<iostream>
+
+using namespace std;
+
+
+
+int main()
+
+{
+
+	int a[100],length;
+
+	cout << "enter an array length\n";
+
+	cin >>length;
+
+	cout << "Enter the elements\n";
+
+	for (int i = 0; i < length; i++)
+
+		cin >> a[i];
+
+
+
+	int low, i, k, j = 0;
+
+	for (k = 0; k < length; k++)
+
+	{
+
+		low = j;
+
+		for (i = j; i < length; i++)
+
+			if (a[i]< a[low])
+
+				low = i;
+
+		if (j!=low)
+
+		{
+
+			int temp = a[j];
+
+			a[j] = a[low];
+
+			a[low] = temp;
+
+		}
+
+		j++;
+
+	}
+
+	for (i = 0; i < length; i++)
+
+		cout << a[i] << "\n";
+
+	getchar(); getchar();
+
+}
+
+//BUBBLE JAVA
+
+import java.io.*;
+
+class bub
+
+{
+
+  private long[] a;
+
+  private int ele;
+
+     public bub(int max)
+
+       {a=new long[max];ele=0;}
+
+  public void insert(long value)
+
+    { a[ele]=value;ele++;}
+
+  public void display()
+
+      {
+
+       for(int i=0;i<ele;i++)
+
+       System.out.println(a[i]);
+
+    }
+
+  public void sort()
+
+     {  int i,j;
+
+       for( i=ele-1;i>1;i--)
+
+         for( j=0;j<i;j++)
+
+           if(a[j]>a[j+1])
+
+            swap(j,j+1);
+
+     }
+
+ public void swap(int one,int two)
+
+     { long temp=a[one];
+
+         a[one]=a[two];
+
+          a[two]=temp;
+
+}
+
+}
+
+class bubble
+
+{
+
+          public static void main(String [] args)throws IOException
+
+{         bub wow=new bub(100);
+
+          DataInputStream k=new DataInputStream(System.in);
+
+          System.out.println("Enter 10 numbers");
+
+          for(int i=0;i<10;i++)
+
+          {String s=k.readLine();
+
+            wow.insert(Integer.parseInt(s));
+
+             
+
+
+
+}
+
+            System.out.println("DISPLAY UNSORTED");
+
+            wow.display();wow.sort();
+
+              System.out.println("DISPLAY SORTED");
+
+           wow.display();
+
+}
+
+}
+
+//FIBONACCI JAVA
+
+import java.io.*;
+
+class fib
+
+{    public static void main(String[] args)throws IOException
+
+        { DataInputStream d=new DataInputStream(System.in);
+
+          String s=d.readLine();int m=Integer.parseInt(s);
+
+           double a=0,b=1,c;
+
+     System.out.println("\t"+a);System.out.println("\t"+b);
+
+         for(int i=3;i<=m;i++)
+
+           {c=a+b;
+
+            System.out.println("\t"+c);
+
+              a=b;b=c;}
+
+
+
+}
+
+}
+
+//BUBBLE JAVA1
+
+import java.io.*;
+
+class bubble1
+
+{
+
+  private long[] a;
+
+  private int ele;
+
+     public bubble1(int max)
+
+       {a=new long[max];ele=0;}
+
+  public void insert(long value)
+
+    {a[ele]=value;ele++;}
+
+  public void display()
+
+      {
+
+       for(int i=0;i<ele;i++)
+
+       System.out.println(a[i]);
+
+      }
+
+  public void sort()
+
+     {  int i,j;
+
+       for( i=0;i<ele;i++)
+
+         for( j=0;j<ele-i-1;j++)
+
+           if(a[j]>a[j+1])
+
+            swap(j,j+1);
+
+     }
+
+ public void swap(int one,int two)
+
+     { long temp=a[one];
+
+         a[one]=a[two];
+
+          a[two]=temp;
+
+     }
+
+}
+
+class f1
+
+{
+
+public static void main(String [] args)throws IOException
+
+{         bubble1 wow=new bubble1(100);
+
+          DataInputStream k=new DataInputStream(System.in);
+
+          System.out.println("Enter 10 numbers");
+
+          for(int i=0;i<10;i++)
+
+          {String s=k.readLine();
+
+            wow.insert(Integer.parseInt(s));}
+
+            System.out.println("DISPLAY UNSORTED");
+
+            wow.display();wow.sort();
+
+              System.out.println("DISPLAY SORTED");
+
+           wow.display();
+
+}
+
+}
+
+//FIBONACCI
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+	double a = 0, b = 1, limit, cycle = 0;
+
+	cout << "enter a limit(less than 1477)\n";
+
+	cin >> limit;
+
+	while (cycle <limit)
+
+	{
+
+		cout << "\t" << a << "\n";//can print both a or b..see the difference yourself
+
+		b = a + b;
+
+		a = b - a;
+
+		cycle++;
+
+	}
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+//FIBONACCI JAVA
+
+import java.io.*;
+
+class fibonacci
+
+{
+
+   public static void main(String [] args)throws IOException
+
+       {
+
+         DataInputStream wow=new DataInputStream(System.in);
+
+         System.out.println("Enter the limit to print fibonacci numbers"+"\n");
+
+         String s=wow.readLine();int limit=Integer.parseInt(s);
+
+         int hi=1,lo=1;
+
+          while(hi<limit)
+
+           {System.out.println(hi);
+
+               hi=lo+hi;
+
+               lo=hi-lo;}
+
+}
+
+}
+
+//MATRIX MULTIPLICATION JAVA
+
+
+
+import java.io.*;
+
+class matrix1
+
+{
+
+  long [][] a;long [][] c;
+
+  int row,col;
+
+       
+
+       public matrix1(int x,int y){row=x;col=y;a=new long[row][col];}
+
+       
+
+       public void insert(){
+
+       DataInputStream wow1=new DataInputStream(System.in);
+
+       String s;
+
+       System.out.println("\t"+"Enter the elements");
+
+       for(int i=0;i<row;i++)
+
+       for(int j=0;j<col;j++){
+
+       try{
+
+       s=wow1.readLine();
+
+       a[i][j]=Integer.parseInt(s);
+
+       }
+
+       catch(IOException e){}
+
+       }
+
+       }
+
+       
+
+         public void display(){
+
+         System.out.println("\n"+"\t"+"SHOWING ELEMENTS");
+
+         for(int i=0;i<row;i++)
+
+         {System.out.println("\n");
+
+         for(int j=0;j<col;j++)
+
+         System.out.print(" "+a[i][j]+" ");
+
+         }
+
+         }
+
+        
+
+         public long acc(int q,int w){return a[q][w];}
+
+  
+
+         public int ro(){return row;}
+
+  
+
+         public int co(){return col;}
+
+  
+
+         public void multiply(matrix1 z){ 
+
+             if(col==z.ro())
+
+             { 
+
+             c=new long[row][z.co()];
+
+             for(int i=0;i<row;i++)
+
+             for(int j=0;j<z.co();j++)
+
+             {   
+
+             c[i][j]=0;
+
+             for(int k=0;k<col;k++)
+
+             c[i][j]+=a[i][k]*z.acc(k,j);
+
+             }
+
+             System.out.println("\n"+"\t"+"SHOWING RESULTANT ELEMENTS A*B");
+
+             for(int i=0;i<row;i++)
+
+             {
+
+             System.out.println("\n");
+
+             for(int j=0;j<z.co();j++)
+
+             System.out.print(" "+c[i][j]+" ");
+
+             }
+
+             }
+
+             else
+
+             System.out.println("\n"+"\n"+"\t"+"MULTIPLICATION NOT POSSIBLE");    
+
+             }
+
+}
+
+class mat1
+
+{
+
+       public static void main(String [] args)throws IOException
+
+       {
+
+
+
+           System.out.println("Enter the dimensions of first matrix"); 
+
+           DataInputStream wow=new DataInputStream(System.in);
+
+           String s=wow.readLine();
+
+           int row=Integer.parseInt(s);
+
+           s=wow.readLine();
+
+           int col=Integer.parseInt(s);
+
+           matrix1 a=new matrix1(row,col);
+
+           s=wow.readLine();
+
+           row=Integer.parseInt(s);
+
+           s=wow.readLine();
+
+           col=Integer.parseInt(s);
+
+           matrix1 b=new matrix1(row,col);
+
+           a.insert();
+
+           b.insert();
+
+           a.display();
+
+           b.display();
+
+           a.multiply(b);
+
+       }
+
+}
+
+
+
+//ARRAY OF OBJECTS
+
+ import java.io.*;
+
+class student
+
+{  String name;
+
+    int roll,age;
+
+    public void initiate(String a,int x,int y)
+
+    {
+
+    name=a;roll=x;age=y;}
+
+    public void display()
+
+    {System.out.println("\n"+"Name: "+name+"\n"+"Age: "+age+"\n"+"roll: "+roll+"\n");
+
+    }
+
+}
+
+class comp
+
+{
+
+  public static void main(String [] args)throws IOException
+
+  {
+
+  String s,str;int a,b;
+
+  DataInputStream wow=new DataInputStream(System.in);
+
+    str=wow.readLine();int max=Integer.parseInt(str);
+
+    student [] stud =new student[max];
+
+System.out.println("max is "+max);
+
+  for(int i=0;i<max;i++){
+
+       s=wow.readLine();
+
+        str=wow.readLine();a=Integer.parseInt(str);
+
+        str=wow.readLine();b=Integer.parseInt(str);
+
+        stud[i]=new student();
+
+        stud[i].initiate(s,a,b);
+
+        }
+
+        for(int i=0;i<max;i++)
+
+          stud[i].display();
+
+       }
+
+
+
+}
+
+//STACK JAVA
+
+import java.io.*;
+
+class stack
+
+{
+
+  private long [] array;
+
+  private int max,top;
+
+public stack(int a)
+
+  {max=a;array =new long[max];top=-1;}
+
+public void push(long key)
+
+   {array[++top]=key;}
+
+public long pop()
+
+   {return array[top--];}
+
+public long peek()
+
+   {return array[top];}  
+
+public boolean isempty()
+
+   {return (top==-1);}
+
+public boolean isfull()
+
+   {return (top==max-1);}
+
+}
+
+class stk
+
+{
+
+public static void main(String [] args)throws IOException
+
+  {
+
+  DataInputStream wow=new DataInputStream(System.in);
+
+  System.out.println("Enter the stack size");
+
+  String s=wow.readLine();int m=Integer.parseInt(s);
+
+  stack k=new stack(m);
+
+  System.out.println("Enter the number of elements you want to push");
+
+  s=wow.readLine();m=Integer.parseInt(s);
+
+            for(int i=0;i<m;i++)
+
+            {
+
+            if(!k.isfull())
+
+            {System.out.println("Enter key");
+
+             s=wow.readLine();long n=Integer.parseInt(s);
+
+             k.push(n);
+
+            }
+
+            }
+
+                  System.out.println("\n"+"\n"+"OUTPUT"+"\n"+"\n");
+
+                    while(!k.isempty())
+
+                    {
+
+                    System.out.print("\t"+k.pop()+"\t");
+
+                    }
+
+  }
+
+}
+
+//STACK REVERSING STRING
+
+import java.io.*;
+
+class stack
+
+{
+
+  private char [] array;
+
+  private int max,top;
+
+public stack(int a)
+
+  {max=a;array =new char[max];top=-1;}
+
+public void push(char key)
+
+   {array[++top]=key;}
+
+public char pop()
+
+   {return array[top--];}
+
+public char peek()
+
+   {return array[top];}  
+
+public boolean isempty()
+
+   {return (top==-1);}
+
+public boolean isfull()
+
+   {return (top==max-1);}
+
+}
+
+class stk1
+
+{
+
+public static void main(String [] args)throws IOException
+
+  {
+
+  DataInputStream wow=new DataInputStream(System.in);
+
+  System.out.print("\t"+"Enter a string : ");
+
+  String s=wow.readLine();
+
+  stack k=new stack(s.length());
+
+ 
+
+            for(int i=0;i<s.length();i++)
+
+            {
+
+            if(!k.isfull())
+
+            {
+
+             k.push(s.charAt(i));
+
+            }
+
+            }
+
+                  System.out.print("\n"+"\t"+"Reversed : ");
+
+                    while(!k.isempty())
+
+                    {
+
+                    System.out.print(k.pop());
+
+                    }
+
+  }
+
+}
+
+//DELIMITER MATCHING ALGORITHM
+
+import java.io.*;
+
+class stack2
+
+{
+
+  private char [] array;
+
+  private int max,top;
+
+public stack2(int a)
+
+  {max=a;array =new char[max];top=-1;}
+
+public void push(char key)
+
+   {array[++top]=key;}
+
+public char pop()
+
+   {return array[top--];}
+
+public char peek()
+
+   {return array[top];}  
+
+public boolean isempty()
+
+   {return (top==-1);}
+
+public boolean isfull()
+
+   {return (top==max-1);}
+
+}
+
+class stk2
+
+{
+
+public static void main(String [] args)throws IOException
+
+  {
+
+  DataInputStream wow=new DataInputStream(System.in);
+
+  System.out.println("Enter the stack size");
+
+  String s=wow.readLine();
+
+  stack2 k=new stack2(s.length());
+
+ 
+
+            for(int i=0;i<s.length();i++)
+
+            {
+
+           // if(!k.isfull())
+
+            char ch=s.charAt(i);
+
+            switch(ch)
+
+            {
+
+             
+
+             case '(':
+
+             case '{':
+
+             case '[':
+
+                       k.push(s.charAt(i));
+
+                        break;
+
+             case ')':
+
+             case '}':
+
+             case ']':
+
+                     if(!k.isempty())
+
+                     {char chx=k.pop();if( (ch=='}')&&(chx!='{')||(ch==']')&&(chx!='[')||(ch=='('&&chx!=')') )
+
+                     System.out.println("Error: "+ch+" at "+i);
+
+                     }
+
+                     else
+
+                         System.out.println("Error: "+ch+" at "+i);break;
+
+                             
+
+            }
+
+            }
+
+                 while(!k.isempty())
+
+                   System.out.println(k.pop()+" Error:Missing delimiter");
+
+  }
+
+}
+
+//CLASS QUEUE
+
+class que
+
+{
+
+private int max,front,rear,items;private long[] array;
+
+public que(int s){max=s;array=new long[max];front=0;rear=-1;items=0;}
+
+public void insert(long j){if(rear==max-1) rear=-1;array[++rear]=j;items++;}
+
+public long remove(){long temp=array[front++];if(front==max) front=0;items--;return temp;}
+
+public long peekfront(){return array[front];}
+
+public boolean isempty(){return items==0;}
+
+public boolean isfull(){return items==max;}
+
+public int size(){return items;}
+
+}
+
+//FOR LOOP DETAILS
+
+for loop is (almost) equal to this while loop:
+
+int i = 0;
+
+while (i < 5) {
+
+  // body
+
+  i++;
+
+}
+
+So the test is done at the beginning of each iteration and the incrementation is done at the end. The instantation is done before the first iteration.
+
+
+
+
+
+//JAVA MATRIX
+
+import java.util.*;
+
+class Matrix
+
+{
+
+private int [][] a;
+
+private int Rows,Cols;
+
+int getRows(){return Rows;}
+
+int getCols(){return Cols;}
+
+Matrix(int Rows,int Cols)
+
+{
+
+this.Rows=Rows;this.Cols=Cols;
+
+a=new int[Rows][Cols];
+
+}
+
+Matrix(){this(3,3);}
+
+int getElementAt(int i,int j){return a[i][j];}
+
+void setElementAt(int i,int j,int newVal){a[i][j]=newVal;}
+
+boolean findElement(int element)
+
+{
+
+boolean isthere=false;
+
+for(int i=0;i<getRows();i++)
+
+{
+
+for(int j=0;j<getCols();j++)
+
+        {if(a[i][j]==element){isthere=true;break;}}
+
+}
+
+return isthere;
+
+}
+
+void printMatrix()
+
+{
+
+for(int i=0;i<getRows();i++)
+
+    {
+
+    System.out.print("\n");
+
+          for(int j=0;j<getCols();j++)
+
+             System.out.print(getElementAt(i,j)+(j<getCols()-1?"\t":""));
+
+               System.out.print("|");
+
+    }
+
+}
+
+Matrix addWith(Matrix other)
+
+{
+
+ Matrix m;
+
+ if(this.getRows()==other.getRows()&&this.getCols()==other.getCols())
+
+  {
+
+   m=new Matrix(getRows(),getCols());
+
+    for(int i=0;i<getRows();i++)
+
+       for(int j=0;j<getCols();j++)
+
+         m.setElementAt(i,j,this.getElementAt(i,j)+other.getElementAt(i,j));
+
+ return m;
+
+  }
+
+  else
+
+{System.out.println("Here for A and B,Rows and Cols does not match!Invalid opeartion! ");return null;}
+
+}
+
+Matrix subtract(Matrix other)
+
+{
+
+    Matrix m;
+
+ if(this.getRows()==other.getRows()&&this.getCols()==other.getCols())
+
+  {
+
+   m=new Matrix(getRows(),getCols());
+
+    for(int i=0;i<getRows();i++)
+
+       for(int j=0;j<getCols();j++)
+
+         m.setElementAt(i,j,this.getElementAt(i,j)-other.getElementAt(i,j));
+
+ return m;
+
+  }
+
+  else
+
+{System.out.println("Here for A and B,Rows and Cols does not match!Invalid opeartion! ");return null;}
+
+}
+
+Matrix getTranspose()
+
+{
+
+ Matrix m;
+
+  m=new Matrix(getCols(),getRows());
+
+  for(int i=0;i<getRows();i++)
+
+    for(int j=0;j<getCols();j++)
+
+      m.setElementAt(i,j,this.getElementAt(j,i));
+
+return m;
+
+}
+
+};
+
+class Matrix1
+
+{
+
+public static void main(String [] args)
+
+   {int r,c,choice,status=1;
+
+    Matrix A,B,AplusB,difference,transpose;
+
+    Random rand=new Random();
+
+    A=new Matrix(3,3);
+
+   for(int i=0;i<A.getRows();i++)
+
+     for(int j=0;j<A.getCols();j++)
+
+        {int val=rand.nextInt(10);A.setElementAt(i,j,val);}
+
+     A.printMatrix();
+
+     B=new Matrix(3,3);
+
+     for(int i=0;i<B.getRows();i++)
+
+     for(int j=0;j<B.getCols();j++) 
+
+         {int val=rand.nextInt(10);B.setElementAt(i,j,val);}
+
+       System.out.println("\n");
+
+       B.printMatrix();
+
+       AplusB=A.addWith(B);
+
+        System.out.println("\n\n"+"The sum A+B is");
+
+        AplusB.printMatrix();
+
+   }
+
+}
+
+
+
+//AWKWARD BUT VALID REPRESENTATION
+
+
+
+#include<iostream>
+
+int main() {
+
+	int a[2];
+
+	0[a] = 1;
+
+	std::cout << 0[a];
+
+	getchar(); getchar();
+
+	return 0;
+
+}
+
+
+
+//Polynomial addition java
+
+
+
+import java.io.*;
+
+class Link
+
+
+{
+
+
+  public int coeff;
+ 
+
+  public int exp;
+ 
+
+  Link next;
+  
+
+  public Link(int a,int b)
+{
+
+   coeff=a;exp=b;
+
+}
+  
+
+   public int retcof(){
+
+    return coeff;
+
+}
+  
+
+   public int retexp() {
+
+    return exp;
+
+}
+  
+
+   public void displayLink(){
+
+   System.out.print(coeff+"x^"+exp);
+
+}
+
+
+
+
+}
+
+
+                                                                         
+
+ class LinkList{
+  
+
+ 
+
+ Link first;
+  
+
+ 
+
+public LinkList(){
+
+           ;
+
+}
+  
+
+  public void insertfirst(int x,int y)
+{
+
+  Link newLink=new Link(x,y);
+  
+
+  newLink.next=first;
+   
+
+  first=newLink;
+
+}
+ 
+
+public void displayList()
+
+{
+
+  Link x=first;int flag=0,flag1=0,flag2=0;
+
+   while(x!=null)
+
+   {
+
+       if(flag==0)
+
+       {
+
+        if(x!=null&&x.retcof()!=0) {x.displayLink();flag=1;flag1=1;x=x.next;}
+
+        else if(x!=null&&x.retcof()==0) {x=x.next;}
+
+       }
+
+       if(x!=null&&x.retcof()>0&&flag1==1)
+
+          { System.out.print("+");x.displayLink();flag2=1;x=x.next;} 
+
+       else if(x!=null&&x.retcof()<0&&flag1==1)
+
+         {x.displayLink();x=x.next;}
+
+       else if(x!=null&&x.retcof()==0)
+
+          x=x.next;
+
+           
+
+        if(x!=null&&x.next==null)
+
+          {
+
+           if(x.retcof()>0&&(flag1==1||flag2==1))
+
+             {System.out.print("+");x.displayLink();x=x.next;}
+
+           else if(x.retcof()<0)
+
+             {x.displayLink();x=x.next;}
+
+           else if(x.retcof()==0)
+
+              {x=x.next;}
+
+          }   
+
+    }
+
+
+
+}
+
+
+
+
+
+public void add(LinkList a,LinkList b)
+{
+
+Link current1=a.first;
+ 
+
+  Link current2=b.first;
+
+
+  LinkList qwe=new LinkList();
+
+while (current1 != null || current2 != null) {       
+
+   if (current1 == null&&current2!=null)    
+
+       {qwe.insertfirst(current2.retcof(),current2.retexp());current2 = current2.next;}
+
+    if (current2 == null&&current1!=null)   
+
+      {qwe.insertfirst(current1.retcof(),current1.retexp());  current1 = current1.next;}   
+
+    if ((current1 != null && current2 != null)&&(current1.retexp() > current2.retexp()))  
+
+     {qwe.insertfirst(current1.retcof(),current1.retexp()); current1 = current1.next;}            
+
+    else if ((current1 != null && current2 != null)&&(current1.retexp() < current2.retexp()))   
+
+       {qwe.insertfirst(current2.retcof(),current2.retexp()); current2 = current2.next;}   
+
+    else if((current1 != null && current2 != null)&&(current1.retexp() == current2.retexp()))    
+
+       {qwe.insertfirst(current2.retcof()+current1.retcof(),current2.retexp()); current1 = current1.next; current2 = current2.next;}       
+
+    }
+
+    qwe.displayList();
+
+   }
+
+}
+
+
+  class poly{
+
+
+  
+
+  public static void main(String [] args)throws IOException
+{
+
+
+
+   int degree1,degree2,num1,itr;
+
+
+ 
+
+    LinkList wow=new LinkList();
+
+
+  
+
+    LinkList wow1=new LinkList();
+
+
+  
+
+  System.out.println("Enter the degree of the first polynomial "+" ");
+
+
+  
+
+  DataInputStream X=new DataInputStream(System.in);
+
+
+  
+
+  String s=X.readLine();
+
+  
+
+  degree1=Integer.parseInt(s);
+
+
+  
+
+  itr=degree1;
+
+ 
+ 
+
+  while(!(itr<0)){ 
+
+
+  System.out.print("enter the coeff of x^"+itr+" : ");
+ 
+
+   s=X.readLine();
+
+   num1=Integer.parseInt(s);
+
+   wow.insertfirst(num1,itr);
+ 
+
+   itr--;
+
+
+  } 
+ 
+
+  wow.displayList();
+
+
+  
+
+  System.out.println("\n"+"Enter the degree of the second polynomials "+" ");
+
+
+  
+
+  s=X.readLine();
+
+  
+
+  degree2=Integer.parseInt(s);
+
+  
+
+  itr=degree2;
+
+
+  
+
+  while(!(itr<0))
+{
+
+
+  System.out.print("enter the coeff of x^"+itr+" : ");
+ 
+
+  s=X.readLine();
+
+  num1=Integer.parseInt(s);
+
+  wow1.insertfirst(num1,itr);
+ itr--;
+
+  
+}
+
+  wow1.displayList();
+
+  System.out.println("\n");
+
+
+
+  System.out.print("First polynomial is : ");
+
+  wow.displayList();
+
+
+  System.out.println("\n");
+
+
+  System.out.print("Second polynomial is : ");
+
+  wow1.displayList();
+
+  System.out.println("\n");
+
+
+  System.out.print("Sum of both polynomial is : ");
+
+  wow.add(wow,wow1);
+
+
+  System.out.println("\n");
+
+
+}
+
+
+}
+
+
+
+
+//JAVA EUCLID's ALGORITHM
+
+
+
+import java.io.*;
+
+class GCD
+
+{
+
+public int gcd(int a,int b)
+
+ {return(a%b==0?b:gcd(b,a%b));}
+
+}
+
+class p
+
+{
+
+public static void main(String []args)throws IOException
+
+{GCD g=new GCD();
+
+ DataInputStream wow=new DataInputStream(System.in);
+
+ String s=wow.readLine();String a=wow.readLine(); 
+
+int m,n;
+
+ m=Integer.parseInt(s);n=Integer.parseInt(a);
+
+ System.out.println("GCD IS : "+g.gcd(m,n));
+
+ int r=m%n;
+
+ while(r>=0&&r<n)
+
+  {
+
+  if(r==0)
+
+    {System.out.println("GCD IS : "+n);break;}
+
+  else
+
+   {m=n;n=r;}
+
+   r=m%n;
+
+  }
+
+}
+
+}
+
+//GCD AND COEFFICIENTS java
+
+
+
+import java.io.*;
+
+class a
+
+{
+
+public static void main(String [] args)throws IOException
+
+{DataInputStream wow=new DataInputStream(System.in);
+
+String s;
+
+ System.out.println("Enter two numbers to find GCD ");
+
+ int a=0,a_dash=1,c=Integer.parseInt(wow.readLine()),b=1,b_dash=0,d=Integer.parseInt(wow.readLine());
+
+ int q=c/d;
+
+ int r=c%d;
+
+System.out.println("\n\n"+"a_dash  a  b_dash  b  c  d  q  r");
+
+              System.out.println("\n"+"     "+a_dash+"  "+a+"       "+b_dash+"  "+b+"  "+c+"  "+d+"  "+q+"  "+r);
+
+ if(r==0) { System.out.println("GCD IS : "+d);}
+
+ while(r!=0)
+
+ {
+
+ c=d;d=r;
+
+ int t=a_dash;a_dash=a;a=t-q*a;
+
+ t=b_dash;b_dash=b;b=t-q*b;
+
+ q=c/d;r=c%d;
+
+              System.out.println("\n"+"     "+a_dash+"  "+a+"       "+b_dash+"  "+b+"  "+c+"  "+d+"  "+q+"  "+r);
+
+ if(r==0) {System.out.println("GCD IS : "+d);}
+
+ }
+
+}
+
+}
+
+
+
+//BINARY SEARCH TREES
+
+
+
+class Node
+
+{
+
+public int iData;
+
+public double dData;
+
+public Node leftChild;
+
+public Node rightChild;
+
+public void displayNode()
+
+{
+
+System.out.print("{");
+
+System.out.print(iData);
+
+System.out.print(", ");
+
+System.out.print(dData);
+
+System.out.print("} ");
+
+}
+
+}
+
+class Tree
+
+{
+
+private Node root;
+
+public Node find(int key)
+
+{
+
+Node current=root;
+
+while(current.iData!=key)
+
+ {
+
+  if(key<current.iData)
+
+     current=current.leftChild;
+
+  else
+
+     current=current.rightChild;
+
+if(current==null)
+
+   return null;
+
+ }
+
+return current;
+
+}
+
+public void insert(int id,double dd)
+
+{
+
+Node newNode=new Node();
+
+newNode.iData=id;
+
+newNode.dData=dd;
+
+if(root==null)
+
+   root=newNode;
+
+else
+
+{
+
+Node parent,current=root;
+
+while(true)
+
+{
+
+parent=current;
+
+if(id<current.iData)
+
+ {  current=current.leftChild;
+
+  if(current==null)
+
+    {parent.leftChild=newNode;return;}  
+
+ }
+
+else
+
+ {
+
+  current=current.rightChild;
+
+    if(current==null)
+
+     {parent.rightChild=newNode;return;}
+
+ }
+
+}
+
+}
+
+
+
+}
+
+public boolean delete(int key)
+
+{
+
+Node current=root;
+
+Node parent=root;
+
+boolean isLeftChild=true;
+
+while(current.iData!=key)
+
+{
+
+parent=current;
+
+  if(key<current.iData)
+
+  {isLeftChild=true;current=current.leftChild;}
+
+  else
+
+  {isLeftChild=false;current=current.rightChild;}
+
+  if(current==null)
+
+    return false;
+
+}
+
+if(current.leftChild==null&&current.rightChild==null)
+
+{
+
+if(current==root)
+
+   root=null;
+
+else if(isLeftChild)
+
+   parent.leftChild=null;
+
+else
+
+   parent.rightChild=null;
+
+}
+
+else if(current.rightChild==null)
+
+    if(current==root)
+
+        root=current.leftChild;
+
+    else if(isLeftChild)
+
+        parent.leftChild=current.leftChild;
+
+    else
+
+       parent.rightChild=current.leftChild;
+
+    
+
+else if(current.leftChild==null)
+
+     if(current==root)
+
+        root=current.rightChild;
+
+     else if(isLeftChild)
+
+        parent.leftChild=current.rightChild;
+
+     else
+
+        parent.rightChild=current.rightChild;
+
+else
+
+    {
+
+     Node successor=getSuccessor(current);
+
+     if(current==root)
+
+       root=successor;
+
+     else if(isLeftChild)
+
+       parent.leftChild=successor;
+
+     else
+
+       parent.rightChild=successor;
+
+
+
+    successor.leftChild=current.leftChild;
+
+     }
+
+
+
+return true;
+
+}
+
+private Node getSuccessor(Node delNode)
+
+{
+
+Node successorParent=delNode;
+
+Node successor=delNode;
+
+Node current=delNode.rightChild;
+
+while(current!=null)
+
+{
+
+successorParent=successor;
+
+successor=current;
+
+current=current.leftChild;
+
+}
+
+if(successor!=delNode.rightChild)
+
+{
+
+successorParent.leftChild=successor.rightChild;
+
+successor.rightChild=delNode.rightChild;
+
+}
+
+
+
+return successor;
+
+}
+
+public void traverse(int traverseType)
+
+{
+
+switch(traverseType)
+
+      {
+
+       case 1:System.out.print("\nPreorder traversal:  ");
+
+              preOrder(root);
+
+              break;
+
+       case 2:System.out.print("\nInorder traversal:  ");
+
+              inOrder(root);
+
+              break;
+
+       case 3:System.out.print("\nPostorder traversal");
+
+              postOrder(root);
+
+              break;
+
+
+
+      }
+
+System.out.println();
+
+}
+
+public void inOrder(Node localroot)
+
+{
+
+  if(localroot!=null)
+
+  {
+
+  inOrder(localroot.leftChild);
+
+  localroot.displayNode();
+
+  inOrder(localroot.rightChild);
+
+  }
+
+}
+
+public void preOrder(Node localroot)
+
+{
+
+
+
+if(localroot!=null)
+
+  {
+
+  localroot.displayNode();
+
+  preOrder(localroot.leftChild);
+
+  preOrder(localroot.rightChild);  
+
+  }
+
+}
+
+public void postOrder(Node localroot)
+
+{
+
+if(localroot!=null)
+
+  {
+
+  postOrder(localroot.leftChild);
+
+  postOrder(localroot.rightChild);
+
+  localroot.displayNode();  
+
+  }
+
+}
+
+//public void displayTree()
+
+}
+
+class aa
+
+{
+
+public static void main(String [] args)
+
+{
+
+
+
+Tree theTree=new Tree();
+
+theTree.insert(50,1.5);
+
+theTree.insert(25,1.2);
+
+theTree.insert(75,1.7);
+
+theTree.insert(12,1.5);
+
+theTree.insert(37,1.2);
+
+theTree.insert(43,1.7);
+
+theTree.insert(30,1.5);
+
+theTree.insert(33,1.2);
+
+theTree.insert(87,1.7);
+
+theTree.insert(93,1.5);
+
+theTree.insert(97,1.5);
+
+Node found=theTree.find(30);
+
+if(found!=null)
+
+   found.displayNode();
+
+boolean didDelete=theTree.delete(33);
+
+   if(didDelete)
+
+      System.out.println("deleted");
+
+theTree.traverse(2);
+
+}
+
+}
+
+//SORTING BUBBLE,SELECTION,INSERTION
+
+class sort
+
+{
+
+static int a[]={-23,5,6,1,2,0,545,546,4553,565,66,345};
+
+public static void bubble(int a[],int size)
+
+{
+
+for(int out=size-1;out>=0;out--)
+
+   for(int in=0;in<out;in++)
+
+        if(a[in]>a[in+1])
+
+            {
+
+              int temp=a[in];
+
+               a[in]=a[in+1];
+
+                a[in+1]=temp;
+
+            }
+
+
+
+}
+
+public static void selection(int a[],int size)
+
+{
+
+ for(int i=0;i<size;i++)
+
+   {
+
+    int low=i;
+
+       for(int k=i+1;k<size;k++)
+
+           if(a[k]<a[low])
+
+              low=k;
+
+         if(low!=i)
+
+          {
+
+          int temp=a[low];
+
+          a[low]=a[i];
+
+          a[i] = temp;
+
+          }
+
+    }
+
+} 
+
+public static void insertion(int a[],int size)
+
+{
+
+ for(int out=1;out<size;out++)
+
+   {
+
+    int temp=a[out];
+
+      int in=out;
+
+      while(in>0&&a[in-1]>=temp)
+
+       {a[in]=a[in-1];--in;}
+
+     a[in]=temp;
+
+   }
+
+}
+
+public static void display(int a[],int size)
+
+ {for(int i=0;i<size;i++)
+
+    System.out.println(a[i]);
+
+ }
+
+
+
+public static void main(String [] args)
+
+ {
+
+   //bubble(a,a.length);
+
+    //selection(a,a.length);
+
+    insertion(a,a.length);  
+
+  display(a,a.length);
+
+ }
+
+}
+
+
+
+
+
+
+
+//LINKED LISTS DOUBLE ENDED
+
+import java.io.*;
+
+class data{
+
+String name;
+
+int roll;
+
+int age;
+
+
+
+public data(String a,int b,int c){
+
+name=a;roll=b;age=c;
+
+}
+
+public void displaydata(){
+
+System.out.println("Name : "+name+" Roll : "+roll+" Age : "+age);
+
+}
+
+
+
+public String retname(){
+
+ return name;
+
+}
+
+public int retroll(){
+
+return roll;
+
+}
+
+public int retage(){
+
+return age;
+
+}
+
+
+
+}
+
+
+
+class Link{
+
+data d;
+
+Link next;
+
+
+
+public Link(String a,int b,int c){
+
+  d=new data(a,b,c);
+
+}
+
+
+
+public void displayLink(){
+
+d.displaydata();
+
+}
+
+
+
+}
+
+class LinkList{
+
+Link first,last;
+
+
+
+public void insertfirst(String a,int b,int c){
+
+    Link newLink=new Link(a,b,c);
+
+      if(isEmpty())
+
+         last=first=newLink;
+
+      else{
+
+         newLink.next=first;first=newLink;
+
+          }
+
+}
+
+public void insertlast(String a,int b,int c){
+
+        Link newLink=new Link(a,b,c);
+
+           if(isEmpty())
+
+               first=last=newLink;
+
+           else{
+
+               last.next=newLink;last=newLink;
+
+               }
+
+}
+
+public Link deletefirst(){
+
+    Link temp=first;
+
+      if(first==last)
+
+         first=last=null;
+
+      else
+
+         first=first.next;
+
+   return temp;
+
+}
+
+public boolean isEmpty(){
+
+  return first==null&&last==null;
+
+}
+
+public Link seefirst(){
+
+return first;
+
+}
+
+public void displayList(){
+
+     Link current=first;
+
+       while(current!=null)
+
+       {
+
+       current.displayLink();
+
+       current=current.next;
+
+       }
+
+}
+
+public Link deletelast(){
+
+     Link current,prev;
+
+     prev=current=first;
+
+     while(current.next!=null)
+
+     {
+
+     prev=current;
+
+     current=current.next;
+
+     }
+
+     Link temp=current;
+
+     if(!(first==last)){
+
+         last=prev;last.next=null;
+
+         }
+
+     else
+
+         first=last=null;
+
+   return temp;
+
+}
+
+public void insertbefore(Link before,String a,int b,int c){
+
+          Link newLink=new Link(a,b,c);
+
+          Link m=findprevbefore(before.d.retname());
+
+            if(before==first){
+
+                newLink.next=first;first=newLink;
+
+                }
+
+            else{
+
+            newLink.next=before;m.next=newLink;
+
+                }
+
+}
+
+public void insertafter(Link after,String a,int b,int c){
+
+         Link newLink=new Link(a,b,c);   
+
+              newLink.next=after.next;
+
+              after.next=newLink;
+
+}
+
+public Link findafter(String s){
+
+       Link current=first;
+
+         if(!isEmpty()){
+
+            while(!(current.d.retname()).equals(s))
+
+                if(current.next!=null) 
+
+                      current=current.next;
+
+                else{
+
+                    current=current.next;break;
+
+                    }
+
+            }
+
+     return current;
+
+}
+
+public Link findbefore(String s){
+
+
+
+     Link current=first;
+
+         if(!isEmpty()){
+
+           while(!(current.d.retname()).equals(s))
+
+             if(current.next!=null)
+
+                  current=current.next;
+
+             else{
+
+                 current=current.next;break;
+
+                 }   
+
+          }
+
+  return current;
+
+}
+
+public Link findprevbefore(String s){
+
+          Link prev,current=first;
+
+              prev=current;
+
+while(!(current.d.retname()).equals(s)){
+
+   prev=current;
+
+   current=current.next;
+
+   }
+
+  return prev;
+
+}
+
+public Link findprev(Link x){
+
+Link current=first;
+
+   if(x==first)
+
+       return null;
+
+   else{  
+
+      while(current.next!=x)
+
+      current=current.next;
+
+      return current;
+
+        }
+
+}
+
+public void displayLast(){
+
+     Link m=last;
+
+       while(m!=null&&m.next!=first){
+
+              m.displayLink();
+
+              m=findprev(m);
+
+            }
+
+}
+
+public Link find(String s){
+
+         Link current=first;
+
+             if(!isEmpty()){
+
+                while(!(current.d.retname().equals(s))){
+
+                    if(current.next!=null) 
+
+                        current=current.next;
+
+                    else{
+
+                        current=current.next;break;
+
+                        }
+
+                      }
+
+                      return current;
+
+               }
+
+            return null;
+
+}
+
+public Link deleteLink(String x){
+
+          if(!isEmpty()){
+
+             Link m=find(x);
+
+                if(m!=null){
+
+                       if(m==first&&m==last)
+
+                           first=last=null;
+
+                       else if(m==first)
+
+                           first=first.next;
+
+                       else if(m==last){
+
+                            Link z=findprevbefore(x);
+
+                            z.next=null;last=z;
+
+                         }
+
+                else{
+
+                    Link z=findprevbefore(x);
+
+                      z.next=m.next;
+
+                    }
+
+                }
+
+             return m; 
+
+            }
+
+return null;
+
+}
+
+public void insertSortedName(String a,int b,int c)
+
+{
+
+Link newLink=new Link(a,b,c);
+
+Link prev=null,current=first;
+
+ 
+
+while(current!=null&&current.d.retname().compareTo(a)<0)
+
+  {prev=current;current=current.next;}
+
+     if(first==null)
+
+     {first=last=newLink;}
+
+     else if(current==first)
+
+     {newLink.next=current;first=newLink;}   
+
+     else
+
+     {newLink.next=current;prev.next=newLink;}
+
+
+
+}
+
+public void insertSortedNumAge(Link x)
+
+     {
+
+    Link current=first,prev=null;
+
+      while(current!=null&&x.d.retage()>current.d.retage())
+
+         {
+
+           prev=current;
+
+           current=current.next;
+
+         }
+
+         if(first==null)
+
+          {first=last=x;}
+
+         else if(prev==null)
+
+          {
+
+            x.next=first;
+
+            first=x;
+
+          }
+
+         else
+
+          {
+
+            prev.next=x;
+
+            x.next=current;
+
+          }
+
+
+
+      }
+
+ public void insertSortedNumRoll(Link x)
+
+     {
+
+      Link current=first,prev=null;
+
+      while(current!=null&&x.d.retroll()>current.d.retroll())
+
+         {
+
+           prev=current;
+
+           current=current.next;
+
+         }
+
+          if(first==null)
+
+          {first=last=x;}
+
+         else if(prev==null)
+
+           {
+
+            x.next=first;
+
+            first=x;
+
+          }
+
+         else
+
+          {
+
+            prev.next=x;
+
+            x.next=current;
+
+          }
+
+
+
+      }
+
+public void merge(LinkList a,LinkList b)throws IOException
+
+{
+
+  Link current=b.first, p;
+
+    DataInputStream wow=new DataInputStream(System.in);
+
+           System.out.println("merge : sort by name(enter 1) roll(enter 2)  age (enter except 1 and  2)");
+
+              int m=Integer.parseInt(wow.readLine());
+
+    if(m==1)
+
+      while(current!=null)
+
+      {
+
+      p=current.next;
+
+      a.insertSortedName(current.d.retname(),current.d.retroll(),current.d.retage());
+
+      current=p;
+
+      }
+
+    else if(m==2) 
+
+     while(current!=null)
+
+      {
+
+      p=current.next;
+
+      a.insertSortedNumRoll(current);
+
+      current=p;
+
+      }
+
+    else
+
+      while(current!=null)
+
+      {
+
+      p=current.next;
+
+      a.insertSortedNumAge(current);
+
+      current=p;
+
+      }
+
+      
+
+ }
+
+public void insert(LinkList k)throws IOException
+
+{
+
+DataInputStream wow=new DataInputStream(System.in);
+
+String loc;
+
+System.out.println("Insert sorted: By name(enter 1) or roll(enter 2)or age(enter 3)?");
+
+                          int i=Integer.parseInt(wow.readLine());
+
+                                          switch(i)
+
+                                          {
+
+                                          case 1:
+
+                                          do  
+
+                                          {
+
+                                          k.insertSortedName(wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                                          System.out.println("Again? Y/y");
+
+                                           loc=wow.readLine();
+
+                                          }while(loc.compareTo("Y")==0||loc.compareTo("y")==0);
+
+                                                 break;
+
+                                          case 2:
+
+                                          do  
+
+                                          {
+
+                                          Link newLink=new Link(wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                                          k.insertSortedNumRoll(newLink);
+
+                                          System.out.println("Again? Y/y");
+
+                                           loc=wow.readLine();
+
+                                          }while(loc.compareTo("Y")==0||loc.compareTo("y")==0);                         
+
+                                                    break;
+
+                                          case 3:
+
+                                           do  
+
+                                          {
+
+                                          Link newLink1=new Link(wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                                          k.insertSortedNumAge(newLink1);
+
+                                          System.out.println("Again? Y/y");
+
+                                           loc=wow.readLine();
+
+                                          }while(loc.compareTo("Y")==0||loc.compareTo("y")==0);  
+
+                                                   break;
+
+                                          }
+
+
+
+
+
+
+
+
+
+}
+
+}
+
+class l{
+
+public static void main(String [] args)throws IOException{
+
+        DataInputStream wow=new DataInputStream(System.in);
+
+              String loc,s;int mm,l,i=0;
+
+                    Link z;
+
+               LinkList l1=new LinkList();
+
+                 LinkList l2=new LinkList();
+
+do{
+
+  System.out.println("\n 1.INSERT FIRST \n 2.INSERT LAST \n 3.DELETE FIRST \n 4.DELETE LAST \n 5.DISPLAY FIRST \n 6.INSERT AFTER \n 7.INSERT BEFORE \n 8.DISPLAY LAST \n 9.DELETE LINK \n 10.FIND LINK BY NAME \n 11.INSERT SORTED \n 12.MERGE SORTED \n"+"\n"+"\nEnter a choice bitch!\n");
+
+      int ch=Integer.parseInt(wow.readLine());
+
+      if(ch>=1||ch<=12){
+
+         switch(ch)
+
+         {
+
+          case 1:System.out.println("\nINSERT FIRST\n"+"\nEnter the number of items to insert first\n");
+
+             mm=Integer.parseInt(wow.readLine());             
+
+                 for( i=0;i<mm;i++){
+
+                    if(i==0)
+
+                       System.out.println("Enter Name Roll and Age for the students :");   
+
+                    l1.insertfirst(wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                    }
+
+                    break;
+
+          case 2:System.out.println("\nINSERT LAST\n"+"\nEnter the number of items to insert last\n");
+
+                       mm=Integer.parseInt(wow.readLine());               
+
+                         for(i=0;i<mm;i++){
+
+                            if(i==0)
+
+                       System.out.println("Enter Name Roll and Age for the students :");   
+
+                          l1.insertlast(wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                         }    
+
+                         break;
+
+          case 3:System.out.println("\nDELETE FIRST\n");
+
+                    System.out.println("Enter the number of items to delete");
+
+                l=Integer.parseInt(wow.readLine());
+
+                     i=0;
+
+                  while(i<l&&!l1.isEmpty()){    
+
+                  System.out.println("DELETED FIRST");
+
+                   Link m=l1.deletefirst();
+
+                       if(m!=null)
+
+                          m.displayLink();
+
+                    i++;
+
+                  }
+
+                  break;
+
+          case 4:System.out.println("\nDELETE LAST\n");
+
+                System.out.println("Enter the number of items to delete");
+
+                 l=Integer.parseInt(wow.readLine());
+
+                    i=0;
+
+                 while(i<l&&!l1.isEmpty()){
+
+                    System.out.println("DELETED LAST");
+
+                      Link m=l1.deletelast();
+
+                       if(m!=null)
+
+                         m.displayLink();
+
+                     i++;  
+
+                     }
+
+                     break;
+
+
+
+          case 5:System.out.println("\nDISPLAY LIST\n");
+
+                   System.out.println("\nList\n");
+
+                       if(!l1.isEmpty())
+
+                         l1.displayList();
+
+                       else
+
+                         System.out.println("LIST EMPTY");
+
+                            break; 
+
+          case 6: System.out.println("Insert after a name");
+
+                 if(!l1.isEmpty()){
+
+                           z=l1.findafter(wow.readLine());
+
+                             if(z!=null)
+
+                                l1.insertafter(z,wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                             else
+
+                                System.out.println("NOT FOUND");
+
+                                }
+
+                 else
+
+                   System.out.println("List is empty");
+
+                       break;
+
+          case 7:System.out.println("Insert before a name");
+
+                  if(!l1.isEmpty()){
+
+                          z=l1.findbefore(wow.readLine());
+
+                             if(z!=null)
+
+                                l1.insertbefore(z,wow.readLine(),Integer.parseInt(wow.readLine()),Integer.parseInt(wow.readLine()));
+
+                             else
+
+                               System.out.println("NOT FOUND");
+
+                          }  
+
+                  else
+
+                          System.out.println("LIST EMPTY");    
+
+                           break;
+
+         case 8:l1.displayLast();
+
+                    break;
+
+         case 9:System.out.println("Enter the name to delete");
+
+                   z=l1.deleteLink(wow.readLine());
+
+                         if(z!=null){
+
+                                     System.out.println("DELETED");
+
+                                    z.displayLink();
+
+                                     }  
+
+                          else
+
+                            System.out.println("NOT FOUND");
+
+                                 break;
+
+         case 10:System.out.println("Search a link by name");
+
+              z=l1.find(wow.readLine());
+
+                   if(z!=null){
+
+                     System.out.println("FOUND");
+
+                       z.displayLink();
+
+                      }  
+
+                   else
+
+                       System.out.println("NOT FOUND");
+
+                          break;
+
+        case 11:l1.insert(l1);
+
+                              break;
+
+       case 12:System.out.println("MERGE TWO SORTED LISTS");
+
+                  if(l1.first==null)
+
+                     {
+
+                     System.out.println("Enter the first list");
+
+                      l1.insert(l1);
+
+                     }
+
+                     System.out.println("Enter the Second list");
+
+                               l2.insert(l2);
+
+                         System.out.println("FIRST LIST");
+
+
+
+                                 l1.displayList();
+
+                         
+
+                          System.out.println("SECOND LIST");
+
+                       
+
+                                  l2.displayList();
+
+                        System.out.println("MERGED LIST:");
+
+                          
+
+                             l1.merge(l1,l2);//Merging L2 in L1.
+
+                                 l1.displayList();
+
+                                     break;
+
+          }      
+
+                        }
+
+                       System.out.println("Again? Y/y");
+
+                         s=wow.readLine();
+
+   }while(s.charAt(0)=='Y'||s.charAt(0)=='y');
+
+}
+
+}
+
+
+
+//QUEUE USING DOUBLE ENDED LINKED LIST
+
+
+
+import java.io.*;
+
+class Link
+
+{
+
+int data;
+
+Link next;
+
+public Link(int d)
+
+{data= d;}
+
+public void displayLink()
+
+{System.out.println(data);}
+
+public int retdata(){return data;}
+
+}
+
+class LinkList
+
+{
+
+Link first;
+
+Link last;
+
+public void insertlast(int d)
+
+{
+
+Link newLink=new Link(d);
+
+  if(first==null&&last==null)//we can call isEmpty here
+
+     first=last=newLink;     //last=newLink
+
+  else
+
+    {last.next=newLink;last=newLink;}//last=newLink
+
+}                      //as last=newLink is in both if and else we can take that common out and write it as a common statement for both.
+
+public int deletefirst()
+
+{
+
+Link temp=first;
+
+ if(first==last)
+
+    first=last=null;
+
+ else
+
+  first=first.next;
+
+   return temp.retdata();
+
+  
+
+}
+
+public boolean isEmpty()
+
+{return (first==null)&&(last==null);}//why does it work with only first==null as well
+
+public void displayList()
+
+{
+
+Link current=first;
+
+while(current!=null)
+
+   {
+
+   current.displayLink();
+
+   current=current.next;
+
+   }
+
+}
+
+}
+
+class queue
+
+{
+
+LinkList l;
+
+  public queue()
+
+   {l=new LinkList();}
+
+  public void insert(int d)
+
+  {
+
+  l.insertlast(d);
+
+  }
+
+  public int delete()
+
+  {
+
+  return l.deletefirst();
+
+  } 
+
+  public void displayqueue()
+
+  {
+
+  System.out.println("DISPLAYING QUEUE");
+
+  l.displayList();
+
+  }
+
+  public boolean isEmpty()
+
+  {return l.isEmpty();}
+
+}
+
+class run1
+
+{
+
+public static void main(String [] args)throws IOException
+
+    {
+
+   queue q=new queue();
+
+   q.insert(-2);
+
+   q.insert(20);
+
+   q.insert(23);
+
+   q.insert(25);
+
+   q.displayqueue();
+
+   while(!q.isEmpty())
+
+     System.out.println(q.delete());
+
+    }
+
+
+
+
+
+
+
+
+
+}
+
+
+
+//STACK USING SINGLE ENDED LINKED LIST
+
+import java.io.*;
+
+class Link
+
+{
+
+int d;
+
+Link next;
+
+public Link(int z){d=z;}
+
+public int retdata()
+
+{return d;}
+
+public void displayLink()
+
+{System.out.println(d);}
+
+}
+
+class LinkList
+
+{
+
+Link first;
+
+public void insertfirst(int d)
+
+{
+
+Link newLink=new Link(d);
+
+     if(first==null)
+
+        first=newLink;
+
+     else
+
+       {newLink.next=first;first=newLink;}
+
+}
+
+public int deletefirst()
+
+{
+
+Link temp=first;
+
+ if(first==null)
+
+       ;
+
+ else
+
+  {first=first.next;}
+
+return temp.retdata();
+
+}
+
+
+
+}
+
+class stack
+
+{
+
+LinkList l;
+
+public stack()
+
+{
+
+l=new LinkList();
+
+}
+
+public void push(int data)
+
+ {
+
+ l.insertfirst(data);  
+
+ }
+
+public int pop()
+
+ {
+
+ return l.deletefirst(); 
+
+ }
+
+public int peek()
+
+{  
+
+   return l.first.retdata();
+
+}
+
+public boolean isEmpty()
+
+{
+
+return l.first==null;
+
+}
+
+}
+
+
+
+
+
+class run
+
+{
+
+public static void main(String [] args)throws IOException
+
+    {
+
+      stack stk=new stack();
+
+      stk.push(89);stk.push(89);stk.push(89);stk.push(89);
+
+      while(!stk.isEmpty())
+
+      System.out.println(stk.pop());
+
+    }
+
+ 
+
+
+
+}
+
+
+
+//STACK USING SINGLE ENDED LINKED LIST AND USED FOR TREE TRAVERSALS(RECURSIVE AND NON-RECURSIVE(ONLY THIS ONE NEEDS STACK))
+
+import java.io.*;
+
+class Link
+
+{
+
+Node d;
+
+Link next;
+
+public Link(Node z){d=z;}
+
+public Node retdata()
+
+{return d;}
+
+public void displayLink()
+
+{d.displayNode();}
+
+}
+
+class LinkList
+
+{
+
+Link first;
+
+public void insertfirst(Node d)
+
+{
+
+Link newLink=new Link(d);
+
+     if(first==null)
+
+        first=newLink;
+
+     else
+
+       {newLink.next=first;first=newLink;}
+
+}
+
+public Node deletefirst()
+
+{
+
+Link temp=first;
+
+ if(first==null)
+
+       ;
+
+ else
+
+  {first=first.next;}
+
+return temp.retdata();
+
+}
+
+
+
+}
+
+class stack
+
+{
+
+LinkList l;
+
+public stack()
+
+{
+
+l=new LinkList();
+
+}
+
+public void push(Node data)
+
+ {
+
+ l.insertfirst(data);  
+
+ }
+
+public Node pop()
+
+ {
+
+ return l.deletefirst(); 
+
+ }
+
+public Node peek()
+
+{  
+
+   return l.first.retdata();
+
+}
+
+public boolean isEmpty()
+
+{
+
+return l.first==null;
+
+}
+
+}
+
+
+
+
+
+class Node
+
+{
+
+public int iData;
+
+public double dData;
+
+public Node leftChild;
+
+public Node rightChild;
+
+public void displayNode()
+
+{
+
+System.out.print("{");
+
+System.out.print(iData);
+
+System.out.print(", ");
+
+System.out.print(dData);
+
+System.out.print("} ");
+
+}
+
+}
+
+class Tree
+
+{
+
+private Node root;
+
+public Node find(int key)
+
+{
+
+Node current=root;
+
+while(current.iData!=key)
+
+ {
+
+  if(key<current.iData)
+
+     current=current.leftChild;
+
+  else
+
+     current=current.rightChild;
+
+if(current==null)
+
+   return null;
+
+ }
+
+return current;
+
+}
+
+public void insert(int id,double dd)
+
+{
+
+Node newNode=new Node();
+
+newNode.iData=id;
+
+newNode.dData=dd;
+
+if(root==null)
+
+   root=newNode;
+
+else
+
+{
+
+Node parent,current=root;
+
+while(true)
+
+{
+
+parent=current;
+
+if(id<current.iData)
+
+ {  current=current.leftChild;
+
+  if(current==null)
+
+    {parent.leftChild=newNode;return;}  
+
+ }
+
+else
+
+ {
+
+  current=current.rightChild;
+
+    if(current==null)
+
+     {parent.rightChild=newNode;return;}
+
+ }
+
+}
+
+}
+
+
+
+}
+
+public boolean delete(int key)
+
+{
+
+Node current=root;
+
+Node parent=root;
+
+boolean isLeftChild=true;
+
+while(current.iData!=key)
+
+{
+
+parent=current;
+
+  if(key<current.iData)
+
+  {isLeftChild=true;current=current.leftChild;}
+
+  else
+
+  {isLeftChild=false;current=current.rightChild;}
+
+  if(current==null)
+
+    return false;
+
+}
+
+if(current.leftChild==null&&current.rightChild==null)
+
+{
+
+if(current==root)
+
+   root=null;
+
+else if(isLeftChild)
+
+   parent.leftChild=null;
+
+else
+
+   parent.rightChild=null;
+
+}
+
+else if(current.rightChild==null)
+
+    if(current==root)
+
+        root=current.leftChild;
+
+    else if(isLeftChild)
+
+        parent.leftChild=current.leftChild;
+
+    else
+
+       parent.rightChild=current.leftChild;
+
+    
+
+else if(current.leftChild==null)
+
+     if(current==root)
+
+        root=current.rightChild;
+
+     else if(isLeftChild)
+
+        parent.leftChild=current.rightChild;
+
+     else
+
+        parent.rightChild=current.rightChild;
+
+else
+
+    {
+
+     Node successor=getSuccessor(current);
+
+     if(current==root)
+
+       root=successor;
+
+     else if(isLeftChild)
+
+       parent.leftChild=successor;
+
+     else
+
+       parent.rightChild=successor;
+
+
+
+    successor.leftChild=current.leftChild;
+
+     }
+
+
+
+return true;
+
+}
+
+private Node getSuccessor(Node delNode)
+
+{
+
+Node successorParent=delNode;
+
+Node successor=delNode;
+
+Node current=delNode.rightChild;
+
+while(current!=null)
+
+{
+
+successorParent=successor;
+
+successor=current;
+
+current=current.leftChild;
+
+}
+
+if(successor!=delNode.rightChild)
+
+{
+
+successorParent.leftChild=successor.rightChild;
+
+successor.rightChild=delNode.rightChild;
+
+}
+
+
+
+return successor;
+
+}
+
+public void traverse(int traverseType)
+
+{
+
+switch(traverseType)
+
+      {
+
+       case 1:System.out.print("\nPreorder traversal:  ");
+
+              preOrder(root);
+
+              break;
+
+       case 2:System.out.print("\nInorder traversal:  ");
+
+              inOrder(root);
+
+              break;
+
+       case 3:System.out.print("\nPostorder traversal");
+
+              postOrder(root);
+
+              break;
+
+       case 4:System.out.println("\nInorder non-recursive");
+
+              iterative_inorder(root);
+
+              break;
+
+       case 5:System.out.println("\nInorder non-recursive/second implementation\n");
+
+              iterativeInorder(root);
+
+              break;
+
+       case 6:System.out.println("\nPreorder non-recursive implementation\n");
+
+              iterativePreorder(root);
+
+              break;
+
+       case 7:System.out.println("\nPostrder non-recursive implementation\n");
+
+              iterativePostorder(root);
+
+              break;
+
+      }
+
+System.out.println();
+
+}
+
+public void inOrder(Node localroot)
+
+{
+
+  if(localroot!=null)
+
+  {
+
+  inOrder(localroot.leftChild);
+
+  localroot.displayNode();
+
+  inOrder(localroot.rightChild);
+
+  }
+
+}
+
+public void preOrder(Node localroot)
+
+{
+
+
+
+if(localroot!=null)
+
+  {
+
+  localroot.displayNode();
+
+  preOrder(localroot.leftChild);
+
+  preOrder(localroot.rightChild);  
+
+  }
+
+}
+
+public void postOrder(Node localroot)
+
+{
+
+if(localroot!=null)
+
+  {
+
+  postOrder(localroot.leftChild);
+
+  postOrder(localroot.rightChild);
+
+  localroot.displayNode();  
+
+  }
+
+}
+
+//public void displayTree()
+
+
+
+
+
+public void iterative_inorder(Node lroot)
+
+{
+
+stack stk=new stack();
+
+Node p=lroot;
+
+ do
+
+ {  while(p!=null)
+
+    {
+
+    stk.push(p);
+
+    p=p.leftChild;
+
+    }
+
+   if(!stk.isEmpty())
+
+    {
+
+    p=stk.pop();
+
+    p.displayNode();
+
+    p=p.rightChild;
+
+
+
+    }
+
+  }while(!stk.isEmpty()||p!=null);
+
+
+
+
+
+}
+
+
+
+public void iterativeInorder(Node lroot)
+
+  {
+
+  stack stk=new stack();
+
+  while (!stk.isEmpty() || lroot != null)
+
+    if (lroot != null)
+
+      {
+
+      stk.push(lroot);
+
+      lroot = lroot.leftChild;
+
+      }
+
+    else
+
+      {
+
+      lroot = stk.pop();
+
+      lroot.displayNode();
+
+      lroot = lroot.rightChild;
+
+      }
+
+  }
+
+
+
+public void iterativePreorder(Node lroot)
+
+{  stack stk = new stack();
+
+  while (!stk.isEmpty() || lroot != null)
+
+      {
+
+      if (lroot != null) 
+
+         {
+
+         lroot.displayNode();
+
+         if (lroot.rightChild != null) 
+
+         stk.push(lroot.rightChild); 
+
+         lroot = lroot.leftChild;   
+
+         }
+
+      else     
+
+         lroot = stk.pop();
+
+      }
+
+}
+
+
+
+public void iterativePostorder(Node lroot)
+
+ {
+
+  stack stk = new stack();  
+
+  Node lastnodevisited = null,peeknode; 
+
+  while (!stk.isEmpty() || lroot != null)
+
+    if (lroot != null)
+
+      {
+
+      stk.push(lroot);
+
+      lroot = lroot.leftChild;
+
+      }
+
+    else
+
+      {
+
+      peeknode = stk.peek();
+
+      if (peeknode.rightChild != null && lastnodevisited != peeknode.rightChild) /* if right child exists AND traversing node from left child, move right */
+
+        lroot = peeknode.rightChild;
+
+      else
+
+        {
+
+        peeknode.displayNode();
+
+        lastnodevisited = stk.pop(); 
+
+        } 
+
+      }
+
+  }
+
+}
+
+class aa
+
+{
+
+public static void main(String [] args)
+
+{
+
+
+
+Tree theTree=new Tree();
+
+theTree.insert(0,1.5);
+
+theTree.insert(8,1.2);
+
+theTree.insert(3,1.7);
+
+theTree.insert(5,1.5);
+
+theTree.insert(7,1.2);
+
+theTree.insert(3,1.7);
+
+theTree.insert(-8,1.5);
+
+theTree.insert(20,1.2);
+
+theTree.insert(4,1.7);
+
+theTree.insert(5,1.5);
+
+//theTree.insert(97,1.5);
+
+//Node found=theTree.find(30);
+
+//if(found!=null)
+
+//   found.displayNode();
+
+//boolean didDelete=theTree.delete(33);
+
+  // if(didDelete)
+
+    //  System.out.println("deleted");
+
+theTree.traverse(3);
+
+theTree.traverse(7);
+
+//theTree.traverse(5);
+
+}
+
+}
+
+
+
+//Source.cpp
+
+#include <iostream>
+
+#include <cstdio>
+
+#include <ctime>
+
+#include "stack.h"
+
+void clock_function();
+
+void  some_function();
+
+bool accept();
+
+bool accept2();
+
+bool accept3();
+
+void another_function();
+
+void try_stack();
+
+class complex{
+
+	double re, im;
+
+public:
+
+	complex(double r, double i){ re = r; im = i; }
+
+	complex(double r){ re = r; im = 0; }
+
+	complex(){ re = im = 0; }//Here one more combination is possible but can't be specified.
+
+	friend complex operator+(complex, complex);
+
+	friend complex operator-(complex);
+
+	friend complex operator-(complex, complex);
+
+	friend complex operator*(complex, complex);
+
+	friend complex operator/(complex, complex);
+
+	friend bool operator==(complex, complex);
+
+	friend bool operator!=(complex, complex);
+
+	friend void show_complex_number(complex a1);
+
+};
+
+complex operator+(complex a1, complex a2)
+
+{
+
+	return complex(a1.re + a2.re, a1.im + a2.im);
+
+}
+
+complex operator-(complex a1, complex a2)
+
+{
+
+	return complex(a1.re - a2.re, a1.im - a2.im);;
+
+}
+
+complex operator-(complex a1)
+
+{
+
+	return complex(-a1.re, -a1.im);
+
+}
+
+complex operator*(complex a1, complex a2)
+
+{
+
+	return complex(a1.re*a2.re - a1.im*a2.im, a1.re*a2.im + a1.im*a2.re);
+
+}
+
+complex operator/(complex a1, complex a2)
+
+{
+
+	complex temp, temp1;
+
+	temp = a2;
+
+	temp.im = -a2.im;
+
+	temp1 = temp;
+
+	temp = a1*temp;
+
+	complex t = a2*temp1;
+
+	return complex(temp.re / t.re, temp.im / t.re);
+
+}
+
+bool operator==(complex a1, complex a2)
+
+{
+
+	if (a1.re == a2.re&&a1.im == a2.im)
+
+		return true;
+
+	return false;
+
+}
+
+bool operator!=(complex a1, complex a2)
+
+{
+
+	if (a1.re != a2.re || a1.im != a2.im)
+
+		return true;
+
+	return false;
+
+}
+
+void show_complex_number(complex a1)
+
+{
+
+	if (a1.im >= 0)
+
+		std::cout << a1.re << " (+j) " << a1.im << "\n";
+
+	else if (a1.im<0)
+
+		std::cout << a1.re << " (-j) " << abs(a1.im) << "\n";
+
+
+
+}
+
+void user_defined_types()
+
+{
+
+	complex a = 2.3;
+
+	show_complex_number(a);
+
+	complex b = 1 / a;
+
+	show_complex_number(b);
+
+	complex c = a + b*complex(1, 2.3);
+
+	show_complex_number(c);
+
+	if (c != b) c = -(b / a) + 2 * b;
+
+	show_complex_number(c);
+
+}
+
+void use_stack4(Stack4& s_ref);
+
+Stack1 s_var1(10);
+
+Stack5<char>sc(200);
+
+Stack5<complex>scplx(30);
+
+//Stack5<list<int>>sli(45);
+
+class Bad_pop{};
+
+void use_Stack5(){
+
+	sc.push('c');
+
+	if (sc.pop() != 'c')throw Bad_pop();
+
+
+
+	scplx.push(complex(1, 2));
+
+	if (scplx.pop() == complex(1, 2))throw Bad_pop();
+
+
+
+}
+
+void  some_function()
+
+{
+
+	std::cout << "In some_function\n";
+
+	//= is asignment; == is comparison operator;
+
+	double d = 2.2;
+
+	int i = 7;
+
+	d = d+i;
+
+	i = d*i;
+
+}
+
+bool accept()
+
+{
+
+	std::cout << "In accept\n";
+
+	std::cout << "Do you want to proceed(y or n)? \n";
+
+	char answer = 0;
+
+	std::cin >> answer;
+
+	if (answer == 'y') return true;
+
+	return false;
+
+}
+
+bool accept2()
+
+{
+
+	std::cout << "In accept2\n";
+
+	std::cout << "Do you want to proceed(y or n)? \n";
+
+	char answer = 0;
+
+	std::cin >> answer;
+
+	switch (answer){
+
+	case 'y':return true;
+
+	case 'n':return false;
+
+	default:
+
+		std::cout << "I'll take that fo a no\n";
+
+		return false;
+
+	}
+
+}
+
+bool accept3()
+
+{
+
+	std::cout << "In accept3\n";
+
+	int tries = 1;
+
+	while (tries < 4){
+
+		std::cout << "Do you want to proceed(y or n)? \n";
+
+		char answer = 0;
+
+		std::cin >> answer;
+
+		switch (answer){
+
+		case 'y':return true;
+
+		case 'n':return false;
+
+		default:
+
+			std::cout << "Sorry i didn't understand that \n";
+
+			tries = tries + 1;
+
+		}
+
+		//tries = tries + 1;//Placement of these tries(look above) doesn't matter in this case
+
+	}
+
+	std::cout << "I'll take that fo a no\n";
+
+	return false;
+
+}
+
+void another_function()
+
+{
+
+	std::cout << "In another_function\n";
+
+	char v[10] = { 'a', 'b', 'c', 's', {'s'} };
+
+	char* p;//pointers hold the address
+
+	p = &v[3];
+
+	std::cout << *p<<"\n";
+
+	int v1[10] = {0};
+
+	int v2[10] = {1};
+
+	for (int i = 0; i < 10; i++) v1[i] = v2[i];
+
+	for (int i = 0; i < 10; i++)
+
+		std::cout << v1[i] << "\t" << v2[i]<<"\n";
+
+
+
+}
+
+void try_stack()
+
+{
+
+	/*try{
+
+		while (true) Stack::push('5');
+
+	}
+
+	catch (...Stack::Overflow){
+
+		std::cout << "Overflow happened\n";
+
+	}*/
+
+}
+
+
+
+void use_Stack1(Stack1& s_ref, int i){
+
+	Stack1 s_var2(i);
+
+	Stack1* s_ptr = new Stack1(20);
+
+
+
+	s_var1.push('a');
+
+	s_var2.push('b');
+
+	s_ref.push('c');
+
+	s_ptr->push('d');
+
+}
+
+void use_Stack3(Stack3& s_ref){
+
+	s_ref.push('c');
+
+	//if (s_ref.pop() != 'c')throw Bad_pop();
+
+
+
+}
+
+void initialize_stack4()
+
+{
+
+	Array_Stack as(200);
+
+	use_stack4(as);
+
+}
+
+void use_stack4(Stack4& s_ref)
+
+{
+
+	s_ref.push('c');
+
+	//if (s_ref.pop() != 'c') throw Bad_pop();
+
+}
+
+/*char List_Stack::pop()
+
+{
+
+	char x = lc.front();
+
+	lc.pop_front();
+
+	return x;
+
+}
+
+void initialize_List_Stack()
+
+{
+
+	List_Stack ls;
+
+	use_List_Stack(ls);
+
+}
+
+void use_List_Stack(List_Stack& s_ref)//Similar to use_stack4() above
+
+{
+
+	s_ref.push('c');
+
+	//if (s_ref.pop() != 'c') throw Bad_pop();
+
+}*/
+
+void Shape::draw()
+
+{
+
+	switch (k){
+
+	case circle:
+
+		//draw circle;
+
+		break;
+
+	case triangle:
+
+		break;
+
+	case square:
+
+		break;
+
+	}
+
+}
+
+char vc1[200];
+
+char vc2[500];
+
+complex ac[200];
+
+void use_copy()
+
+{
+
+	copy(&vc1[0],&vc1[200], &vc2[0]);
+
+}
+
+/*void use_copy_again(vector<complex>&vc, list<complex>&lc){
+
+	copy(&ac[0], &ac[200], lc.begin());
+
+	copy(lc.begin(), lc.end(), vc.begin());
+
+}*/
+
+int main() {
+
+	//vars and arithmetic( + - * / % == != < > >= <=)
+
+	//int inch;
+
+	//bool a;
+
+	//char b;
+
+	//double c;
+
+	//some_function();
+
+	//a = accept(); std::cout << a << "\n";
+
+	//a = accept2(); std::cout << a << "\n";
+
+	//a = accept3(); std::cout << a << "\n";
+
+	//another_function();
+
+	//std::cout<<Stack::pop()<<"\n";
+
+	//Stack::push('a');
+
+	//std::cout << Stack::pop()<<"\n";
+
+	//std::cout << Stack::pop()<<"\n";
+
+	//try_stack();
+
+
+
+	/*struct Bad_pop{};
+
+	Stack1::stack s1 = Stack::create();
+
+	Stack1::stack s2 = Stack::create();
+
+
+
+	Stack1::push(s1, 'c');
+
+	Stack1::push(s2, 'k');
+
+
+
+	if (Stack1::pop(s1) != 'c') throw Bad_pop();
+
+	if (Stack1::pop(s2) != 'k') throw Bad_pop();
+
+
+
+	Stack1::destroy(s1);
+
+	Stack1::destroy(s2);
+
+	*/
+
+	
+
+	user_defined_types();
+
+	//Array_stack as(200);
+
+
+
+	//use_Stack5();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//clock_function();
+
+	getchar(); getchar();
+
+}
+
+void clock_function()
+
+{
+
+	std::clock_t start;
+
+	double duration;
+
+
+
+	start = std::clock();
+
+
+
+	// Your algorithm here 
+
+	for (int i = 0; i < 25000; i++)
+
+		std::cout << i << "\n";
+
+	duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+
+
+
+	std::cout << "printf: " << duration << '\n';
+
+}
+
+
+
+//stack.h
+
+#include"stack1.h"
+
+namespace Stack{//Interface
+
+	void push(char);
+
+	char pop();
+
+	//class Overflow{};
+
+}
+
+/*namespace Stack1{
+
+	struct Rep;//Nmae of  a type, to be defined later
+
+	typedef Rep& stack;
+
+	stack create();
+
+	void destroy(stack s);
+
+	void push(stack s, char c);
+
+	char pop(stack s);
+
+}*/
+
+
+
+//stack1.h
+
+#include <iostream>
+
+namespace Stack{//implementation
+
+	const int max_size = 20;
+
+	char v[max_size];
+
+	int top = -1;
+
+	void push(char c)
+
+	{
+
+		std::cout << "In Stack::push\n";
+
+		if (top == max_size)
+
+			//throw Overflow();
+
+			return;
+
+		v[++top] = c;
+
+	}
+
+	char pop(){
+
+		std::cout << "In stack::pop\n";
+
+		if (top == -1)
+
+			return 'o';
+
+		char x = v[top--];
+
+		return x;
+
+	}
+
+}
+
+/*namespace Stack1{
+
+	const int max_size = 200;
+
+	struct Rep{
+
+		char v[max_size];
+
+		int top;
+
+	};
+
+	const int max = 6;
+
+	Rep stacks[max];
+
+	bool used[max];
+
+	typedef Rep& stack;
+
+
+
+	void Stack1::push(stack s, char c)
+
+	{
+
+
+
+
+
+	}
+
+	char Stack1::pop(stack s)
+
+	{
+
+
+
+
+
+	}
+
+}
+
+
+
+Stack1::stack Stack1::create()//Here the first two words translate to a return type 'stack'; Neaxt two words translate to function name
+
+{
+
+
+
+
+
+}
+
+
+
+void Stack1::destroy(stack s)
+
+{
+
+
+
+
+
+}*/
+
+class MyClass
+
+{
+
+public:
+
+	MyClass();
+
+	~MyClass();
+
+
+
+private:
+
+
+
+};
+
+
+
+MyClass::MyClass()
+
+{
+
+}
+
+
+
+MyClass::~MyClass()
+
+{
+
+} 
+
+class Stack1{
+
+	char *v;
+
+	int top;
+
+	int max_size;
+
+public:
+
+	class Underflow{};
+
+	class Overflow{};
+
+	class Bad_size{};
+
+
+
+	Stack1(int s);
+
+	~Stack1();
+
+
+
+	void push(char c);
+
+	char pop();
+
+};
+
+
+
+Stack1::Stack1(int s){
+
+	top = 0;
+
+	if (s < 0 || 10000 < s) throw Bad_size();
+
+	max_size = s;
+
+	v = new char[s];//allocating on heap or dynamc store
+
+}
+
+Stack1::~Stack1(){
+
+	delete[] v;
+
+}
+
+void Stack1::push(char c){
+
+	if (top == max_size) throw Overflow();
+
+	v[top] = c;
+
+	top = top + 1;
+
+}
+
+char Stack1::pop(){
+
+	if (top == 0) throw Underflow();
+
+	top = top - 1;
+
+	return v[top];
+
+}
+
+class Stack3{
+
+public:
+
+	class Underflow{};
+
+	class Overflow{};
+
+
+
+	virtual void push(char c) = 0;
+
+	virtual char pop()= 0;
+
+};
+
+class Array_stack :public Stack3{//'implements'  'is a subtype of'  'is derived from'
+
+	char* p;
+
+	int max_size;
+
+	int top;
+
+public:
+
+	Array_stack(int s);
+
+	~Array_stack();
+
+
+
+	void push(char c);
+
+	char pop();
+
+
+
+};
+
+class Stack4{//Interface to any class that implements push() and pop()
+
+public://decoupling interface and representation
+
+	class Underflow{};
+
+	class Overflow{};
+
+
+
+	virtual void push(char c) = 0;
+
+	virtual char pop() = 0;
+
+};
+
+class Array_Stack :public Stack4{
+
+	char *p;
+
+	int max_size;
+
+	int top;
+
+public:
+
+	Array_Stack(int s){ max_size = s; };
+
+	~Array_Stack(){};
+
+	void push(char c){};
+
+	char pop(){ return '0'; };
+
+};
+
+/*class List_Stack :public Stack4{
+
+	std::list <char>lc;
+
+public:
+
+	List_Stack(){}
+
+	void push(char c){ lc.push_front(c); }
+
+	char pop(){}
+
+};*/
+
+class Point{/**/};
+
+class Color{/**/ };
+
+
+
+enum Kind{circle,triangle,square};
+
+class Shape{
+
+	Kind k;
+
+	Point center;
+
+	Color col;
+
+	//...
+
+public:
+
+	void draw();
+
+	void rotate(int);
+
+	//...
+
+};
+
+class Shape1{
+
+	Point center;
+
+	Color col;
+
+public:
+
+	Point where(){ return center; }
+
+	void move(Point to){ center = to; draw(); }
+
+	virtual void draw() = 0;//virtual for specific shapes
+
+	virtual void rotate(int angle) = 0;
+
+	//
+
+};
+
+/*void rotate_all(vector<Shape1*>&v, int angle){
+
+
+
+	for (int i = 0li < v.size(); ++i) v[i]->rotate(angle);
+
+}*/
+
+class Circle :public Shape1{
+
+	int radius;
+
+public:
+
+	void draw(){}
+
+	void rotate(int){}//null function
+
+};
+
+
+
+template<class T>class Stack5{//prefix makes T a parameter of the declaration it prefixes
+
+	T* v;
+
+	int max_size;
+
+	int top;
+
+public:
+
+	class Underflow{};
+
+	class Overflow{};
+
+
+
+	Stack5(int s);
+
+	~Stack5();
+
+
+
+	void push(T);
+
+	T pop();
+
+};
+
+template<class T>Stack5<T>::Stack5(int s){
+
+	max_size = s;
+
+}
+
+template<class T>Stack5<T>::~Stack5(){ ; }
+
+template<class T>void Stack5<T>::push(T c){
+
+	if (top == max_size)throw Overflow();
+
+	v[top] = c;
+
+	top = top + 1;
+
+}
+
+template<class T>T Stack5<T>::pop(){
+
+	if (top == 0)throw Underflow();
+
+	top = top - 1;
+
+	return v[top];
+
+}
+
+template<class In, class Out>void copy(In from, In too_far, Out to){
+
+	while (from != too_far){
+
+		*to = *from;
+
+		++to;
+
+		++from;
+
+	}
+
+}
+
+
+
+//int main(){PRELEMINARIES UPTO 56 PAGES}
+
+
+
+#include<iostream>
+
+#include<stdlib.h>
+
+#include<string>
+
+#include<list>
+
+#include<GL/glut.h>
+
+#include<vector>
+
+#include<map>
+
+#include<queue>
+
+#include<stack>
+
+#include<deque>
+
+#include<algorithm>
+
+//#include<priority_queue>
+
+#include<set>
+
+//#include<multiset>
+
+using namespace std;
+
+void m1();
+
+void h2(int i);
+
+void k();
+
+void h(int i);
+
+void f();
+
+void f1();
+
+void f2();
+
+void inch_cm();
+
+void m2(string&,string&);
+
+string incantation="incantation";
+
+string name = "Niels Stroustrup";
+
+void respond(const string& answer);
+
+void m3();
+
+void structure();
+
+void add_entry(struct Entry[]);
+
+vector<Entry>phone_book(1000);
+
+vector<Entry>phone_book1(1000);
+
+void add_vector_increase_size(int i);
+
+void print_entry(int i);
+
+void f3(vector<Entry>&v);
+
+//void add_vector_entry(int n);
+
+void add_vector_entry(vector<Entry>&v);
+
+void vector_try();
+
+void pause();
+
+void search_list_entry(const string& s);
+
+void std_containers();
+
+int main(){
+
+
+
+	std::cout << "Hello, world! \n";
+
+	std::string s = "Four legs Good;two legs Baaaad!";
+
+	std::list<std::string>slogans;
+
+	
+
+	string x = "Ignorance is bliss!";
+
+	//m1();
+
+	//h2(10);
+
+	//k();
+
+	//h(10);
+
+	//f();
+
+	//m2(s,x);
+
+	//respond("incantation");
+
+	//m3();
+
+	//f1();
+
+	//f2();
+
+	//inch_cm();
+
+	//structure();
+
+	vector_try();
+
+	pause();
+
+	return 0;
+
+}
+
+void pause()
+
+{
+
+	std::cin.get();
+
+	std::cin.get();
+
+	std::cin.get();
+
+	//system("pause");
+
+}
+
+void f()
+
+{
+
+	cout <<"\n"<< 10;
+
+	int i = 10;
+
+	cout <<"\n"<< i<<"\n";
+
+}
+
+void h(int i)
+
+{
+
+	cout << "the value of i is";
+
+	cout << i;
+
+	cout << "\n";
+
+}
+
+void k()
+
+{
+
+	cout << 'a'<<"\n";
+
+	cout << 'b' << "\n";
+
+	cout << 'c' << "\n";
+
+}
+
+void h2(int i)
+
+{
+
+	cout << "the value of i is"<< i<< "\n";
+
+}
+
+void m1()
+
+{
+
+	string s1 = "Hello";
+
+	string s2 = "world";
+
+	string s3 = s1 + ", " + s2 + "!\n";
+
+	cout << s3;
+
+}
+
+void m2(string& s1, string& s2)
+
+{
+
+	s1 = s1 + '\n';
+
+	s2 += '\n';
+
+	cout << s1;
+
+	cout << s2;
+
+}
+
+void respond(const string& answer)
+
+{
+
+	if (answer == incantation){
+
+		cout << true;
+
+	}
+
+	else if (answer == "yes"){
+
+		cout << "yes";
+
+	}
+
+}
+
+void m3()
+
+{
+
+	cout << "\n" << name << "\n";
+
+	string s = name.substr(6, 10);
+
+	cout << "\n" << s << "\n";
+
+	name.replace(0, 5, "Nicholas");
+
+	cout << "\n" << name << "\n";
+
+}
+
+void f1()
+
+{
+
+	int i;
+
+	cin >> i;
+
+
+
+	double d=12.34e5;
+
+	cin >> d;
+
+}
+
+void inch_cm()
+
+{
+
+	const float factor = 2.54;
+
+	float x, in, cm;
+
+	char ch = 0;
+
+
+
+	cout << "enter length: ";
+
+	cin >> x;
+
+	cin >> ch;
+
+
+
+	switch (ch){
+
+	case 'i':
+
+		in = x;
+
+		cm = x*factor;
+
+		break;
+
+	case 'c':
+
+		in = x / factor;
+
+		cm = x;
+
+		break;
+
+	default:
+
+		in = cm = 0;
+
+		break;
+
+	}
+
+	cout << in << " in = " << cm << " cm\n";
+
+}
+
+void f2()
+
+{
+
+	string str;
+
+	cout << "Please enter your name\n";
+
+	cin >> str;
+
+	cout << "Hello, " << str << " !\n";
+
+	cout << "Please enter your name\n";
+
+	getline(cin, str);
+
+	cout << "Hello, " << str << " !\n";
+
+}
+
+struct Entry{//STRUCTURE
+
+	string name;
+
+	int number;
+
+};
+
+list<Entry>phone_book2;//LIST
+
+void add_list_entry(const Entry&e,list<Entry>::iterator i,list<Entry>::iterator p)
+
+{
+
+	phone_book2.push_front(e);
+
+	phone_book2.push_back(e);
+
+	phone_book2.insert(i, e);
+
+
+
+	phone_book2.erase(p);
+
+}
+
+void search_list_entry(const string& s)
+
+{
+
+	
+
+	typedef list<Entry>::const_iterator LI;
+
+
+
+	for (LI i = phone_book2.begin(); i != phone_book2.end(); ++i){//NECESSARY PREINCREMENT
+
+		const Entry& e = *i;
+
+		if (s == e.name){
+
+			std::cout << e.name << ' ' << e.number << ' \n ';
+
+			return;
+
+		}
+
+	}
+
+}
+
+void structure()
+
+{
+
+	
+
+	Entry phone_book[1000];
+
+	add_entry(phone_book);
+
+	for (int i = 0; i < 5;i++)
+
+		cout<< phone_book[i].name <<phone_book[i].number;
+
+	string str;
+
+	getline(cin, str);
+
+}
+
+void add_entry(struct Entry arr[])
+
+{
+
+	for (int i = 0; i < 5; i++)
+
+		cin >> arr[i].name >> arr[i].number;
+
+}
+
+void vector_try()
+
+{
+
+	add_vector_increase_size(67);
+
+	f3(phone_book1);
+
+	add_vector_entry(phone_book1);
+
+}
+
+void add_vector_entry(vector<Entry>&v)
+
+{
+
+	string str;
+
+	int x;
+
+	for (int i = 0; i < 5; i++)
+
+	{
+
+		cin >> str;cin >> x;
+
+		phone_book1[i].name = str; phone_book1[i].number = x;
+
+	}
+
+		
+
+	for (int i = 0; i < 5; i++)
+
+		print_entry(i);
+
+}
+
+void add_vector_increase_size(int n)
+
+{
+
+	phone_book1.resize(phone_book1.size() + n);
+
+}
+
+void f3(vector<Entry>&v)
+
+{
+
+	vector<Entry>v2 = phone_book1;
+
+	v = v2;
+
+}
+
+void print_entry(int i)
+
+{
+
+	cout << phone_book1[i].name << ' ' << phone_book1[i].number << ' \n';
+
+}
+
+template<class T>class Vec :public vector < T > {//Range checkinf for vector as there's no by default
+
+public:
+
+	Vec() :vector<T>(){}
+
+	Vec(int s) :vector<T>(s){}
+
+
+
+	T& operator[](int i){ return at(i); }
+
+	const T& operator[](int i)const{ return at(i); }
+
+	
+
+};
+
+void print_vector_entry(int i)
+
+{
+
+	cout << phone_book1[i].name << ' ' << phone_book1[i].number << '\n';
+
+}
+
+map<string, int>phone_book3;
+
+void print_map_entry(const string& s)
+
+{
+
+	if (int i = phone_book3[s])
+
+		cout << s << ' ' << i << ' \n';
+
+}
+
+void std_containers()
+
+{
+
+	vector<int>v;
+
+	list < int >y;
+
+	queue<int>z;
+
+	stack<int>x1;
+
+	deque<int>y_1;
+
+	priority_queue<int>z1;
+
+	set<int>x2;
+
+	multiset<int>y2;
+
+	map<int, Entry>z2;
+
+	multimap<Entry, Entry>x3;
+
+}
+
+/*void copy_sort_vector(vector<Entry>&ve, list<Entry>&le)
+
+{
+
+	sort(ve.begin(), ve.end());
+
+	unique_copy(ve.begin(), ve.end(), le.begin());
+
+}*/
+
+
+
+//Source.cpp
+
+#include<iostream>
+
+#include"Header.h"
+
+//#include<limits>
+
+void pause();
+
+void f();
+
+void f1(int, int);
+
+//bool is_open(File*);
+
+bool greater(int a, int b){ return a > b; }
+
+void test1();
+
+void character();
+
+void sizes();
+
+void integers();
+
+void floating_point_numbers();
+
+void type_void();
+
+void f2(enum keyword key);
+
+void enumeration();
+
+void declarations_definitions();
+
+void f3();
+
+class complex{
+
+	double re, im;
+
+public:
+
+	complex(double r, double i){ re = r; im = i; }
+
+	complex(double r){ re = r; im = 0; }
+
+	complex(){ re = im = 0; }//Here one more combination is possible but can't be specified.
+
+	friend complex operator+(complex, complex);
+
+	friend complex operator-(complex);
+
+	friend complex operator-(complex, complex);
+
+	friend complex operator*(complex, complex);
+
+	friend complex operator/(complex, complex);
+
+	friend bool operator==(complex, complex);
+
+	friend bool operator!=(complex, complex);
+
+	friend void show_complex_number(complex a1);
+
+};
+
+int main(){
+
+
+
+	f1(1, 0);
+
+	std::cout << greater(2, 1);
+
+	test1();
+
+	character();
+
+	sizes();
+
+	integers();
+
+	floating_point_numbers();
+
+	enumeration();
+
+	declarations_definitions();
+
+	f3();
+
+	pause();
+
+	return 0;
+
+}
+
+void pause()
+
+{
+
+	std::getchar();
+
+	std::getchar();
+
+	std::getchar();
+
+}
+
+void f()
+
+{
+
+	//x=y+f(2)
+
+	float x;
+
+	int y = 7;
+
+	float f1(int);//function Declaration
+
+}
+
+void f1(int a, int b){
+
+	bool x1 = true;
+
+	bool x2 = false;
+
+
+
+	int bool_x1 = int(x1);//type-casted
+
+	int bool_x2 = int(x2);
+
+	int i = true;
+
+	int j = false;
+
+	bool k = 0;//Zero is false
+
+	bool l = 55;//Any non-zero is true
+
+	bool b1 = a == b;
+
+
+
+	std::cout<<'\n' << b1 << '\n';
+
+	bool A = true;
+
+	bool B = true;
+
+
+
+	bool x = A  +B;
+
+	bool y = A | B;
+
+	std::cout << '\n'<<x << '\n';
+
+	std::cout << '\n'<<y << '\n';
+
+}
+
+class foo
+
+{//IMPLICIT CONVERSION OF POINTER TO BOOL SCENARIOS
+
+public:
+
+	foo(const std::string& filename) { std::cout << "\nctor 1\n" << std::endl; }
+
+	foo(const bool some_flag = false) { std::cout << "\nctor 2\n" << std::endl; }
+
+	foo(const char* filename) { std::cout << "\nctor 3\n" << std::endl; }
+
+};
+
+void test1(){
+
+	std::string h = "h";
+
+	foo a(h);
+
+	foo b('h');
+
+	foo c("h");
+
+}
+
+void character()
+
+{//signed or unsigned char is implementation dependent(most used are within 0 to 127 )
+
+	//signed(-127 to 127)
+
+	//unsigned(0 to 127)
+
+	char ch = 'a';//implies signed char, can be made explicit
+
+	char c;
+
+	signed char x = 'k';
+
+	unsigned char y = '`';
+
+	wchar_t p =L'a';//This is the extended version, wide character.
+
+	std::cout << "\n p is " <<p << '\n';
+
+	p = 'as';
+
+	std::cout << "\n p is " << p << '\n';
+
+	std::cout << '\n' << "Enter a character to get its integral equivalent" << '\n';
+
+	std::cin >> c;
+
+	std::cout <<'\n'<< "the value of `" << c << "` is " << int(c) << '\n';
+
+}
+
+void integers()
+
+{
+
+	int a=63;
+
+	signed int b=02;
+
+	unsigned int c=0x3f;
+
+	short int d;
+
+	long int e;
+
+	std::cout <<'\n'<< 0xffffffffffffffff<<'\n';
+
+	std::cout<<'\n' << 0777777777777777777777<<'\n';
+
+	std::cout <<'\n'<<999999999L<<'\n' ;
+
+	std::cout <<'\n'<<32U<<'\n' ;
+
+}
+
+void floating_point_numbers()
+
+{
+
+	float x;
+
+	double y;
+
+	long double z;
+
+	double t = .23 + .23 + 0.23 + 1. + 1.0 + 1.2e10 + 1.2e-15;
+
+	std::cout <<'\n'<< t<<'\n';
+
+	std::cout << '\n'<<32.0f<<'\n';//default is double precision, f suffix can do single float
+
+	std::cout <<'\n'<< (22.0L / 7.0L)<<'\n';
+
+}
+
+void tye_void()
+
+{
+
+
+
+	//void x;
+
+	//void&r;
+
+	void f();
+
+	void* pv;
+
+}
+
+enum keyword{ ASM, AUTO, BREAK };
+
+void enumeration()
+
+{
+
+//user defined type
+
+//<< ++ etc can be overloaded for this
+
+	//enum{ASM,AUTO,BREAK};
+
+	//enum keyword{q,w,g};
+
+	f2(ASM);
+
+	enum e1{dark,light};//range 0:1
+
+	enum e2{a=3,b=9};//range 0:15
+
+	enum e3{min=-10,max=1000000};//range -1048576:1048575
+
+   //integral to enum conversion
+
+
+
+	enum flag{x=1,y=2,z=4,e=8};
+
+
+
+	//flag f1 = 5;ERROR
+
+    flag f2=flag(5);
+
+	flag f3 = flag(z | e);
+
+	flag f4 = flag(9999);//undefined behaviour
+
+	std::cout << '\n' <<sizeof(flag
+
+		) << '\n';
+
+	std::cout << '\n' <<f4 << '\n';
+
+}
+
+void f2(enum keyword key)
+
+{
+
+	switch (key){
+
+	case ASM:
+
+		//
+
+		break;
+
+	case BREAK:
+
+		//
+
+		BREAK;
+
+	}
+
+}
+
+void declarations_definitions()
+
+{
+
+	//declarations:specifier+base type+declarator(* *const & [] () )+initializer
+
+	//except for functions and namepsaces decalartions terminated by namespaces
+
+	//* prefix
+
+	//[] () postfix
+
+	//postfix binds tighter than prefix
+
+	char ch;
+
+	std::string s;
+
+	int count = 1;
+
+	const double pi = 3.14159;
+
+	
+
+
+
+	const char* name = "Njal";
+
+	const char* season[] = { "spring", "summer" };
+
+	double sqrt(double);
+
+	//typedef complex<short> Point;
+
+	struct user;
+
+	enum Beer{Car,ab,sd};
+
+
+
+	//int count;
+
+	//int count;//error
+
+
+
+	extern int error_number;
+
+	extern int error_number;//no errors
+
+	//extern short error_number;//error
+
+
+
+	name = "sk";
+
+
+
+	//const c;//error
+
+	unsigned ui;
+
+	long li;
+
+
+
+	int x, y;
+
+	int *p, z;
+
+	int as, *sa;
+
+	int v[10], *iop;
+
+
+
+	int _________ = 56;
+
+	std::cout << '\n' <<_________ << '\n';
+
+
+
+	int _class = 43;//should avoid such names
+
+	int l0=1, lO=2, ll=3, l1=4;
+
+	//function,class,namespace
+
+}
+
+int x=5;
+
+void f3()//scope
+
+{
+
+	int x;
+
+	x = 1;
+
+	std::cout << '\n' << x << '\n';
+
+	{
+
+		int x;
+
+		x = 2;
+
+		std::cout << '\n' << x << '\n';
+
+	}
+
+	x = 3;
+
+	std::cout << '\n' << x << '\n';
+
+	
+
+	std::cout << '\n' << ::x << '\n';
+
+
+
+	int *p = &::x;
+
+
+
+	::x = 123;
+
+	std::cout << '\n' << ::x << '\n';
+
+	x = 123;
+
+	std::cout << '\n' << x << '\n';
+
+	
+
+	x = x;
+
+	std::cout << '\n' << x << '\n';
+
+	void qwerty();
+
+
+
+	qwerty();
+
+	/*int y = x;
+
+	x = 22;
+
+	y = x;*/
+
+
+
+	typedef char* Pchar;
+
+	Pchar p1, p2;
+
+	//char* p3 = p1;
+
+}
+
+struct Date{ int d, m, y; };
+
+int day(Date* p){ return p->d; }
+
+template<class T>T abs(T a){ return a < 0 ? -a : a; }
+
+namespace NS{ int a; }
+
+void sizes()
+
+{
+
+	//std::cout << "Hello,world\n";
+
+	int x; double y; char z;
+
+	int *p_ptr = &x; double *q_ptr = &y; char *r_ptr = &z;
+
+	enum sd{ a = 345, cd = 234 };
+
+	struct kl{
+
+		int x, y, z;
+
+		double aa2;
+
+	}str_, *str_ptr;
+
+	str_ptr = &str_;
+
+	enum{ zq = 78, df = 45, fgh = 34567 };
+
+	class first{
+
+		int x, y, z;
+
+		float f1, f2, f3;
+
+		double d1, d2, d3;
+
+		//virtual void f1() = 0;This makes class abstract and hence the first declaration will become invalid on opening this comment
+
+	}class_, *class_ptr, **class_ptr1, ***class_ptr2;
+
+	class_ptr = &class_;
+
+	class_ptr1 = &class_ptr;
+
+	class_ptr2 = &class_ptr1;
+
+	std::cout << " \n\t "
+
+	<< sizeof(x) << " =x(int)\n\t "
+
+	<< sizeof(y) << " =y(double)\n\t "
+
+	<< sizeof(z) << " =z(char)\n\t "
+
+	<< sizeof(p_ptr) << " =p_ptr(pointer to int)\n\t "
+
+	<< sizeof(q_ptr) << " =q_ptr(pointer to double)\n\t "
+
+	<< sizeof(r_ptr) << " =r_ptr(poniter to char)\n\t "
+
+	<< sizeof(sd) << " =sd(enum)\n\t "
+
+	<< sizeof(kl) << " =kl(struct tag)\n\t "
+
+	<< sizeof(str_) << " =str_(structure)\n\t "
+
+	<< sizeof(str_ptr) << " =str_ptr(pointer to structure)\n\t "
+
+	<< sizeof(class_) << " =class_(class)\n\t "
+
+	<< sizeof(class_ptr) << " =class_ptr(pointer to class)\n\t "
+
+	<< sizeof(class_ptr1) << " =class_ptr1(pointer to pointer to class)\n\t "
+
+	<< sizeof(class_ptr2) << " =class_ptr2(pointer to pointer to pointer to class)\n\t "
+
+	<< sizeof(int) << " =int\n\t "
+
+	<< sizeof(short int) << " =short int\n\t "
+
+	<< sizeof(long int) << " =long int\n\t "
+
+	<< sizeof(unsigned long int) << " =unsigned long int\n\t "
+
+	<< sizeof(float) << " =float\n\t "
+
+	<< sizeof(long float) << " =long float\n\t "
+
+	<< sizeof(double) << " =double\n\t "
+
+	<< sizeof(long double) << " =long double\n\t "
+
+	<< sizeof(char) << " =char\n\t "
+
+	<< sizeof(unsigned char) << " =unsigned char\n\t "
+
+	<< std::numeric_limits<short>::max() << " =short max\n\t "
+
+	<< std::numeric_limits<long>::max() << " =long max\n\t "
+
+	<< std::numeric_limits<long long>::max() << " =long long max\n\t "
+
+	<< std::numeric_limits<unsigned long long>::max() << " =unsigned long long max\n\t "
+
+	<< std::numeric_limits<short>::min() << " =short min\n\t "
+
+	<< std::numeric_limits<long>::min() << " =long min\n\t "
+
+	<< std::numeric_limits<long long>::min() << " =long long min\n\t "
+
+	<< std::numeric_limits<unsigned long long>::min() << " =unsigned long long min\n\t "
+
+	<< std::numeric_limits<int>::min() << " =int min\n\t "
+
+	<< std::numeric_limits<unsigned int>::min() << " =unsigned int min\n\t "
+
+	<< std::numeric_limits<unsigned int>::max() << " =unsigned int max\n\t "
+
+	<< std::numeric_limits<short int>::min() << " =short int min\n\t "
+
+	<< (int)std::numeric_limits<unsigned short int>::max() << " =unsigned short int max\n\t "
+
+	<< std::numeric_limits<long int>::min() << " =long int min\n\t "
+
+	<< std::numeric_limits<unsigned long int>::min() << " =unsigned long int min\n\t "
+
+	<< std::numeric_limits<unsigned long long int>::min() << " =unsigned long long int min\n\t "
+
+	<< std::numeric_limits<_int64>::max() << " =_int64 max\n\t "
+
+	<< std::numeric_limits<unsigned _int64>::max() << " =unsigned _int64 max\n\t "
+
+	<< std::numeric_limits<_int64>::min() << "=_int64 min\n\t"
+
+	<< std::numeric_limits<unsigned _int64>::min() << " =unsigned _int64 min\n\t "
+
+	<< std::numeric_limits<_int32>::max() << " =_int32 max\n\t "
+
+	<< std::numeric_limits<unsigned _int32>::max() << " =unsigned _int32 max\n\t "
+
+	<< std::numeric_limits<_int32>::min() << " =_int32 min\n\t "
+
+	<< std::numeric_limits<unsigned _int32>::min() << " =unsigned _int32 min\n\t "
+
+	<< std::numeric_limits<_int16>::max() << " =_int16 max\n\t "
+
+	<< std::numeric_limits<unsigned _int16>::max() << " =unsigned _int16 max\n\t "
+
+	<< std::numeric_limits<_int16>::min() << " =_int16 min\n\t "
+
+	<< std::numeric_limits<unsigned _int16>::min() << " =unsigned _int16 min\n\t "
+
+	<< std::numeric_limits<_int8>::max() << " =_int8 max\n\t "
+
+	<< std::numeric_limits<unsigned _int8>::max() << " =unsigned _int8 max\n\t "
+
+	<< std::numeric_limits<_int8>::min() << " =_int8 min\n\t "
+
+	<< std::numeric_limits<unsigned _int8>::min() << " =unsigned _int8 min\n\t "
+
+	<< std::numeric_limits<int*>::max() << " =int* max\n\t "
+
+	<< std::numeric_limits<float>::max() << " =float max\n\t "
+
+	<< std::numeric_limits<long double>::max() << " =long double max\n\t "
+
+	<< std::numeric_limits<float*>::max() << " =float* max\n\t "
+
+	<< std::numeric_limits<float>::min() << " =float min\n\t "
+
+	<< std::numeric_limits<long float>::min() << " =long float min\n\t "
+
+	<< std::numeric_limits<double>::min() << " =double min\n\t "
+
+	<< std::numeric_limits<long double>::min() << " =long double min\n\t "
+
+	<< (int)std::numeric_limits<char>::max() << " =char max\n\t "
+
+	<< (int)std::numeric_limits<unsigned char>::min() << " =unsigned char min\n\t "
+
+	<< (int)std::numeric_limits<char>::min() << " =char min\n\t "
+
+	<< (int)std::numeric_limits<unsigned char>::max() << " =unsigned char max\n\t "
+
+	<< std::numeric_limits<bool>::max() << " =bool max\n\t "
+
+	<< std::numeric_limits<bool>::min() << " =bool min\n\t "
+
+	<< std::numeric_limits<enum x>::max() << " =enum x max\n\t "
+
+	<< std::numeric_limits<enum x>::min() << " =enum x min\n\t ";
+
+	//<< std::numeric_limits<char*>::max() << "\n\t"
+
+	//<< std::numeric_limits<bool*>::max() << "\n\t"
+
+	//<< std::numeric_limits<float>::max() << "\n\t"
+
+	//<< std::numeric_limits<double>::max() << "\n\t"
+
+	//<< std::numeric_limits<long double>::max() << "\n\t"
+
+	//<< std::numeric_limits<unsigned int>::max() << "\n\t"
+
+	//<< std::numeric_limits<long long unsigned int>::max() << "\n\t"
+
+	//<< std::numeric_limits<double*>::max() << "\n\t"
+
+	//f1(45);
+
+}
+
+//Header.h
+
+#include<iostream>
+
+int initialization1;
+
+double initialization2;
+
+
+
+namespace cabo{
+
+	int initialization1;
+
+	double initialization2;
+
+}
+
+void qwerty()
+
+{
+
+	std::cout << '\n' << initialization1 << '\n';
+
+
+
+	std::cout << '\n' << initialization2 << '\n';
+
+
+
+	std::cout << '\n' << cabo::initialization1 << '\n';
+
+
+
+	std::cout << '\n' << cabo::initialization2 << '\n';
+
+	static int x;
+
+	std::cout << '\n' << x << '\n';
+
+}
+
+
+
+//Source.cpp
+
+#include<iostream>
+
+#include<string>
+
+int main()
+
+{
+
+	std::string array[] = { "Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+
+	std::string str,final="";
+
+	std::cout << "Enter a string of numbers\n";
+
+	std::cin >> str;
+
+	for (int i = 0; i < str.length(); i++)
+
+	{
+
+		int x = int(str[i])-48;
+
+		if (i == 0)
+
+			final = final + array[x];
+
+		else 
+
+			final = final + "-" + array[x];
+
+	}
+
+	std::cout << '\n' << final;
+
+	getchar(); getchar();
+
+	return 0;
+
+}
