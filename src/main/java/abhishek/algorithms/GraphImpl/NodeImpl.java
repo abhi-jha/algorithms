@@ -30,16 +30,22 @@ public class NodeImpl implements Node{
         return connectedTo;
     }
     @Override
-    public void setConnectedTo(Node node, Integer distance) {
+    public Boolean setConnectedTo(Node node, Integer distance) {
+        if(node!=null&&(node.distanceFromANode(this)!=null && this.distanceFromANode(node)!=null)){
+            //False: Both way relation already has been setup by now.
+            return Boolean.FALSE;
+        }
         if(this.connectedTo == null)
             this.connectedTo = new LinkedHashMap<>();
-        if(node!=null&&(node.distanceFromANode(this)!=null)) {
-            //If a relation already exists.
-            this.connectedTo.put(node, node.distanceFromANode(this));
-            return;
-        }
+//        if(node!=null&&(node.distanceFromANode(this)!=null)) {
+//            //If a relation already exists, avo
+//            this.connectedTo.put(node, node.distanceFromANode(this));
+//            //False : Relation already existed. Supplied distance discarded. Existing other way distance from `node` -- > `this` used.
+//            return Boolean.FALSE;
+//        }
         this.connectedTo.put(node, distance);
         node.setConnectedTo(this, distance);
+        return Boolean.TRUE;
     }
 
     @Override

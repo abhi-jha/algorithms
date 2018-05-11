@@ -9,22 +9,13 @@ public class GraphImpl implements Graph{
 
     }
 
-    public GraphImpl() {
+    @Override
+    public Boolean deleteANode(Graph graph, Node node) {
+        return null;
     }
 
     @Override
-
-    public void deleteNode(Graph graph, Node node) {
-
-    }
-
-    @Override
-    public void addNode(Graph graph, Node node) {
-
-    }
-
-    @Override
-    public String toString() {
-        return "GraphImpl{}";
+    public Boolean addANode(Graph graph, Node node, Integer distance) {
+        return null;
     }
 }

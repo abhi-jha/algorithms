@@ -66,6 +66,8 @@ public class AlgorithmsApplication {
         n8.setConnectedTo(n6,6);
         n8.setConnectedTo(n2,2);
 
+        System.out.println(n1.setConnectedTo(n8,89));
+        System.out.println(n1.setConnectedTo(n8,89));
         //n1.showNode();
         n0.showReachableNodes(n0);
 
