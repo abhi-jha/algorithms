@@ -1,4 +1,4 @@
-package abhsihek.algorithms;
+package abhishek.algorithms;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
-package abhsihek.algorithms.GraphImpl;
+package abhishek.algorithms.GraphImpl;
 
-import abhsihek.algorithms.Graph.Graph;
-import abhsihek.algorithms.Graph.Node;
+import abhishek.algorithms.Graph.Graph;
+import abhishek.algorithms.Graph.Node;
 
 public class GraphImpl implements Graph{
     @Override

@@ -1,7 +1,6 @@
-package abhsihek.algorithms;
+package abhishek.algorithms;
 
-import abhsihek.algorithms.GraphImpl.NodeImpl;
-import org.springframework.boot.SpringApplication;
+import abhishek.algorithms.GraphImpl.NodeImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication

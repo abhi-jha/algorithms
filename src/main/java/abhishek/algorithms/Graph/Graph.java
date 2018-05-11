@@ -1,4 +1,4 @@
-package abhsihek.algorithms.Graph;
+package abhishek.algorithms.Graph;
 
 public interface Graph {
     public void displayGraph(Graph graph);

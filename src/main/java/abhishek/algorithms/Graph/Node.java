@@ -1,4 +1,4 @@
-package abhsihek.algorithms.Graph;
+package abhishek.algorithms.Graph;
 
 import java.util.HashMap;
 

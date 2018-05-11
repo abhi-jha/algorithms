@@ -1,6 +1,6 @@
-package abhsihek.algorithms.GraphImpl;
+package abhishek.algorithms.GraphImpl;
 
-import abhsihek.algorithms.Graph.Node;
+import abhishek.algorithms.Graph.Node;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ public class NodeImpl implements Node{
     private String id;
     private HashMap<Node, Integer> connectedTo;
 
-    private static List<Node> scannedNodes =  scannedNodes = new ArrayList<>();;
+    private static List<Node> scannedNodes =   new ArrayList<>();;
 
     public NodeImpl() {
 
