@@ -4,6 +4,11 @@ import abhishek.algorithms.Graph.Node;
 
 import java.util.*;
 
+/**
+ * @author Abhsihek Jha
+ * @since 1.0
+ * @version 1.0
+ */
 public class NodeImpl implements Node{
 
 
@@ -32,17 +37,11 @@ public class NodeImpl implements Node{
     @Override
     public Boolean setConnectedTo(Node node, Integer distance) {
         if(node!=null&&(node.distanceFromANode(this)!=null && this.distanceFromANode(node)!=null)){
-            //False: Both way relation already has been setup by now.
+            //False: Both way relation has been setup by now.
             return Boolean.FALSE;
         }
         if(this.connectedTo == null)
             this.connectedTo = new LinkedHashMap<>();
-//        if(node!=null&&(node.distanceFromANode(this)!=null)) {
-//            //If a relation already exists, avo
-//            this.connectedTo.put(node, node.distanceFromANode(this));
-//            //False : Relation already existed. Supplied distance discarded. Existing other way distance from `node` -- > `this` used.
-//            return Boolean.FALSE;
-//        }
         this.connectedTo.put(node, distance);
         node.setConnectedTo(this, distance);
         return Boolean.TRUE;

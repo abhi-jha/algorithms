@@ -3,6 +3,11 @@ package abhishek.algorithms;
 import abhishek.algorithms.GraphImpl.NodeImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author Abhsihek Jha
+ * @since 1.0
+ * @version 1.0
+ */
 @SpringBootApplication
 public class AlgorithmsApplication {
 
