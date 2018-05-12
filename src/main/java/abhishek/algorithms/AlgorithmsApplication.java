@@ -1,5 +1,9 @@
 package abhishek.algorithms;
 
+import abhishek.algorithms.Graph.Graph;
+import abhishek.algorithms.Graph.Node;
+import abhishek.datastructures.Stack;
+import abhishek.algorithms.GraphImpl.GraphImpl;
 import abhishek.algorithms.GraphImpl.NodeImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -74,7 +78,23 @@ public class AlgorithmsApplication {
         System.out.println(n1.setConnectedTo(n8,89));
         System.out.println(n1.setConnectedTo(n8,89));
         //n1.showNode();
-        n0.showReachableNodes(n0);
+        n0.showReachableNodes(n7);
+
+        Graph graph = new GraphImpl();
+
+        useStack();
 
 	}
+
+	public static void useStack(){
+	    Stack stack = new Stack(45);
+	    stack.push("a");
+        stack.push("b");
+        stack.push("c");
+        stack.push("d");
+
+        while(!stack.isEmpty())
+            System.out.println(stack.pop());
+
+    }
 }

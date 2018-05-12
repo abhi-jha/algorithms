@@ -18,11 +18,12 @@ public interface Graph {
 
     /**
      *
-     * @param node
+     * @param node1
+     * @param node2
      * @param distance
      * @return
      */
-    public Boolean addANode(Node node, Integer  distance);
+    public Boolean addANode(Node node1, Node node2, Integer  distance);
 
     /**
      *

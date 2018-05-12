@@ -1,6 +1,7 @@
 package abhishek.algorithms.GraphImpl;
 
 import abhishek.algorithms.Graph.Node;
+import abhishek.algorithms.Graph.NodeIdentity;
 
 import java.util.*;
 
@@ -16,10 +17,6 @@ public class NodeImpl implements Node{
     private HashMap<Node, Integer> connectedTo;
 
     private static List<Node> scannedNodes =   new ArrayList<>();;
-
-    public NodeImpl() {
-
-    }
 
     @Override
     public String getId() {
