@@ -2,6 +2,8 @@ package abhishek.algorithms;
 
 import abhishek.algorithms.Graph.Graph;
 import abhishek.algorithms.Graph.Node;
+import abhishek.datastructures.Link;
+import abhishek.datastructures.LinkedList;
 import abhishek.datastructures.Stack;
 import abhishek.algorithms.GraphImpl.GraphImpl;
 import abhishek.algorithms.GraphImpl.NodeImpl;
@@ -83,7 +85,7 @@ public class AlgorithmsApplication {
         Graph graph = new GraphImpl();
 
         useStack();
-
+        useLinkedList();
 	}
 
 	public static void useStack(){
@@ -97,4 +99,42 @@ public class AlgorithmsApplication {
             System.out.println(stack.pop());
 
     }
+
+    public static void useLinkedList(){
+        LinkedList linkedList = new LinkedList();
+        Link l1 = new Link();
+        l1.setAge("1");
+        l1.setName("a");
+
+        Link l2 = new Link();
+        l2.setAge("2");
+        l2.setName("b");
+
+        Link l3 = new Link();
+        l3.setAge("3");
+        l3.setName("c");
+
+        Link l4 = new Link();
+        l4.setAge("4");
+        l4.setName("d");
+
+        Link l5 = new Link();
+        l5.setAge("5");
+        l5.setName("e");
+
+        Link l6 = new Link();
+        l6.setAge("6");
+        l6.setName("f");
+
+        linkedList.addALink(l1);
+        linkedList.addALink(l2);
+        linkedList.addALink(l3);
+        linkedList.addALink(l4);
+        linkedList.addALink(l5);
+        linkedList.addALink(l6);
+
+        linkedList.removeALink(l3);
+        linkedList.printLinkedList();
+
+	}
 }
