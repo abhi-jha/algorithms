@@ -1,12 +1,11 @@
 package abhishek.algorithms;
 
-import abhishek.algorithms.Graph.Graph;
-import abhishek.algorithms.Graph.Node;
+import abhishek.datastructures.Graph.Graph;
 import abhishek.datastructures.Link;
 import abhishek.datastructures.LinkedList;
 import abhishek.datastructures.Stack;
-import abhishek.algorithms.GraphImpl.GraphImpl;
-import abhishek.algorithms.GraphImpl.NodeImpl;
+import abhishek.datastructures.Graph.GraphImpl.GraphImpl;
+import abhishek.datastructures.Graph.GraphImpl.NodeImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**

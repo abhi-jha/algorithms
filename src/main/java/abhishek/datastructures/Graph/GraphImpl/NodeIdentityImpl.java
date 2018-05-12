@@ -1,6 +1,6 @@
-package abhishek.algorithms.GraphImpl;
+package abhishek.datastructures.Graph.GraphImpl;
 
-import abhishek.algorithms.Graph.NodeIdentity;
+import abhishek.datastructures.Graph.NodeIdentity;
 
 public class NodeIdentityImpl implements NodeIdentity {
     String name;

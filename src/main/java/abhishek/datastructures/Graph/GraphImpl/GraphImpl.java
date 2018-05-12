@@ -1,7 +1,7 @@
-package abhishek.algorithms.GraphImpl;
+package abhishek.datastructures.Graph.GraphImpl;
 
-import abhishek.algorithms.Graph.Graph;
-import abhishek.algorithms.Graph.Node;
+import abhishek.datastructures.Graph.Graph;
+import abhishek.datastructures.Graph.Node;
 
 import java.util.List;
 

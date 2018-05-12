@@ -1,4 +1,4 @@
-package abhishek.algorithms.Graph;
+package abhishek.datastructures.Graph;
 
 /**
  * @author Abhishek Jha
