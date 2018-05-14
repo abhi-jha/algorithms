@@ -8,10 +8,10 @@ package abhishek.datastructures;
 public class LinkedList {
     Link head;
 
-    public void addALink(Link newlink){
+    public void addALink(Link newLink){
 
         if(head == null) {
-            head = newlink;
+            head = newLink;
             return;
         }
 
@@ -20,7 +20,7 @@ public class LinkedList {
         while(current.getNext()!=null)
             current = current.next;
 
-        current.next = newlink;
+        current.next = newLink;
     }
 
     public Link removeALink(Link newLink){
@@ -45,7 +45,7 @@ public class LinkedList {
             System.out.print(current + "-->");
             current = current.getNext();
             if(current.getNext()==null){
-                System.out.print(current);
+                System.out.println(current);
                 break;
             }
         }
