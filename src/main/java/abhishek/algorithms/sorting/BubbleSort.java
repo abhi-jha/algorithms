@@ -1,4 +1,4 @@
-package abhishek.algorithms.searchingandsorting;
+package abhishek.algorithms.sorting;
 
 public class BubbleSort {
 

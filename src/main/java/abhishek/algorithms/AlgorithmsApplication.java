@@ -1,6 +1,7 @@
 package abhishek.algorithms;
 
-import abhishek.algorithms.searchingandsorting.BubbleSort;
+import abhishek.algorithms.searching.Binary;
+import abhishek.algorithms.sorting.BubbleSort;
 import abhishek.datastructures.Graph.Graph;
 import abhishek.datastructures.Link;
 import abhishek.datastructures.LinkedList;
@@ -87,6 +88,7 @@ public class AlgorithmsApplication {
         useStack();
         useLinkedList();
         useBubbleSort();
+        useBinarySearch();
 	}
 
 	public static void useStack(){
@@ -148,5 +150,11 @@ public class AlgorithmsApplication {
 
         for(int  i = 0 ; i < array.length; i++)
             System.out.println(array[i]);
+    }
+
+    public static void useBinarySearch(){
+	    int[] array = {1,2,3,4,5,6};
+        Binary binarySearch = new Binary();
+	    System.out.println(array[binarySearch.binarySearch(array,0,array.length-1,4)]);
     }
 }
